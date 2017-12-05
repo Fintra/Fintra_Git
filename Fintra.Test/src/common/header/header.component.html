@@ -1,0 +1,202 @@
+<div>
+    <div [hidden]="!showSecondaryHeader" (click)="toggleSearchHeader();"></div>
+    <div id="wrapper" [ngClass]="sideMenuOpened ? 'toggled' : ''">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" [hidden]="sideMenuOpened ? 'toggled' : ''">
+            <ul class="sidebar-nav metismenu" id="menu" ng-scrollbars ng-scrollbars-config="{theme: 'light-3'}">
+                <li class="sidebar-brand" style="padding: 10px;">
+                    <a href="#" style="font-size: 18px;">
+             User controls <i class="fa fa-suitcase"></i>
+             </a>
+                </li>
+                <li>
+                    <a aria-expanded="false">
+             MASTERS <span class="glyphicon arrow sidebar_arrow"></span>
+             </a>
+                    <ul aria-expanded="false">
+                        <li>
+                            <a ui-sref="customerM" (click)="openSideMenu()">
+                   Customer
+                   </a>
+                        </li>
+                        <li>
+                            <a ui-sref="bankM" (click)="openSideMenu()">
+                   Bank
+                   </a>
+                        </li>
+                        <li>
+                            <a ui-sref="counterpartyM" (click)="openSideMenu()">
+                   Counterparty
+                   </a>
+                        </li>
+                        <li>
+                            <a ui-sref="commodityM" (click)="openSideMenu()">
+                   Commodity
+                   </a>
+                        </li>
+                        <li>
+                            <a ui-sref="contentM" (click)="openSideMenu()">
+                   Content
+                   </a>
+                        </li>
+                        <li>
+                            <a ui-sref="portcodeM" (click)="openSideMenu()">
+                   Port Code
+                   </a>
+                        </li>
+                        <li>
+                            <a ui-sref="insuranceM" (click)="openSideMenu()">
+                   Insurance
+                   </a>
+                        </li>
+                        <li>
+                            <a ui-sref="documentM" (click)="openSideMenu()">
+                   Document
+                   </a>
+                        </li>
+                        <li>
+                            <a ui-sref="incotermsM" (click)="openSideMenu()">
+                   Incoterms
+                   </a>
+                        </li>
+                        <li>
+                            <a ui-sref="countrycodeM" (click)="openSideMenu()">
+                   Country Code
+                   </a>
+                        </li>
+                        <li>
+                            <a ui-sref="currencycodeM" (click)="openSideMenu()">
+                   Currency Code
+                   </a>
+                        </li>
+                        <li>
+                            <a ui-sref="trnsfer" (click)="openSideMenu()">
+                   Transfer Data
+                   </a>
+                        </li>
+                        <li class="hidden_li_in_menu">Hidden</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-default navbar-fixed-top primary-top-header">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand dashboard_brand">
+                            <button id="menu-toggle" (click)="openSideMenu()" type="button" class="menu-toggle navbar-toggle collapse in" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" tooltip-placement="bottom" ngbTooltip="Menu" triggers="click:blur">
+                      <i class="fa fa-bars animated rotateIn" aria-hidden="true" (click)="sideMenuOpened"></i>
+                   </button>
+                            <span ui-sref="home">Dashboard <i class="fa fa-dashboard"></i>
+                   </span>
+                        </a>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown" tooltip-placement="bottom" ngbTooltip="Help" style="margin-left: -46%;">
+                                <button class="btn btn-default no-shadow" (click)="enableUserGuide(isUserGuideEnabled);">
+                         <div class="light">
+                            <i class="fa" style="font-size:19px;" [ngClass]="isUserGuideEnabled ? 'fa-lightbulb-o bulb-on' : 'fa-question'" aria-hidden="true"></i>
+                         </div>
+                      </button>
+                            </li>
+                            <li class="dropdown" tooltip-placement="bottom" ngbTooltip="User Manual" style="margin-left: -0%;">
+                                <button class="btn btn-default no-shadow" (click)="userGuideMannual();">
+                      <i class="fa fa-book" style="font-size:19px;" aria-hidden="true"></i>
+                      </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown" tooltip-placement="bottom" ngbTooltip="Chat">
+                            <button class="btn btn-default no-shadow dropdown-toggle" (click)="showChatPopup();" data-toggle="dropdown" href="#" aria-expanded="false">
+                   <i class="fa fa-comments-o" aria-hidden="true"></i> <span class="badge">1</span>
+                   </button>
+                        </li>
+                        <li class="dropdown" tooltip-placement="bottom" ngbTooltip="View notifications">
+                            <button class="btn btn-default no-shadow" (click)="showNotifications();">
+                   <i class="fa fa-bell-o" aria-hidden="true"></i> <span class="badge">{{ newNotificationCount }}</span>
+                   </button>
+                        </li>
+                        <li class="dropdown" tooltip-placement="bottom" ngbTooltip="Create new records">
+                            <button class="btn btn-default no-shadow dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                   <i class="fa fa-plus" aria-hidden="true"></i>
+                   </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a ui-sref='importLC.createNew' (click)="openSideMenu()"> Import LC - Issue LC </a>
+                                </li>
+                                <li><a ui-sref='importCollectionB.createNew' (click)="openSideMenu()"> Import Collection - Create Bill  </a>
+                                </li>
+                                <li><a ui-sref='issueG.createNew' (click)="openSideMenu()"> Bank Guarantee - Create Guarantee </a>
+                                </li>
+                                <li><a ui-sref='adviceLC.createNew' (click)="openSideMenu()"> Export LC - Advice LC</a>
+                                </li>
+                                <li><a ui-sref='regDocNonLC.createNew' (click)="openSideMenu()"> Export Non LC - Create Export Bill</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown primary-search-form" tooltip-placement="bottom" ngbTooltip="Search records by reference no.">
+                            <button class="btn btn-default no-shadow dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" (click)="showSecondaryHeader = !showSecondaryHeader">
+                   <i class="fa fa-search" aria-hidden="true"></i>
+                   </button>
+                        </li>
+                        <li class="dropdown" tooltip-placement="bottom" ngbTooltip="Customer Exposure">
+                            <button class="btn btn-default no-shadow" ui-sref="customer360" (click)="openSideMenu()">
+                   <i class="fa fa-universal-access" aria-hidden="true"></i> <span class="badge"></span>
+                   </button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- <nav class="navbar navbar-default navbar-fixed-top secondary-top-header" ng-show="showSecondaryHeader">
+                <div class="container">
+                    <ul class="nav navbar-nav" style="width:100%;">
+                        <li style="width:100%;">
+                            <form class="navbar-form navbar-left" role="search" style="width:100%;">
+                                <div class="form-group has-success" style="width:80%;">
+                                    <input type="text" class="form-control big_search_box" placeholder=" Enter reference number of any transaction..." style="width:100%;" autofocus="" [(ngModel)]='queryString.$' name="string" ng-keyup="searchQuery(queryString.$)">
+                                </div>
+                                <button type="submit" class="btn btn-success big_search_btn"> <i class="fa fa-search"></i> Search</button>
+                                <a href="#" (click)="toggleSearchHeader();" class="hide_big_search_box_btn close"></a>
+                            </form>
+                        </li>
+                    </ul>
+                    <div id="serachResultContainer" ng-show="showSearchResultTable" class="animated slideInDown">
+                        <div ng-if="allMatchedRecords.length">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Reference Number</th>
+                                        <th>Module</th>
+                                        <th>Transaction</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="record in allMatchedRecords | startFrom : currentPage*recordsPerPage | limitTo : recordsPerPage" class="clickableRow" (click)="goToTransaction(record.transaction_name, record.primary_key, record.status);">
+                                        <td>{{ currentPage*recordsPerPage + $index + 1 }}</td>
+                                        <td ng-bind-html="record.primary_key | highlight:queryString.$">{{ record.primary_key }}</td>
+                                        <td>{{ record.module_name }}</td>
+                                        <td>{{ record.transaction_name }}</td>
+                                        <td>{{ record.status }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div style="height: 0px;width:100%;"><b> &nbsp; &nbsp;{{allMatchedRecords.length}} Records found.</b> </div>
+                            <div align="center" class="pagination-btn-container">
+                                <button class="btn btn-sm btn-success" ng-disabled="currentPage === 0" (click)="currentPage = 0">First</button>&nbsp;&nbsp;
+                                <button class="btn btn-sm btn-success" ng-disabled="currentPage === 0" (click)="currentPage = currentPage - 1">Back</button>&nbsp;&nbsp; {{currentPage + 1}} / {{numberOfPages()}} &nbsp;&nbsp;
+                                <button class="btn btn-sm btn-success" ng-disabled="currentPage >= numberOfPages()-1" (click)="currentPage = currentPage + 1">Next</button> &nbsp;&nbsp;
+                                <button class="btn btn-sm btn-success" ng-disabled="currentPage >= numberOfPages()-1" (click)="currentPage = numberOfPages()-1">Last</button>
+                            </div>
+                            <div style="height: 10px;width:100%;"></div>
+                        </div>
+                        <div ng-if="!allMatchedRecords.length">
+                            <h5 style="margin-left: 20px;line-height: 90px;">No record found!</h5>
+                        </div>
+                    </div>
+                </div>
+            </nav> -->
+        <!-- </div> -->

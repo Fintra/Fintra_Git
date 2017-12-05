@@ -1,0 +1,49 @@
+<nav class="navbar navbar-default bottom-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <span class="navbar-brand" href="#"><img [src]="'../assets/images/logo/fintra-logo.png'"> Version 1.0</span>
+            <span class="navbar-brand" href="#">Last login at what time</span>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="" tooltip-placement="top" ngbTooltip="Helpline number"><a href="#">1800-xxxx-xxxx Helpline</a></li>
+            <li class="" tooltip-placement="top" style="color:#feff00;" ngbTooltip="Logout"><a href="#" (click)="logout();">Logout</a></li>
+            <li tooltip-placement="top" ngbTooltip="Change theme">
+                <a (click)="showThemePicker();">Themes</a>
+            </li>
+            <!-- <li tooltip-placement="top" ngbTooltip="User guide">
+                        <a (click)="enableUserGuide();" style="font-size:22px;">
+                            <div class="light">
+                                <i class="fa" [ngClass]="isUserGuideEnabled ? 'fa-lightbulb-o bulb-on' : 'fa-question'" aria-hidden="true"></i>
+                            </div>
+                        </a>
+                    </li> -->
+        </ul>
+    </div>
+    <div style="height: 200px;width: 200px;position: absolute; right: 19.6%; bottom: 100%;" ng-show="themePickerOpened" id="themePicker" class="animated fadeIn">
+
+        <small>Colors</small>
+        <a class="animated zoomInUp redBlock" (click)="setTheme('theme-red');"></a>
+        <a class="animated zoomInUp greenBlock" (click)="setTheme('theme-green');"></a>
+        <a class="animated zoomInUp orangeBlock" (click)="setTheme('theme-orange');"></a>
+        <a class="animated zoomInUp blueBlock" (click)="setTheme('theme-blue');"></a>
+
+        <hr>
+        <small>Layouts</small>
+        <a class="animated zoomInUp" (click)="setLayout('wide');"><i class="fa fa-expand" aria-hidden="true"></i></a>
+        <a class="animated zoomInUp" (click)="setLayout('narrow');"><i class="fa fa-compress" aria-hidden="true"></i></a>
+        <!--<a href="#" data-toggle="tooltip" title="Hooray!">Hover over me</a>-->
+    </div>
+</nav>
+
+<div ng-controller="chatController">
+    <!--<div class="chat-sidebar" ng-scrollbars ng-scrollbars-config="{theme: 'dark-3'}">
+        <div class="sidebar-name" ng-repeat="friend in online_friend_list">
+            <a (click)="register_popup(friend.user_id, friend.name);">
+                <span>{{ friend.name }}</span>
+            </a>
+        </div>
+    </div>-->
+
+    <!--ng-draggable='dragOptions'-->
+
+</div>
