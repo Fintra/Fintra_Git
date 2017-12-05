@@ -1,0 +1,245 @@
+/*=========================================
+        Laptop and smaller screen
+==========================================*/
+@media only screen and (max-width: 1366px) {
+
+    .right-sidebar
+    {
+        left: auto !important;
+    }
+
+    #menu-toggle 
+    {
+        position: relative;
+        right: 90%;
+        top: -103%;
+    }    
+    
+}
+
+/*@media only screen and (max-width: 1915px) and (min-width: 1200px){
+   
+    #main_page{
+        position:relative;
+        min-height:82vh;
+      
+        padding-bottom:115px;
+        
+    }
+    .ui-view-menu-page{
+        position:relative;
+        min-height:82vh;
+       
+            padding-bottom:115px;
+    }
+}*/
+
+
+
+
+@media only screen and (max-width: 1200px) and (min-width: 993px){
+   
+/*#main_page{
+	position:relative;
+	min-height:82vh;
+    max-height:none;
+	/*max-height:80vh;*/
+	/*padding-bottom:115px;*/
+	
+/*}*/
+.ui-view-menu-page{
+	position:relative;
+	min-height:82vh;
+	max-height:none;
+	/*padding-bottom:100px;*/
+		padding-bottom:115px;
+}
+}
+/*=========================================
+		Tablet and smaller screen
+==========================================*/
+@media only screen and (max-width: 992px) {
+    
+    .bottom-nav
+    {
+    	position: relative;
+    }
+    .navbar
+    {
+    	margin-bottom: 0;
+    }
+    .navbar-fixed-top
+    {
+    	position: static;
+    }
+    .dashboard_brand
+    {
+    	margin-left:55px !important;
+    }
+    #menu-toggle 
+    {
+        right: 95%;
+    }
+    .right-sidebar
+    {
+        width: 55vh;
+    }
+    .big-slash
+    {
+        bottom: 2px;
+    }
+    body
+	{
+		padding-top: 0;
+	}
+    #wrapper
+    {
+        padding-left:0 !important;
+    }
+    .login_box_logo_container
+    {
+        border-top-right-radius:10px; 
+        border-bottom-left-radius:0; 
+    }
+    .login_form_container
+    {
+        border-top-right-radius:0; 
+        border-bottom-left-radius:10px; 
+    }
+     /*#main_page{
+	position:relative;
+	min-height:82vh;
+    	max-height:none;
+	max-height:80vh;
+	padding-bottom:115px;
+	
+}*/
+.ui-view-menu-page{
+	position:relative;
+	min-height:82vh;
+    	max-height:none;
+	/*max-height:80vh;*/
+	/*padding-bottom:100px;*/
+    	padding-bottom:115px;
+}
+}
+
+@media only screen and (min-width: 768px) {
+    
+    .modal-dialog
+    {
+        margin: 25vh auto;
+    }
+    
+
+}
+
+
+@media only screen and (max-width: 768px) {
+    
+    .big_search_box
+    {
+        position: relative;
+        left: 10px;
+    }
+    .big_search_btn
+    {
+        position: absolute;
+        top: 13px;
+        right: 45px;
+    }
+    .overlay
+    {
+        top: 113px;
+    }
+    .come-right
+    {
+        padding-left: 0px;
+    }
+    .main-content
+    {
+        /*padding-top: 300px !important;*/
+    }
+    .bottom-nav .navbar-nav>li>a, .bottom-nav .navbar-nav>li>a:hover
+    {
+        color: #199a5c !important;
+    }
+    .highlight>span
+    {
+        background-color: #FFF !important;
+    }
+    .container-with-padding
+    {
+        padding: 20px;
+    }
+
+
+}
+@media only screen  and (max-width: 767px) and (min-width: 314px){
+   /*#main_page{
+	position:relative;
+	min-height:82vh;
+    	max-height:none;
+	max-height:80vh;
+	padding-bottom:115px;
+    
+}*/
+.ui-view-menu-page{
+	position:relative;
+	min-height:82vh;
+    	max-height:none;
+	/*max-height:80vh;*/
+	/*padding-bottom:100px;*/
+    	padding-bottom:115px;   
+}
+}
+
+
+/*=========================================
+			Mobile screen
+==========================================*/
+@media only screen and (max-width: 480px) {
+
+	.login_form_container
+	{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+    .welcome_box
+    {
+        min-height: 400px !important;
+    }
+    
+    .bottom-nav .footer-span, .bottom-nav .footer-span:hover
+    {
+        color: #199a5c !important;
+        font-weight:500;
+    }
+    .btn-lg
+    {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+}
+@media only screen and (max-width: 314px) {
+
+    .navbar-brand
+    {
+       font-size: 17px;
+    }
+    #menu-toggle
+    {
+        top:-88%;
+    }
+}
+
+/*=========================================
+        Height based media query
+==========================================*/
+@media only screen and (max-height: 700px) {
+    .space_belt
+    {
+        height: 0px;
+    }
+}

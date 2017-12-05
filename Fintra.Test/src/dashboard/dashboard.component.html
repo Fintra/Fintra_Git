@@ -1,0 +1,351 @@
+<app-header></app-header>
+<div class="container ui-view-menu-border" style="padding-top:20px;">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 zoomable">
+            <p>Name: <b style="color:blue;">user Name </b>, Role: <b style="color:blue;">role</b> </p>
+        </div>
+        <div class="col-lg-8 col-md-8 zoomable" cg-busy="workListPromise">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default btn-sm" tooltip-placement="top" ngbTooltip="Load more data">
+                            <i class="fa fa-refresh" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" id="filter" class="btn btn-sm" tooltip-placement="top" ngbTooltip="Filter">
+                            <i class="fa fa-filter" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm expand_div_btn" aria-expanded="false" tooltip-placement="top" ngbTooltip="Expand/Minimize">
+                            <i class="fa fa-expand" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li tooltip-placement="top" ngbTooltip="Transactions for update">
+                            <a href="#my_worklist" data-toggle="tab">MY WORKLIST</a>
+                        </li>
+                        <li tooltip-placement="top" ngbTooltip="Transactions for review/approve">
+                            <a href="#authorization_queue" data-toggle="tab">AUTHORIZATION QUEUE</a>
+                        </li>
+                        <li tooltip-placement="top" ngbTooltip="Enquire transactions">
+                            <a href="#enquiry" data-toggle="tab">ENQUIRY</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade">
+                            <br>
+                            <div class="table-responsive stylish-scrollbar">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>MODULE</th>
+                                            <th>Trxn Ref Num</th>
+                                            <th>FUNCTION</th>
+                                            <th>STATUS</th>
+                                            <th>ACTION</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade">
+                            <br>
+                            <div class="table-responsive stylish-scrollbar">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>MODULE</th>
+                                            <th>Trxn Ref Num</th>
+                                            <th>FUNCTION</th>
+                                            <th>STATUS</th>
+                                            <th>ACTION</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr></tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="enquiry">
+                            <br>
+                            <div class="table-responsive stylish-scrollbar">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>MODULE</th>
+                                            <th>SR NUMBER</th>
+                                            <th>FUNCTION</th>
+                                            <th>STATUS</th>
+                                            <th>ACTION</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr></tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 zoomable">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default btn-sm dropdown-toggle expand_div_btn" data-toggle="dropdown" aria-expanded="false" tooltip-placement="top" ngbTooltip="Expand/Minimize">
+                            <i class="fa fa-expand" aria-hidden="true"></i>
+                            </button>
+                    </div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#home" data-toggle="tab">FOREX RATES</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="home">
+                            <br>
+                            <div class="table-responsive stylish-scrollbar">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>CURRENCY</th>
+                                            <th>TT BUY</th>
+                                            <th>TT SELL</th>
+                                            <th>BILL BUY</th>
+                                            <th>BILL SELL</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+    </div>
+    <!--/.row-->
+    <div class="row">
+        <div class="col-lg-4 col-md-4 zoomable">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false" tooltip-placement="top" ngbTooltip="Add new">
+                            <i class="fa fa-minus" aria-hidden="true"></i>
+                            <i class="fa fa-plus" aria-hidden="true" ></i>
+                            </button>
+                        <button type="button" class="btn btn-default btn-sm dropdown-toggle expand_div_btn" data-toggle="dropdown" aria-expanded="false" tooltip-placement="top" ngbTooltip="Expand/Minimize">
+                                <i class="fa fa-expand" aria-hidden="true"></i>
+                                </button>
+                    </div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#home" data-toggle="tab">CALENDAR</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="home">
+                            <br>
+                            <!--ng-show="showAddDairy"-->
+                            <div>
+                                <div>
+                                    <!-- <uib-datepicker ng-model="dt" class="well well-md" datepicker-options="options2" ng-change="ggg(dt)" align="center"></uib-datepicker> -->
+                                </div>
+                                <br><br>
+                            </div>
+                            <div class="table-responsive stylish-scrollbar">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>DATE</th>
+                                            <th>ITEM</th>
+                                            <!--<th>STATUS</th>-->
+                                            <th>ACTION</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 zoomable in active">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default btn-sm dropdown-toggle expand_div_btn" data-toggle="dropdown" aria-expanded="false" tooltip-placement="top" ngbTooltip="Expand/Minimize">
+                            <i class="fa fa-expand" aria-hidden="true"></i>
+                            </button>
+                    </div>
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#home" data-toggle="tab">INCOMING SWIFT</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="home">
+                            <br>
+                            <div class="table-responsive" ng-scrollbars>
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>MT#</th>
+                                            <th>Trxn Ref Num</th>
+                                            <th>Function</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="tab-pane fade" ng-class="{'in active' : (AllInOne || userCanUpdate) }" id="my_worklist" ng-show="userCanUpdate || AllInOne">
+            <br>
+            <div class="table-responsive stylish-scrollbar" scrolly="loadMoreData();">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>MT#</th>
+                            <th>Trxn Ref Num</th>
+                            <th>FUNCTION</th>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in SwiftTable">
+                            <td ng-if="(x.message === 700)">MT{{x.message}}</td>
+                            <td ng-if="(x.message === 700)">{{ x.templateId }}</td>
+                            <td ng-if="(x.message === 700)">SWIFT</td>
+                            <td ng-if="(x.message === 700)">{{ x.message }}</td>
+                            <td ng-if="(x.message === 700)"><a ng-href="#" ng-click="goToEditSwift(x.templateId,'create');">Create</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>-->
+        <div class="col-lg-4 col-md-4 zoomable">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default btn-sm dropdown-toggle expand_div_btn" data-toggle="dropdown" aria-expanded="false" tooltip-placement="top" ngbTooltip="Expand/Minimize">
+                            <i class="fa fa-expand" aria-hidden="true"></i>
+                            </button>
+                    </div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#home" data-toggle="tab">ELECTRONIC NEWS</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+
+                    <!-- <div class="tab-content">
+                        <div class="tab-pane fade in active" id="home">
+                            <br>
+                            <div class="table-responsive stylish-scrollbar">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>title</th>
+                                            <th>description</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="x in authQueInfoForexBuySell1">
+                                            <td>{{ x.title }}</td>
+                                            <td>{{ x.description }}</td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div> -->
+
+
+                    <!-- <div class="tab-content">
+                        <div class="tab-pane fade in active" id="home">
+                            <br>
+                            <div class="table-responsive stylish-scrollbar">
+                                <ul class="dashboard-news-list" ng-repeat="x in authQueInfoElectronicFeed">
+                                    <li>
+                                        <a href="{{x.urlLink}}" target="_blank">
+                                       {{ x.description }}
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div> -->
+
+
+
+                    <!-- <div class="tab-content">
+                        <div class="tab-pane fade in active" id="home">
+                            <br>
+                            <ul class="dashboard-news-list">
+                                <li>
+                                    <a href="https://www.livemint.com/Opinion/fu7hSC6zSMKVLJs8LEG1ZN/Ten-things-to-look-for-in-Budget-2017.html" target="_blank">
+                                        Budget 2017: Ten things to look out for
+                                        </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.thehindubusinessline.com/money-and-banking/rbi-removes-cash-withdrawal-limits-from-atms-from-february-1/article9509655.ece" target="_blank">
+                                        Reserve Bank removes cap on withdrawals from current a/cs
+                                        </a>
+                                </li>
+                                <li>
+                                    <a href="https://economictimes.indiatimes.com/industry/banking/finance/banking/rbi-seeks-details-of-rs-500/1000-deposits-from-banks-today/articleshow/56254145.cms" target="_blank">
+                                        RBI seeks details of Rs 500/1,000 deposits from banks today
+                                        </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.theguardian.com/media/2017/jan/30/natwest-reverses-decision-close-rt-russia-today-bank-accounts-uk" target="_blank">
+                                        NatWest reverses decision to close RT's bank accounts in UK
+                                        </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div> -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+    </div>
+    <!--./row-->
+</div>
+<app-footer></app-footer>

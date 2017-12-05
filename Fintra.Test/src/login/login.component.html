@@ -1,0 +1,85 @@
+<body class="theme-green">
+    <div class="container container-with-padding">
+        <div class="row">
+            <div class="col-md-12 space_belt">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-12 welcome_box transparent">
+                <h3>LOGIN </h3>
+                <div class="row">
+                    <div class="col-md-5 login_box_logo_container shaded_box">
+                        <img class="img img-responsive logo" [src]="'../assets/images/logo/logo-without-text.png'">
+                    </div>
+                    <div class="col-md-7 login_form_container shaded_box">
+                        <form method="post" (click)="login();">
+                            <!-- <div class="row animated fadeIn" ng-show="loginError" id="loginErrMsgCont">
+                                <div class="col-md-12">
+                                    <div class="alert alert-error alert-dismissable login-error-alert">
+                                        <i class="fa fa-times-circle animated bounceInDown" aria-hidden="true"></i></div>
+                                </div>
+                            </div> -->
+                            <div class="form-group input-group">
+                                <span class="input-group-addon">&nbsp;
+                                  <i class="fa fa-user"></i> &nbsp;</span>
+                                <input type="text" class="form-control input-lg" placeholder="Username" autofocus="" [(ngModel)]="user.username" name="username">
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon">&nbsp;
+                                    <i class="fa fa-pencil"></i> &nbsp;</span>
+                                <input type="password" class="form-control input-lg" placeholder="Password" [(ngModel)]="user.password" name="password">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top:20px;">Login</button>
+                        </form>
+                    </div>
+                </div>
+                <!--<div class="row bottom_link_container">
+          <div class="col-md-5 col-xs-12">
+            <a ui-sref="forgot_pass" class="btn btn-link">Forgot your password?</a>
+          </div>
+          <div class="col-md-5 col-xs-12">
+          </div>
+          <div class="col-md-2 col-xs-12">
+            <a ui-sref="welcome" class="btn btn-link">Back</a>
+          </div>
+        </div>-->
+            </div>
+        </div>
+        <!--/.row-->
+    </div>
+    <!--/.container-->
+    <nav class="navbar navbar-default bottom-nav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <span class="navbar-brand" href="#">
+        <img [src]="'../assets/images/logo/fintra-logo.png'"> Version 1.0</span>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                    <a href="#" style="background-color:transparent">Recommended Resolutions :</a>
+                </li>
+                <li class="">
+                    <a href="#" style="background-color:transparent">Tablet:Width:768px to 1200px</a>
+                </li>
+                <li class="">
+                    <a href="#" style="background-color:transparent">Laptop:Width:992px to 1400px</a>
+                </li>
+                <li class="">
+                    <a href="#" style="background-color:transparent">Desktop:Width:1200px</a>
+                </li>
+                <li class="">
+                    <a href="#">1800-xxxx-xxxx Helpline</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</body>
+<!--
+<script>
+  angular.module('fintraApp.login', ['ngResource', 'ngCookies', 'AuthServices'])
+      .controller('login', ['$scope', '$resource', '$cookies', '$window', 'Auth', '$location', function($scope, $resource, $cookies, $window, Auth, $location) {
+
+      }]);
+</script> -->

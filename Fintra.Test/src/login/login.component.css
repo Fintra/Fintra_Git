@@ -1,0 +1,164 @@
+/* DashboardComponent's private CSS styles */
+
+
+/*
+[class*='col-'] {
+    float: left;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+[class*='col-']:last-of-type {
+    padding-right: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+h4 {
+    position: relative;
+}
+
+.grid {
+    margin: 0;
+}
+
+.col-1-4 {
+    width: 25%;
+}
+
+.module {
+    padding: 20px;
+    text-align: center;
+    color: #eee;
+    max-height: 120px;
+    min-width: 120px;
+    background-color: #607D8B;
+    border-radius: 2px;
+}
+
+.module:hover {
+    background-color: #EEE;
+    cursor: pointer;
+    color: #607d8b;
+}
+
+.grid-pad {
+    padding: 10px 0;
+}
+
+.grid-pad>[class*='col-']:last-of-type {
+    padding-right: 20px;
+}
+
+@media (max-width: 600px) {
+    .module {
+        font-size: 10px;
+        max-height: 75px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        margin: 0;
+    }
+    .module {
+        min-width: 60px;
+    }
+} */
+
+body {
+    background-color: #0acb6e;
+}
+
+.navbar-brand:hover {
+    color: #FFFFFF !important;
+}
+
+.login_box_logo_container {
+    padding-top: 71px;
+    height: 250px;
+}
+
+.form-group,
+.input-group {
+    padding-right: 20px;
+}
+
+
+/* themes css for login page */
+
+.theme-blue {
+    background-image: -webkit-linear-gradient(right, rgb(86, 204, 242), rgb(47, 128, 237));
+    background-image: -moz-linear-gradient(right, rgb(86, 204, 242), rgb(47, 128, 237));
+    background-image: -o-linear-gradient(right, rgb(86, 204, 242), rgb(47, 128, 237));
+    background-image: linear-gradient(to left, rgb(86, 204, 242), rgb(47, 128, 237));
+}
+
+.theme-blue .bottom-nav,
+.theme-red #themePicker {
+    background-image: -webkit-linear-gradient(right, rgb(64, 189, 230), rgb(27, 110, 203));
+    background-image: -moz-linear-gradient(right, rgb(64, 189, 230), rgb(27, 110, 203));
+    background-image: -o-linear-gradient(right, rgb(64, 189, 230), rgb(27, 110, 203));
+    background-image: linear-gradient(to left, rgb(64, 189, 230), rgb(27, 110, 203));
+}
+
+.theme-red .bottom-nav,
+.theme-red #themePicker {
+    background-image: -webkit-linear-gradient(right, rgb(204, 63, 35), rgb(185, 2, 83));
+    background-image: -moz-linear-gradient(right, rgb(204, 63, 35), rgb(185, 2, 83));
+    background-image: -o-linear-gradient(right, rgb(204, 63, 35), rgb(185, 2, 83));
+    background-image: linear-gradient(to left, rgb(204, 63, 35), rgb(185, 2, 83));
+}
+
+.theme-red {
+    background-image: -webkit-linear-gradient(right, rgb(253, 116, 89), rgb(212, 36, 114));
+    background-image: -moz-linear-gradient(right, rgb(253, 116, 89), rgb(212, 36, 114));
+    background-image: -o-linear-gradient(right, rgb(253, 116, 89), rgb(212, 36, 114));
+    background-image: linear-gradient(to left, rgb(253, 116, 89), rgb(212, 36, 114));
+}
+
+.theme-green .bottom-nav,
+.theme-red #themePicker {
+    background-image: -webkit-linear-gradient(right, rgb(43, 102, 81), rgb(0, 147, 60));
+    background-image: -moz-linear-gradient(right, rgb(43, 102, 81), rgb(0, 147, 60));
+    background-image: -o-linear-gradient(right, rgb(43, 102, 81), rgb(0, 147, 60));
+    background-image: linear-gradient(to left, rgb(43, 102, 81), rgb(0, 147, 60));
+}
+
+.theme-green {
+    background-image: -webkit-linear-gradient(right, rgb(29, 151, 108), rgb(68, 247, 135));
+    background-image: -moz-linear-gradient(right, rgb(29, 151, 108), rgb(68, 247, 135));
+    background-image: -o-linear-gradient(right, rgb(29, 151, 108), rgb(68, 247, 135));
+    background-image: linear-gradient(to left, rgb(29, 151, 108), rgb(68, 247, 135));
+}
+
+.theme-orange {
+    background-color: rgb(255, 200, 55);
+    background-image: -webkit-linear-gradient(right, rgb(255, 128, 8), rgb(255, 200, 55));
+    background-image: -moz-linear-gradient(right, rgb(255, 128, 8), rgb(255, 200, 55));
+    background-image: -o-linear-gradient(right, rgb(255, 128, 8), rgb(255, 200, 55));
+    background-image: linear-gradient(to left, rgb(255, 128, 8), rgb(255, 200, 55));
+}
+
+.theme-orange .bottom-nav,
+.theme-red #themePicker {
+    background-image: -webkit-linear-gradient(right, rgb(217, 106, 0), rgb(92, 84, 65));
+    background-image: -moz-linear-gradient(right, rgb(217, 106, 0), rgb(92, 84, 65));
+    background-image: -o-linear-gradient(right, rgb(217, 106, 0), rgb(92, 84, 65));
+    background-image: linear-gradient(to left, rgb(217, 106, 0), rgb(92, 84, 65));
+}
