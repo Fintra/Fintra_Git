@@ -6,5 +6,3 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./app.component.css', '../stylesheets/custom.css']
 })
 export class AppComponent {}
-export class NgbdTooltipTriggers {
-}
