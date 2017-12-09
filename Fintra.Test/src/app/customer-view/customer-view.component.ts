@@ -14,14 +14,11 @@ export class CustomerViewComponent implements OnInit {
   ngOnInit() {
   }
   // tslint:disable-next-line:member-ordering
-  // defaultPage = true; 
   saveAndProceed() {
-    // this.defaultPage = false;
     // tslint:disable-next-line:quotemark
-    alert("enter or not ");
     this.router.navigate(['/filterCustomer/tabCustomer/account']);
-    // $('li').children("a[ui-sref='." + nextTab + "']").parent().addClass("active");
   }
+  // tslint:disable-next-line:one-line
   saveAndExit(){
     this.router.navigate(['/dashboard']);
   }

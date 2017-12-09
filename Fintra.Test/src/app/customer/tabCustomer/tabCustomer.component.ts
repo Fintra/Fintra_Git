@@ -11,12 +11,11 @@ export class TabCustomerComponent implements OnInit {
   ngOnInit(): void {
   }
   constructor(private router: Router) { }
+
   // tslint:disable-next-line:member-ordering
-  customer= {};
+  customer = {};
+
   // tslint:disable-next-line:member-ordering
   sideMenuOpened = true;
-//    isRouteActive(route) {
-//     return this.router.isRouteActive(this.router.generate(route));
-// }
 
 }

@@ -15,9 +15,8 @@ export class FilterCustomerComponent implements OnInit {
   create = () => {
    this.defaultPage = false;
   }
+
   ngOnInit() {
-      console.log(this.CustomerDataService.cars);
       this.customer1 = this.CustomerDataService.cars;
-      console.log('enter', this.customer1);
     }
 }
