@@ -1,0 +1,153 @@
+<div class="tab-pane active" id="main_page">
+
+    <form name="customer_form" novalidate>
+        <div *ngIf="disableReview1==='true'" class="alert alert-danger">
+            <strong>Maker</strong> cannot <a ui-sref="home" class="alert-link">Review/Approve same transaction</a>.
+        </div>
+        <div style="margin-top:20px;width:100%;">
+            <div class="row">
+                <fieldset ng-disabled="disableAll">
+                    <h6 class="small-heading">Accounts</h6>
+                    <div class="col-md-5 col-sm-12 col-xs-12 two-blocks">
+                        <div class="form-group">
+                            <p><strong class="paddingLeftCustomerLabels"> Liability Accounts:</strong></p>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">LC Liability Account:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control custom-form-control" id="lcLiability" type="text" ng-pattern="/^[0-9]*$/" name="lcName" [(ngModel)]="customer.lcLiabilityAccount" maxlength="20" tabindex=14>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Bill Liability Account:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control custom-form-control" id="billLiability" type="text" ng-pattern="/^[0-9]*$/" name="billLiability" [(ngModel)]="customer.billLiasbilityAccount" maxlength="20" tabindex=15>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Guarantee Liability Account:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control custom-form-control" id="guaranteeLiability" type="text" ng-pattern="/^[0-9]*$/" name="guaranteeLiabilityName" [(ngModel)]="customer.guaranteeLiabilityAccount" maxlength="20" tabindex=16>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Discounted Liability Account:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control custom-form-control" id="discountLiability" type="text" ng-pattern="/^[0-9]*$/" name="discountLiabilityName" [(ngModel)]="customer.discountLiabilityAccount" maxlength="20" tabindex=16>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p><strong class="paddingLeftCustomerLabels"> Preshipment Finance:</strong></p>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">1:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control custom-form-control" id="preshipmentFinance1" type="text" ng-pattern="/^[0-9]*$/" name="preshipmentFinance1" [(ngModel)]="customer.preshipmentFinance1" maxlength="20" tabindex=14>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">2:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control custom-form-control" id="preshipmentFinance2" type="text" ng-pattern="/^[0-9]*$/" name="preshipmentFinance2" [(ngModel)]="customer.preshipmentFinance2" maxlength="20" tabindex=15>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">3:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control custom-form-control" id="preshipmentFinance3" type="text" ng-pattern="/^[0-9]*$/" name="preshipmentFinance3" [(ngModel)]="customer.preshipmentFinance3" maxlength="20" tabindex=16>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-12 col-xs-12 two-blocks second-two-block">
+                        <div class="form-group">
+                            <p><strong class="paddingLeftCustomerLabels">Exports:</strong></p>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">LC Sight Bills:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control custom-form-control" id="sightBillsAcc" name="sightBillsAcc" [(ngModel)]="customer.sightBillsAcc" maxlength="20">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">LC Usance Bills:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide class="form-control custom-form-control" id="usanceBillsAcc" type="text" name="usanceBillsAcc" [(ngModel)]="customer.usanceBillsAcc" maxlength="20">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Non LC Sight Bills:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control custom-form-control" id="nonlcsightBillsAcc" name="nonlcsightBillsAcc" [(ngModel)]="customer.nonlcsightBillsAcc" maxlength="20">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Non LC Usance Bills:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide class="form-control custom-form-control" id="nonlcusanceBillsAcc" type="text" name="nonlcusanceBillsAcc" [(ngModel)]="customer.nonlcusanceBillsAcc" maxlength="20">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Settlement Account 1:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control custom-form-control" id="settlementAcc1" name="settlementAcc1" [(ngModel)]="customer.settlementAcc1" maxlength="20">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Settlement Account 2:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control custom-form-control" id="settlementAcc2" name="settlementAcc2" [(ngModel)]="customer.settlementAcc2" maxlength="20">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Settlement Account 3:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control custom-form-control" id="settlementAcc3" name="settlementAcc3" [(ngModel)]="customer.settlementAcc3" maxlength="20">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Settlement Account 4:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control custom-form-control" id="settlementAcc4" name="settlementAcc4" [(ngModel)]="customer.settlementAcc4" maxlength="20">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Settlement Account 5:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control custom-form-control" id="settlementAcc5" name="settlementAcc5" [(ngModel)]="customer.settlementAcc5" maxlength="20">
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </fieldset>
+            </div>
+            <div class="form-group" *ngIf="transactionCmd=='review' || transactionCmd=='approve' || transactionCmd=='enquiry'">
+                <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Reviewer remark</label>
+                <div class="col-lg-3 col-sm-5 col-xs-8">
+                    <textarea class="form-control custom-form-control" rows="3" [(ngModel)]="customer.reviewer_remark"></textarea>
+                    <!-- <p *ngIf="reviewer_remark_required" style="color:red;">Reviewer remark is required</p> -->
+                </div>
+            </div>
+            <div class="form-group" *ngIf="transactionCmd=='approve' || transactionCmd=='review' || transactionCmd=='enquiry'">
+                <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Approver remark</label>
+                <div class="col-lg-3 col-sm-5 col-xs-8">
+                    <textarea class="form-control custom-form-control" rows="3" [(ngModel)]="customer.approver_remark"></textarea>
+                    <!-- <p *ngIf="approver_remark_required" style="color:red;">Approver remark is required</p> -->
+                </div>
+            </div>
+            <div class="row btn_fix">
+                <div class="col-md-12">
+                    <button class="btn btn-info" type="submit" (click)="finalSubmitCustomer();">Finish</button>
+                    <button class="btn btn-primary" type="submit" (click)="saveAndExit();">Save and Exit</button>
+                    <button class="btn btn-warning" type="button" *ngIf="errorPresent" (click)="reactyFy()">Rectify</button>
+                    <button *ngIf="transactionCmd=='review' && transactionCmd!='enquiry'" class="btn btn-success" type="button" (click)="review();">Review</button>
+                    <button *ngIf="disableReview1==='true' || transactionCmd=='approve' && transactionCmd!='enquiry'" class="btn btn-success" type="button" (click)="approve();">Approve</button>
+                    <button *ngIf="transactionCmd=='review' || transactionCmd=='approve'" class="btn btn-danger" type="button" (click)="reject();">Reject</button>
+                    <a class="btn btn-warning" id='Close' (click)="cancel();">Cancel</a>
+                    <a class="btn btn-warning" id="Close" routerLink="/dashboard" id="closeTab" *ngIf="transactionMode=='view' || transactionCmd=='enquiry' || transactionCmd=='approve' || transactionCmd=='review'">Close</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

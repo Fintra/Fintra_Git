@@ -1,0 +1,171 @@
+<div class="tab-pane active" id="main_page">
+    <form name="customer_form" novalidate>
+        <div style="margin-top:20px;width:100%;">
+            <div class="row">
+                <fieldset ng-disabled="disableAll">
+                    <h6 class="small-heading">Customer</h6>
+                    <div class="col-md-5 col-sm-12 col-xs-12 two-blocks">
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Customer ID:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input type="text" class="form-control mandatory custom-form-control" id="customerid" name="customerIdName" [(ngModel)]="customer.customerId" autofocus required maxlength="20" ng-pattern="/^[0-9a-zA-Z]*$/" ng-blur="checkAvailability()" ng-disabled="transactionMode == 'update'">
+                                <div *ngIf="customerAlreadyExisted" style="color:red;"> Record with the same ID Already Exists</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Customer Name:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input type="text" class="form-control mandatory custom-form-control" id="customer.customerName" name="customerName" type="text" maxlength="35" [(ngModel)]="customer.customerName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Customer Address:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input type="text" class="form-control mandatory custom-form-control" id="customerAddress1" type="text" name="customerAddress1Name" maxlength="35" [(ngModel)]="customer.customerAddress1" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-5 col-sm-5 col-xs-12 labelHeight"></div>
+                            <label [hidden]="true">Customer Address:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input type="text" class="form-control mandatory custom-form-control" name="customerAddress2" id="customerAddress2" [(ngModel)]="customer.customerAddress2" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-5 col-sm-5 col-xs-12 labelHeight"></div>
+                            <label [hidden]="true">Customer Address:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input type="text" class="form-control mandatory custom-form-control" name="customerAddress3" id="customerAddress3" [(ngModel)]="customer.customerAddress3" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Import Export Code:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input type="text" class="form-control custom-form-control" id="impExplicenseId" name="importExportCode" type="text" maxlength="16" [(ngModel)]="customer.importExportCode">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Expiry Date:</label>
+                            <div class="input-group col-lg-7 col-sm-5 col-xs-12 custom-input-group">
+                                <input type="text" class="form-control custom-form-control" name="expiryDateOfLicense" [(ngModel)]="customer.expiryDateOfLicense" is-open="popup1.opened" datepicker-options="expiryDateOptions" ng-required="true" close-text="Close" />
+                                <span class="input-group-addon btn no-shadow btn-default custom-input-addon" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Constitution:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <select class="form-control mandatory custom-form-control" id="constitutionId" name="constitutionName" [(ngModel)]="customer.constitution" required>
+                                  <option value="">--Select--</option>
+                                  <option>Corporate</option>
+                                  <option>Partnership</option>
+                                  <option>Sole proprietor</option>
+                              </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Date of Incorporation:</label>
+                            <div class="input-group col-lg-7 col-sm-5 col-xs-12 custom-input-group">
+                                <input type="text" class="form-control custom-form-control" name="dateOfIncorporation" [(ngModel)]="customer.dateOfIncorporation" is-open="popup2.opened" datepicker-options="dateOptions1" ng-required="true" close-text="Close" />
+                                <span class="input-group-addon btn no-shadow btn-default custom-input-addon" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></span>
+                            </div>
+                            <div class="div-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Margin% LC:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input type="text" class="form-control mandatory custom-form-control" id="marginLc" type="text" name="marginLcName" [(ngModel)]="customer.marginPercentLc" maxlength="3" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">VIP Customer:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <select class="form-control mandatory custom-form-control" id="vipCustomer" name="vipCustomer" [(ngModel)]="customer.vipCustomer" required="required">
+                                  <option value="">--Select--</option>
+                                  <option value="Yes">Yes</option>
+                                  <option value="No">No</option>
+                              </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-12 col-xs-12 two-blocks second-two-block">
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Contact Name:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input type="text" class="form-control mandatory custom-form-control" id="contactNameId" name="contactName" type="text" maxlength="35" [(ngModel)]="customer.contactName1" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Contact Email Id:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input type="text" class="form-control mandatory custom-form-control" type="email" name="userEmail" maxlength="35" [(ngModel)]="customer.contactEmailId1" ng-pattern="/\S+@\S+\.\S+\S+/" id="emailId" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Contact Name 2:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input type="text" class="form-control custom-form-control" id="custname2" name="name2" maxlength="35" [(ngModel)]="customer.contactName2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Contact Email Id 2:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input type="text" class="form-control custom-form-control" id="emailid2" name="emailid2Name" maxlength="35" ng-pattern="/\S+@\S+\.\S+\S+/" [(ngModel)]="customer.contactEmailId2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Mobile No for SMS</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input type="text" class="form-control custom-form-control" id="mobile_no" name="mobile_no" [(ngModel)]="customer.mobile_no" ng-pattern="/^[0-9]*$/" maxlength="15" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p><strong class="paddingLeftCustomerLabels"> Settlement Accounts:</strong></p>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Primary:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input type="text" class="form-control mandatory custom-form-control" id="primary" name="primaryName" [(ngModel)]="customer.settlementAccountPrimary" maxlength="20" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Margin:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input type="text" class="form-control mandatory custom-form-control" id="marginPercentage" type="text" name="marginPercentageName" [(ngModel)]="customer.settlementAccountMargin" maxlength="20" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Charges:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input type="text" class="form-control mandatory custom-form-control" id="charges" name="chargesName" [(ngModel)]="customer.settlementAccountCharges" maxlength="20" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p><strong class="paddingLeftCustomerLabels">Margin %:</strong></p>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">BG:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input type="text" class="form-control mandatory custom-form-control" id="marginBgId" type="text" name="marginBgName" maxlength="3" size="3" [(ngModel)]="customer.marginPercentBg" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Preshipment:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input type="text" class="form-control mandatory custom-form-control" id="marginPreshipmentId" type="text" name="marginPreshipmentName" maxlength="3" size="3" [(ngModel)]="customer.marginPercentPreshipment" required>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="row btn_fix">
+                <div class="col-md-12">
+                    <button class="btn btn-success" type="submit" (click)="saveAndProceed();">Save and proceed</button>
+                    <button class="btn btn-primary" type="submit" (click)="saveAndExit();">Save and Exit</button>
+                    <button class="btn btn-warning" type="button" *ngIf="transactionMode=='create' || transactionMode=='update' || transactionCmd=='update'" ng-click="reactyFy()" id="Rectify">Rectify</button>
+                    <button *ngIf="transactionMode==='view'" class="btn btn-success" ng-click="GoToNextTab();" id="nextTab">Next</button>
+                    <a class="btn btn-warning" id="Close" routerLink="/dashboard" ui-sref="home">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

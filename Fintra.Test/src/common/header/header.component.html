@@ -1,4 +1,4 @@
-<div>
+<div style="padding-top:65px;">
     <div [hidden]="!showSecondaryHeader" (click)="toggleSearchHeader();"></div>
     <div id="wrapper" [ngClass]="sideMenuOpened ? 'toggled' : ''">
         <!-- Sidebar -->
@@ -15,7 +15,7 @@
              </a>
                     <ul aria-expanded="false">
                         <li>
-                            <a ui-sref="customerM" (click)="openSideMenu()">
+                            <a routerLink="/filterCustomer" routerLinkActive="active" (click)="openSideMenu()">
                    Customer
                    </a>
                         </li>
@@ -89,7 +89,7 @@
                             <button id="menu-toggle" (click)="openSideMenu()" type="button" class="menu-toggle navbar-toggle collapse in" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" tooltip-placement="bottom" ngbTooltip="Menu" triggers="click:blur">
                       <i class="fa fa-bars animated rotateIn" aria-hidden="true" (click)="sideMenuOpened"></i>
                    </button>
-                            <span ui-sref="home">Dashboard <i class="fa fa-dashboard"></i>
+                            <span routerLink="/dashboard">Dashboard <i class="fa fa-dashboard"></i>
                    </span>
                         </a>
                         <ul class="nav navbar-nav navbar-right">
@@ -149,54 +149,5 @@
                 </div>
             </nav>
         </div>
-        <!-- <nav class="navbar navbar-default navbar-fixed-top secondary-top-header" ng-show="showSecondaryHeader">
-                <div class="container">
-                    <ul class="nav navbar-nav" style="width:100%;">
-                        <li style="width:100%;">
-                            <form class="navbar-form navbar-left" role="search" style="width:100%;">
-                                <div class="form-group has-success" style="width:80%;">
-                                    <input type="text" class="form-control big_search_box" placeholder=" Enter reference number of any transaction..." style="width:100%;" autofocus="" [(ngModel)]='queryString.$' name="string" ng-keyup="searchQuery(queryString.$)">
-                                </div>
-                                <button type="submit" class="btn btn-success big_search_btn"> <i class="fa fa-search"></i> Search</button>
-                                <a href="#" (click)="toggleSearchHeader();" class="hide_big_search_box_btn close"></a>
-                            </form>
-                        </li>
-                    </ul>
-                    <div id="serachResultContainer" ng-show="showSearchResultTable" class="animated slideInDown">
-                        <div ng-if="allMatchedRecords.length">
-                            <table class="table table-striped table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Reference Number</th>
-                                        <th>Module</th>
-                                        <th>Transaction</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr ng-repeat="record in allMatchedRecords | startFrom : currentPage*recordsPerPage | limitTo : recordsPerPage" class="clickableRow" (click)="goToTransaction(record.transaction_name, record.primary_key, record.status);">
-                                        <td>{{ currentPage*recordsPerPage + $index + 1 }}</td>
-                                        <td ng-bind-html="record.primary_key | highlight:queryString.$">{{ record.primary_key }}</td>
-                                        <td>{{ record.module_name }}</td>
-                                        <td>{{ record.transaction_name }}</td>
-                                        <td>{{ record.status }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div style="height: 0px;width:100%;"><b> &nbsp; &nbsp;{{allMatchedRecords.length}} Records found.</b> </div>
-                            <div align="center" class="pagination-btn-container">
-                                <button class="btn btn-sm btn-success" ng-disabled="currentPage === 0" (click)="currentPage = 0">First</button>&nbsp;&nbsp;
-                                <button class="btn btn-sm btn-success" ng-disabled="currentPage === 0" (click)="currentPage = currentPage - 1">Back</button>&nbsp;&nbsp; {{currentPage + 1}} / {{numberOfPages()}} &nbsp;&nbsp;
-                                <button class="btn btn-sm btn-success" ng-disabled="currentPage >= numberOfPages()-1" (click)="currentPage = currentPage + 1">Next</button> &nbsp;&nbsp;
-                                <button class="btn btn-sm btn-success" ng-disabled="currentPage >= numberOfPages()-1" (click)="currentPage = numberOfPages()-1">Last</button>
-                            </div>
-                            <div style="height: 10px;width:100%;"></div>
-                        </div>
-                        <div ng-if="!allMatchedRecords.length">
-                            <h5 style="margin-left: 20px;line-height: 90px;">No record found!</h5>
-                        </div>
-                    </div>
-                </div>
-            </nav> -->
-        <!-- </div> -->
+    </div>
+</div>

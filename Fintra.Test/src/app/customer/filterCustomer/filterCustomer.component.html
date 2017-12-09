@@ -1,0 +1,74 @@
+<app-header></app-header>
+<div class="container filter-box" [hidden]="!defaultPage">
+    <div class="row divPadding">
+        <div class="col-md-3 col-md-offset-9">
+            <a [routerLink]="['tabCustomer/customerView']"><button class="btn btn-primary" (click)="create()">Create New</button></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Search</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label>Reference</label>
+            <input type="text" class="form-control custom-form-control">
+        </div>
+        <div class="col-md-4">
+            <label>Name/Description</label>
+            <input type="text" class="form-control custom-form-control">
+        </div>
+        <div class="col-md-4">
+            <label>Principal Contact</label>
+            <input type="text" class="form-control custom-form-control">
+        </div>
+    </div>
+    <br/>
+    <div class="row"></div>
+    <div class="row">
+        <table class="table table-striped toWide">
+            <tr>
+                <th class="textAlignleft textAlignleftWide">Reference</th>
+                <th class="textAlignleft2 textAlignleft2Wide">Name/Description</th>
+                <th style="text-align: left">Principal Contact</th>
+            </tr>
+            <tr *ngFor="let post of customer1" ng-class=" customer.customerId == selectedItem ? 'filter-selected-row' : ''" (click)="open3(customer)">
+                <td style="text-align: left">{{post.customerId}} </td>
+                <td style="text-align: left;">{{post.customerName}} </td>
+                <td style="text-align: left">{{post.contactName1}} </td>
+            </tr>
+        </table>
+    </div>
+    <div align="center" class="filter-pagination-container">
+        <button class="btn btn-sm btn-success">First</button>&nbsp;&nbsp;
+        <button class="btn btn-sm btn-success">Back</button>&nbsp;&nbsp; &nbsp;&nbsp;
+        <button class="btn btn-sm btn-success">Next</button> &nbsp;&nbsp;
+        <button class="btn btn-sm btn-success">Last</button>
+    </div>
+    <br>
+    <div class="row" ng-if="transactionCmd">
+        <div class="col-md-3">
+            <a href="#" ui-sref=".update">
+                <button ng-class="{'disableButton': transactionCmd === 'update'}" ng-disabled="disableReview1 || selectedID === null || transactionCmd!='update'" class="btn btn-primary" (click)="updateCustomer()" style="width:100px;">Update</button>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="#" ui-sref=".view">
+                <button ng-class="{'disableButton': transactionCmd === 'review'}" ng-disabled="disableReview1 || selectedID === null || transactionCmd!='review'" class="btn btn-primary" (click)="viewCustomer()" style="width:100px;">Review</button>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="#" ui-sref=".view">
+                <button ng-class="{'disableButton': transactionCmd === 'approve'}" ng-disabled="disableReview1 || selectedID === null || transactionCmd!='approve'" class="btn btn-primary" (click)="viewCustomer()" style="width:100px;">Approve</button>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="#" ui-sref=".view">
+                <button ng-class="{'disableButton': transactionCmd === 'enquiry'}" ng-disabled="selectedID === null || transactionCmd!='enquiry'" class="btn btn-primary" (click)="viewCustomer()" style="width:100px;">Enquiry</button>
+            </a>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
