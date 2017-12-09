@@ -10,13 +10,13 @@ import { Router } from '@angular/router';
 export class FilterCustomerComponent implements OnInit {
   // tslint:disable-next-line:no-shadowed-variable
   constructor(private CustomerDataService: CustomerDataService, private router: Router) {}
-  customer1 = [];
+  customer = [];
   defaultPage = true;
   create = () => {
    this.defaultPage = false;
   }
 
   ngOnInit() {
-      this.customer1 = this.CustomerDataService.cars;
+      this.customer = this.CustomerDataService.cars;
     }
 }
