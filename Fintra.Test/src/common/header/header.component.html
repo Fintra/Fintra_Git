@@ -86,21 +86,21 @@
                 <div class="container">
                     <div class="navbar-header">
                         <a class="navbar-brand dashboard_brand">
-                            <button id="menu-toggle" (click)="openSideMenu()" type="button" class="menu-toggle navbar-toggle collapse in" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" tooltip-placement="bottom" ngbTooltip="Menu" triggers="click:blur">
+                            <button id="menu-toggle" (click)="openSideMenu()" type="button" class="menu-toggle navbar-toggle collapse in" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" placement="bottom" tooltip="Menu">
                       <i class="fa fa-bars animated rotateIn" aria-hidden="true" (click)="sideMenuOpened"></i>
                    </button>
                             <span routerLink="/dashboard">Dashboard <i class="fa fa-dashboard"></i>
                    </span>
                         </a>
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown" tooltip-placement="bottom" ngbTooltip="Help" style="margin-left: -46%;">
+                            <li class="dropdown" placement="bottom" tooltip="Help" style="margin-left: -46%;">
                                 <button class="btn btn-default no-shadow" (click)="enableUserGuide(isUserGuideEnabled);">
                          <div class="light">
                             <i class="fa" style="font-size:19px;" [ngClass]="isUserGuideEnabled ? 'fa-lightbulb-o bulb-on' : 'fa-question'" aria-hidden="true"></i>
                          </div>
                       </button>
                             </li>
-                            <li class="dropdown" tooltip-placement="bottom" ngbTooltip="User Manual" style="margin-left: -0%;">
+                            <li class="dropdown" placement="bottom" tooltip="User Manual" style="margin-left: -0%;">
                                 <button class="btn btn-default no-shadow" (click)="userGuideMannual();">
                       <i class="fa fa-book" style="font-size:19px;" aria-hidden="true"></i>
                       </button>
@@ -108,17 +108,17 @@
                         </ul>
                     </div>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown" tooltip-placement="bottom" ngbTooltip="Chat">
+                        <li class="dropdown" placement="bottom" tooltip="Chat">
                             <button class="btn btn-default no-shadow dropdown-toggle" (click)="showChatPopup();" data-toggle="dropdown" href="#" aria-expanded="false">
                    <i class="fa fa-comments-o" aria-hidden="true"></i> <span class="badge">1</span>
                    </button>
                         </li>
-                        <li class="dropdown" tooltip-placement="bottom" ngbTooltip="View notifications">
+                        <li class="dropdown" placement="bottom" tooltip="View notifications">
                             <button class="btn btn-default no-shadow" (click)="showNotifications();">
                    <i class="fa fa-bell-o" aria-hidden="true"></i> <span class="badge">{{ newNotificationCount }}</span>
                    </button>
                         </li>
-                        <li class="dropdown" tooltip-placement="bottom" ngbTooltip="Create new records">
+                        <li class="dropdown" placement="bottom" tooltip="Create new records">
                             <button class="btn btn-default no-shadow dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                    <i class="fa fa-plus" aria-hidden="true"></i>
                    </button>
@@ -135,12 +135,12 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="dropdown primary-search-form" tooltip-placement="bottom" ngbTooltip="Search records by reference no.">
+                        <li class="dropdown primary-search-form" placement="bottom" tooltip="Search records by reference no.">
                             <button class="btn btn-default no-shadow dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" (click)="showSecondaryHeader = !showSecondaryHeader">
                    <i class="fa fa-search" aria-hidden="true"></i>
                    </button>
                         </li>
-                        <li class="dropdown" tooltip-placement="bottom" ngbTooltip="Customer Exposure">
+                        <li class="dropdown" placement="bottom" tooltip="Customer Exposure">
                             <button class="btn btn-default no-shadow" ui-sref="customer360" (click)="openSideMenu()">
                    <i class="fa fa-universal-access" aria-hidden="true"></i> <span class="badge"></span>
                    </button>

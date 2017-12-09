@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { BsDatepickerModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +20,9 @@ import { AccountComponent } from './customer/account/account.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TooltipModule.forRoot(),
+    BsDatepickerModule.forRoot()
   ],
   providers: [CustomerDataService],
   bootstrap: [AppComponent]
