@@ -22,9 +22,10 @@ import { FilterContentComponent } from './Masters/content/filter-content/filter-
 import { TabContentComponent } from './Masters/content/tab-content/tab-content.component';
 import { ContentViewComponent } from './Masters/content/content-view/content-view.component';
 import {  TruncatePipe } from './Services/filter.pipe';
+import { CustomerResultComponent } from './Masters/customer/customer-result/customer-result.component';
 @NgModule({
   // tslint:disable-next-line:max-line-length
-  declarations: [AppComponent, LoginComponent, HeaderComponent, FooterComponent, DashboardComponent, FilterCustomerComponent, CustomerViewComponent, TabCustomerComponent, AccountComponent, FilterCounterPartyComponent, TabCounterPartyComponent, CounterPartyViewComponent, FilterContentComponent, TabContentComponent, ContentViewComponent, TruncatePipe ],
+  declarations: [AppComponent, LoginComponent, HeaderComponent, FooterComponent, DashboardComponent, FilterCustomerComponent, CustomerViewComponent, TabCustomerComponent, AccountComponent, FilterCounterPartyComponent, TabCounterPartyComponent, CounterPartyViewComponent, FilterContentComponent, TabContentComponent, ContentViewComponent, TruncatePipe, CustomerResultComponent ],
   imports: [
     BrowserModule,
     FormsModule,

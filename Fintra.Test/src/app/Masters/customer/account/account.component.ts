@@ -19,6 +19,10 @@ export class AccountComponent implements OnInit {
   cancel() {
     this.router.navigate(['/dashboard']);
   }
+  finalSubmitCustomer() {
+    alert("dfdf");
+    this.router.navigate(['/filterCustomer/tabCustomer/customerResult']);
+  }
 
 
 }

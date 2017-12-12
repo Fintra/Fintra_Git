@@ -6,6 +6,7 @@ import { FilterCustomerComponent } from './Masters/customer/filterCustomer/filte
 import { CustomerViewComponent } from './Masters/customer/customer-view/customer-view.component';
 import { TabCustomerComponent } from './Masters/customer/tabCustomer/tabCustomer.component';
 import { AccountComponent } from './Masters/customer/account/account.component';
+import { CustomerResultComponent } from './Masters/customer/customer-result/customer-result.component';
 import { FilterCounterPartyComponent } from './Masters/counter-party/filter-counter-party/filter-counter-party.component';
 import { TabCounterPartyComponent } from './Masters/counter-party/tab-counter-party/tab-counter-party.component';
 import { CounterPartyViewComponent } from './Masters/counter-party/counter-party-view/counter-party-view.component';
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   // tslint:disable-next-line:max-line-length
-  { path: 'filterCustomer', component: FilterCustomerComponent, children: [{path: 'tabCustomer', component: TabCustomerComponent, children: [{path: 'customerView', component: CustomerViewComponent}, {path: 'account', component: AccountComponent}]}] },
+  { path: 'filterCustomer', component: FilterCustomerComponent, children: [{path: 'tabCustomer', component: TabCustomerComponent, children: [{path: 'customerView', component: CustomerViewComponent}, {path: 'account', component: AccountComponent},{path: 'customerResult', component: CustomerResultComponent}]}] },
   { path: 'filterCounterParty', component: FilterCounterPartyComponent, children: [{path: 'tabCounterParty', component: TabCounterPartyComponent, children: [{path: 'counterPartView', component: CounterPartyViewComponent}]}] },
   // tslint:disable-next-line:max-line-length
   { path: 'filterContent', component: FilterContentComponent,
