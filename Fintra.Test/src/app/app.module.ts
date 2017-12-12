@@ -10,9 +10,9 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 import { FooterComponent } from '../common/footer/footer.component';
 import { HeaderComponent } from '../common/header/header.component';
 import { FilterCustomerComponent } from './customer/filterCustomer/filterCustomer.component';
-import { CustomerDataService } from './customer-data.service';
+import { CustomerDataService } from './customer/customer-data.service';
 import { TabCustomerComponent } from './customer/tabCustomer/tabCustomer.component';
-import { CustomerViewComponent } from './customer-view/customer-view.component';
+import { CustomerViewComponent } from './customer/customer-view/customer-view.component';
 import { AccountComponent } from './customer/account/account.component';
 @NgModule({
   // tslint:disable-next-line:max-line-length
