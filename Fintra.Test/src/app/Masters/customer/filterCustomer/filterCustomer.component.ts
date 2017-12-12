@@ -23,12 +23,12 @@ export class FilterCustomerComponent implements OnInit {
   ngOnInit() {
       // this.customer = this.CommonDataService.cars;
       // tslint:disable-next-line:quotemark
-      // console.log("this.CommonDataService.myData();", this.CommonDataService.myData());
+      // console.log('this.CommonDataService.myData();', this.CommonDataService.myData());
       this.customer = this.CommonDataService.customerData();
     }
 
     open3 = function(item) {
-      console.log("view filter", item);
+      console.log('view filter', item);
       this.selectedItem = item.customerId;
     };
 
