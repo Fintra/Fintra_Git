@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-filtercustomer',
   templateUrl: './filterCustomer.component.html',
-  styleUrls: ['./filterCustomer.component.css', '../../../stylesheets/custom.css']
+  styleUrls: ['./filterCustomer.component.css', '../../../../stylesheets/custom.css']
 })
 export class FilterCustomerComponent implements OnInit {
   // tslint:disable-next-line:no-shadowed-variable
