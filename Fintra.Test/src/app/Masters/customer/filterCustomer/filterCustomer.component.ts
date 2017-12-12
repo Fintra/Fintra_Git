@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class FilterCustomerComponent implements OnInit {
 
+  // tslint:disable-next-line:no-shadowed-variable
   constructor(private CommonDataService: CommonDataService, private router: Router) {}
 
   customer = [];

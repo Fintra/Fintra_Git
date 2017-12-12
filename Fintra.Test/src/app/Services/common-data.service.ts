@@ -12,7 +12,8 @@ export class CommonDataService {
     {customerId: 2, customerName: 'saa', contactName1: 'ddd'},
     {customerId: 3, customerName: 'saa', contactName1: 'ddd'},
     {customerId: 4, customerName: 'saa', contactName1: 'ddd'},
-    {customerId: 5, customerName: 'saa', contactName1: 'ddd'}
+    {customerId: 5, customerName: 'saa', contactName1: 'ddd'},
+    {customerId: 6, customerName: 'saa', contactName1: 'ddd'}
     ];
   }
   counterPartyData() {
