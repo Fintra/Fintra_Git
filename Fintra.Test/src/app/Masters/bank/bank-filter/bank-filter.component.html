@@ -1,0 +1,92 @@
+<app-header></app-header>
+<div class="container filter-box" [hidden]="!defaultPage">
+    <div class="row divPadding">
+        <div class="col-md-3 col-md-offset-9">
+            <a><button class="btn btn-primary" (click)="create(selectedItem)">Create New</button></a>
+            <!-- <a [routerLink]="['bankTabM/bankViewM']"><button class="btn btn-primary" (click)="create(selectedItem)">Create New</button></a> -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Search</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label>Reference</label>
+            <input type="text" class="form-control custom-form-control" [(ngModel)]="userFilter.bankId">
+        </div>
+        <div class="col-md-4">
+            <label>Name/Description</label>
+            <input type="text" class="form-control custom-form-control" [(ngModel)]="userFilter.bankName">
+        </div>
+        <div class="col-md-4">
+            <label>Principal Contact</label>
+            <input type="text" class="form-control custom-form-control" [(ngModel)]="userFilter.bicCode">
+        </div>
+    </div>
+    <br/>
+    <div class="row"></div>
+    <div class="row">
+        <table class="table table-striped toWide">
+            <tr>
+                <th class="textAlignleft textAlignleftWide">Reference</th>
+                <th class="textAlignleft2 textAlignleft2Wide">Name/Description</th>
+                <th style="text-align: left">Principal Contact</th>
+            </tr>
+            <tr *ngFor="let bank of banks | startFrom:currentPage*recordsPerPage | filterBy: userFilter | slice:0:recordsPerPage" [ngClass]="bank.bankId == selectedItem ? 'filter-selected-row1' : ''" (click)="open(bank)">
+                <td style="text-align: left">{{bank.bankId}} </td>
+                <td style="text-align: left;">{{bank.bankName}} </td>
+                <td style="text-align: left;"> {{bank.bicCode}} </td>
+            </tr>
+        </table>
+    </div>
+    <div align="center" class="filter-pagination-container">
+        <button class="btn btn-sm btn-success" [disabled]="currentPage === 0" (click)="currentPage = 0">First</button>&nbsp;&nbsp;
+        <button class="btn btn-sm btn-success" [disabled]="currentPage === 0" (click)="currentPage = currentPage - 1">Back</button>&nbsp;&nbsp; {{currentPage + 1}} / {{numberOfPages()}} &nbsp;&nbsp;
+        <button class="btn btn-sm btn-success" [disabled]="currentPage >= numberOfPages()-1" (click)="currentPage = currentPage + 1">Next</button> &nbsp;&nbsp;
+        <button class="btn btn-sm btn-success" [disabled]="currentPage >= numberOfPages()-1" (click)="currentPage = numberOfPages()-1">Last</button>
+    </div>
+    <br>
+    <!-- 
+      <div class="row" ng-if="!transactionCmd">
+          <div class="col-md-1">
+              <a href="#" id="view" ui-sref=".view">
+                  <button ng-hide="selectedItem === null" class="btn btn-primary" (click)="viewBank()">View</button>
+              </a>
+          </div>
+          <div class="col-md-offset-9 col-md-1">
+              <a href="#" id="update" ui-sref=".update">
+                  <button ng-hide="selectedItem === null || selectedItem === 'Approved'" class="btn btn-primary" (click)="updateBank()">Update</button>
+              </a>
+          </div>
+      </div> -->
+    <div class="row" ng-if="transactionCmd">
+        <div class="col-md-3">
+            <a href="#">
+                <!-- <button ng-class="{'disableButton': transactionCmd === 'update'}" ng-disabled="disableReview1 || selectedID === null || transactionCmd!='update'" class="btn btn-primary" (click)="updateBank()" style="width:100px;">Update</button> -->
+                <a [routerLink]="['bankTabM/bankViewM']"><button class="btn btn-primary" (click)="create()">Update</button></a>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="#">
+                <!-- <button ng-class="{'disableButton': transactionCmd === 'review'}" ng-disabled="disableReview1 || selectedID === null || transactionCmd!='review'" class="btn btn-primary" (click)="viewBank()" style="width:100px;">Review</button> -->
+                <a [routerLink]="['bankTabM/bankViewM']"><button class="btn btn-primary" (click)="create()">Review</button></a>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="#">
+                <!-- <button ng-class="{'disableButton': transactionCmd === 'approve'}" ng-disabled="disableReview1 || selectedID === null || transactionCmd!='approve'" class="btn btn-primary" (click)="viewBank()" style="width:100px;">Approve</button> -->
+                <a [routerLink]="['bankTabM/bankViewM']"><button class="btn btn-primary" (click)="create()">Approve</button></a>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="#">
+                <!-- <button ng-class="{'disableButton': transactionCmd === 'enquiry'}" ng-disabled="selectedID === null || transactionCmd!='enquiry'" class="btn btn-primary" (click)="viewBank()" style="width:100px;">Enquiry</button> -->
+                <a [routerLink]="['bankTabM/bankViewM']"><button class="btn btn-primary" (click)="create()">Enquiry</button></a>
+            </a>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
