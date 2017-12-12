@@ -8,14 +8,21 @@ export class CommonDataService {
 
   customerData() {
    return this.data = [
-      {customerId: 1, customerName: 'saa', contactName1: 'ddd'}
+    {customerId: 1, customerName: 'saa', contactName1: 'ddd'},
+    {customerId: 2, customerName: 'saa', contactName1: 'ddd'},
+    {customerId: 3, customerName: 'saa', contactName1: 'ddd'},
+    {customerId: 4, customerName: 'saa', contactName1: 'ddd'},
+    {customerId: 5, customerName: 'saa', contactName1: 'ddd'}
     ];
   }
   counterPartyData() {
    return this.data = [
     {counterpartyId: 1, counterpartyName: 'gopal', counterpartyAddress1: 'ddd'},
     {counterpartyId: 2, counterpartyName: 'vishnu', counterpartyAddress1: 'ddd'},
-    {counterpartyId: 3, counterpartyName: 'parvej', counterpartyAddress1: 'ddd'}
+    {counterpartyId: 3, counterpartyName: 'parvej', counterpartyAddress1: 'ddd'},
+    {counterpartyId: 4, counterpartyName: 'parvej', counterpartyAddress1: 'ddd'},
+    {counterpartyId: 5, counterpartyName: 'parvej', counterpartyAddress1: 'ddd'},
+    {counterpartyId: 6, counterpartyName: 'parvej', counterpartyAddress1: 'ddd'}
     ];
   }
   contentData() {

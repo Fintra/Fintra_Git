@@ -13,15 +13,15 @@
     <div class="row">
         <div class="col-md-4">
             <label>Reference</label>
-            <input type="text" class="form-control custom-form-control">
+            <input type="text" class="form-control custom-form-control" [(ngModel)]="search.customerId">
         </div>
         <div class="col-md-4">
             <label>Name/Description</label>
-            <input type="text" class="form-control custom-form-control">
+            <input type="text" class="form-control custom-form-control" [(ngModel)]="search.customerName">
         </div>
         <div class="col-md-4">
             <label>Principal Contact</label>
-            <input type="text" class="form-control custom-form-control">
+            <input type="text" class="form-control custom-form-control" [(ngModel)]="search.contactName1">
         </div>
     </div>
     <br/>
@@ -33,18 +33,24 @@
                 <th class="textAlignleft2 textAlignleft2Wide">Name/Description</th>
                 <th style="text-align: left">Principal Contact</th>
             </tr>
-            <tr *ngFor="let post of customer" [ngClass]="post.customerId == selectedItem ? 'filter-selected-row1' : ''" (click)="open3(post)">
+            <tr *ngFor="let post of customer|startFrom:currentPage*recordsPerPage |filterBy: search| slice:0:recordsPerPage" [ngClass]="post.customerId == selectedItem ? 'filter-selected-row1' : ''" (click)="open3(post)">
                 <td style="text-align: left">{{post.customerId}} </td>
                 <td style="text-align: left;">{{post.customerName}} </td>
                 <td style="text-align: left">{{post.contactName1}} </td>
             </tr>
         </table>
     </div>
-    <div align="center" class="filter-pagination-container">
+    <!-- <div align="center" class="filter-pagination-container">
         <button class="btn btn-sm btn-success">First</button>&nbsp;&nbsp;
         <button class="btn btn-sm btn-success">Back</button>&nbsp;&nbsp; &nbsp;&nbsp;
         <button class="btn btn-sm btn-success">Next</button> &nbsp;&nbsp;
         <button class="btn btn-sm btn-success">Last</button>
+    </div> -->
+    <div align="center" class="filter-pagination-container">
+        <button class="btn btn-sm btn-success" [disabled]="currentPage === 0" (click)="currentPage = 0">First</button>&nbsp;&nbsp;
+        <button class="btn btn-sm btn-success" [disabled]="currentPage === 0" (click)="currentPage = currentPage - 1">Back</button>&nbsp;&nbsp; {{currentPage + 1}} / {{numberOfPages()}} &nbsp;&nbsp;
+        <button class="btn btn-sm btn-success" [disabled]="currentPage >= numberOfPages()-1" (click)="currentPage = currentPage + 1">Next</button> &nbsp;&nbsp;
+        <button class="btn btn-sm btn-success" [disabled]="currentPage >= numberOfPages()-1" (click)="currentPage = numberOfPages()-1">Last</button>
     </div>
     <br>
     <div class="row" ng-if="transactionCmd">

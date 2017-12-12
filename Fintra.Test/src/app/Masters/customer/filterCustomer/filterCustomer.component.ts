@@ -8,31 +8,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./filterCustomer.component.css', '../../../../stylesheets/custom.css']
 })
 export class FilterCustomerComponent implements OnInit {
-  // tslint:disable-next-line:no-shadowed-variable
+
   constructor(private CommonDataService: CommonDataService, private router: Router) {}
+
   customer = [];
+  search = {};
   defaultPage = true;
   selectedItem = null;
-  // recordsPerPage = 10;
-  // noOfPages = 0;
-  // currentPage = 0;
+  recordsPerPage = 3;
+  noOfPages = 0;
+  currentPage = 0;
   create = () => {
    this.defaultPage = false;
   }
 
   ngOnInit() {
-      // this.customer = this.CommonDataService.cars;
-      // tslint:disable-next-line:quotemark
-      // console.log("this.CommonDataService.myData();", this.CommonDataService.myData());
       this.customer = this.CommonDataService.customerData();
-    }
+  }
 
-    open3 = function(item) {
-      console.log("view filter", item);
+  numberOfPages() {
+    return Math.ceil(this.CommonDataService.customerData().length / this.recordsPerPage);
+  }
+
+  open3 = function(item) {
       this.selectedItem = item.customerId;
-    };
+  };
 
-    // myData(){
-
-    // }
 }
