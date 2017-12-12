@@ -17,15 +17,19 @@ import { AccountComponent } from './Masters/customer/account/account.component';
 import { FilterCounterPartyComponent } from './Masters/counter-party/filter-counter-party/filter-counter-party.component';
 import { TabCounterPartyComponent } from './Masters/counter-party/tab-counter-party/tab-counter-party.component';
 import { CounterPartyViewComponent } from './Masters/counter-party/counter-party-view/counter-party-view.component';
-import { FilterPipeModule } from 'ngx-filter-pipe';
 import { FilterContentComponent } from './Masters/content/filter-content/filter-content.component';
 import { TabContentComponent } from './Masters/content/tab-content/tab-content.component';
 import { ContentViewComponent } from './Masters/content/content-view/content-view.component';
-import {  TruncatePipe } from './Services/filter.pipe';
+import { BankFilterComponent } from './Masters/bank/bank-filter/bank-filter.component';
+import { TabBankComponent } from './Masters/bank/tab-bank/tab-bank.component';
+import { BankViewComponent } from './Masters/bank/bank-view/bank-view.component';
+import { BankResultComponent } from './Masters/bank/bank-result/bank-result.component';
 import { CustomerResultComponent } from './Masters/customer/customer-result/customer-result.component';
+import {  TruncatePipe } from './Services/filter.pipe';
+import {  FilterPipeModule } from 'ngx-filter-pipe';
 @NgModule({
   // tslint:disable-next-line:max-line-length
-  declarations: [AppComponent, LoginComponent, HeaderComponent, FooterComponent, DashboardComponent, FilterCustomerComponent, CustomerViewComponent, TabCustomerComponent, AccountComponent, FilterCounterPartyComponent, TabCounterPartyComponent, CounterPartyViewComponent, FilterContentComponent, TabContentComponent, ContentViewComponent, TruncatePipe, CustomerResultComponent ],
+  declarations: [AppComponent, LoginComponent, HeaderComponent, FooterComponent, DashboardComponent, FilterCustomerComponent, CustomerViewComponent, TabCustomerComponent, AccountComponent, FilterCounterPartyComponent, TabCounterPartyComponent, CounterPartyViewComponent, FilterContentComponent, TabContentComponent, ContentViewComponent, TruncatePipe, CustomerResultComponent, BankFilterComponent, TabBankComponent, BankViewComponent, BankResultComponent],
   imports: [
     BrowserModule,
     FormsModule,

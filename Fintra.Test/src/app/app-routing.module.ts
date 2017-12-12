@@ -13,7 +13,10 @@ import { CounterPartyViewComponent } from './Masters/counter-party/counter-party
 import { FilterContentComponent } from './Masters/content/filter-content/filter-content.component';
 import { TabContentComponent } from './Masters/content/tab-content/tab-content.component';
 import { ContentViewComponent } from './Masters/content/content-view/content-view.component';
-
+import { BankFilterComponent } from './Masters/bank/bank-filter/bank-filter.component';
+import { TabBankComponent } from './Masters/bank/tab-bank/tab-bank.component';
+import { BankViewComponent } from './Masters/bank/bank-view/bank-view.component';
+import { BankResultComponent } from './Masters/bank/bank-result/bank-result.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -24,7 +27,34 @@ const routes: Routes = [
   // tslint:disable-next-line:max-line-length
   { path: 'filterContent', component: FilterContentComponent,
       children: [{path: 'tabContent', component: TabContentComponent,
-               children: [{path: 'contentView', component: ContentViewComponent}]}] }
+               children: [{path: 'contentView', component: ContentViewComponent}]}] },
+               {
+                path: 'bankFilterM',
+                component: BankFilterComponent,
+                children: [
+                  {
+                      path: 'bankTabM',
+                      component: TabBankComponent,
+                      children: [
+                        {
+                            path: 'bankViewM',
+                            component: BankViewComponent,
+                            children: [
+                              {
+                                  path: 'bankResult',
+                                  component: BankResultComponent
+                              }
+                           ]
+                        // },
+                        }
+                        // {
+                        //   path: 'bankResult',
+                        //   component: BankResultComponent
+                        // }
+                     ]
+                  },
+               ]
+              },
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

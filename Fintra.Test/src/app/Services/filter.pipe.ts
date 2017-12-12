@@ -3,7 +3,7 @@ import { PipeTransform, Pipe  } from '@angular/core';
   name: 'startFrom'
 })
 export class TruncatePipe implements PipeTransform {
-  transform(input: string, start: number) : string {
+  transform(input: string, start: number): string {
 
     if (!input || !input.length) {
       return;
