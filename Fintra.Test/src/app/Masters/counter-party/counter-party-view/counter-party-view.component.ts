@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import { $ } from 'protractor';
+import { $ } from 'protractor';
 
 @Component({
-  selector: 'app-customer-view',
-  templateUrl: './customer-view.component.html',
-  styleUrls: ['./customer-view.component.css']
+  selector: 'app-counter-party-view',
+  templateUrl: './counter-party-view.component.html',
+  styleUrls: ['./counter-party-view.component.css']
 })
-export class CustomerViewComponent implements OnInit {
+export class CounterPartyViewComponent implements OnInit {
 
   constructor(private router: Router) { }
-  customer= {};
+  counterparty = {};
+
   ngOnInit() {
   }
   // tslint:disable-next-line:member-ordering

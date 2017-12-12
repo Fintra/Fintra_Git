@@ -1,0 +1,25 @@
+<!--body of the page-->
+<div class="container">
+    <div class="row" ng-controller="DatepickerPopupCtrl">
+        <div class="col-xs-12 ui-view-menu-border">
+            <!-- tabs -->
+            <div class="tabbable tabs-left">
+                <ul class="nav nav-tabs side-link-container" ng-hide="hideTabs">
+                    <li [routerLinkActive]="['active']">
+                        <a [routerLink]="['counterPartView']" data-toggle="tab">
+                            <span class="badge">1</span> Counterparty
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="ui-view-menu-page">
+                        <router-outlet></router-outlet>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /tabs -->
+        </div>
+    </div>
+</div>
+<!--/.container-->

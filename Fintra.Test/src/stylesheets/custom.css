@@ -14992,6 +14992,10 @@ bs-daterangepicker-container {
     }
 }
 
+.filter-selected-row1 {
+    background: #a6f2ce !important;
+}
+
 
 /*
 background: #e1548f linear-gradient(to bottom, #ff74ae, #be1c5e);

@@ -1,0 +1,104 @@
+<app-header></app-header>
+<div class="container filter-box" [hidden]="!defaultPage">
+    <div class="row">
+        <div class="col-md-3 col-md-offset-9">
+            <a href="#" [routerLink]="['tabContent/contentView']" [queryParams]="{ page: selectedItem }"><button class="btn btn-primary" (click) = "createContent()">Create New</button></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h4> Search </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label> Module </label>
+        </div>
+        <div class="col-md-4">
+            <label> Name   </label>
+        </div>
+        <div class="col-md-4">
+            <label> Description </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text" class="form-control" [(ngModel)]="search.contentModule">
+        </div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" [(ngModel)]="search.contentName">
+        </div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" [(ngModel)]="search.contentDescription">
+        </div>
+    </div>
+    <!-- <div class="row"></div>
+    <div class="row">
+        <div class="col-md-4">
+            <label> Reference </label>
+        </div>
+        <div class="col-md-4">
+            <label>  Name </label>
+        </div>
+        <div class="col-md-4">
+            <label> Description </label>
+        </div>
+	</div>
+	<div class="border">
+        <div ng-repeat="content in contents | startFrom : currentPage*recordsPerPage | filter : search | limitTo: recordsPerPage  | orderBy:'contentName'" (click)="open(content)" [ngClass]="{selected: content.contentName === selectedItem}">
+            <div class="row">
+                <div class="col-md-4"><b>{{content.contentModule}}</b></div>
+                <div class="col-md-4"><b>{{content.contentName}}</b></div>
+                <div class="col-md-4"><b>{{content.contentDescription}}</b></div>
+            </div>
+              <hr></hr>
+        </div>
+    </div> -->
+    <div class="row"></div>
+    <div class="row">
+        <table class="table table-striped">
+            <tr>
+                <th style="text-align: left;width: 200px;"> Module </th>
+                <th style="text-align: left"> Name/Description </th>
+                <th style="width: 510px;"> Principal Contact </th>
+            </tr>
+            <tr *ngFor="let content of contents|startFrom:currentPage*recordsPerPage |filterBy: search| slice:0:recordsPerPage" [ngClass]="content.contentModule == selectedItem ? 'filter-selected-row1' : ''" (click)="open(content)">
+                <td style="text-align: left">{{content.contentModule}} </td>
+                <td style="text-align: left;width: 90px;">{{content.contentName}} </td>
+                <td> {{content.contentDescription}} </td>
+            </tr>
+        </table>
+    </div>
+    <div align="center" class="filter-pagination-container">
+        <button class="btn btn-sm btn-success" [disabled]="currentPage === 0" (click)="currentPage = 0">First</button>&nbsp;&nbsp;
+        <button class="btn btn-sm btn-success" [disabled]="currentPage === 0" (click)="currentPage = currentPage - 1">Back</button>&nbsp;&nbsp; {{currentPage + 1}} / {{numberOfPages()}} &nbsp;&nbsp;
+        <button class="btn btn-sm btn-success" [disabled]="currentPage >= numberOfPages()-1" (click)="currentPage = currentPage + 1">Next</button> &nbsp;&nbsp;
+        <button class="btn btn-sm btn-success" [disabled]="currentPage >= numberOfPages()-1" (click)="currentPage = numberOfPages()-1">Last</button>
+    </div>
+    <br>
+    <div class="row" *ngIf="!transactionCmd">
+        <div class="col-md-1">
+            <a href="#" ui-sref=".view"><button  class="btn btn-primary" (click) = "viewContent()">View</button></a>
+        </div>
+        <div class="col-md-1">
+            <a href="#" ui-sref=".update"><button class="btn btn-primary" (click) = "updateContent()">Update</button></a>
+        </div>
+    </div>
+    <div class="row" *ngIf="transactionCmd">
+        <div class="col-md-3">
+            <a href="#" ui-sref=".update"><button [disabled]="selectedID === null || transactionCmd!='update'" class="btn btn-link custom-link" (click)="updateContent()" style="width:100px;">Update</button></a>
+        </div>
+        <div class="col-md-3">
+            <a href="#" ui-sref=".view"><button [disabled]="selectedItem === null || transactionCmd!=='review'" class="btn btn-link custom-link" (click)="viewContent()" style="width:100px;">Review</button></a>
+        </div>
+        <div class="col-md-3">
+            <a href="#" ui-sref=".view"><button [disabled]="selectedItem === null || transactionCmd!='approve'" class="btn btn-link custom-link" (click)="viewContent()" style="width:100px;">Approve</button></a>
+        </div>
+        <div class="col-md-3">
+            <a href="#" ui-sref=".view"><button [disabled]="selectedItem === null || transactionCmd!='enquiry'" class="btn btn-link custom-link" (click)="viewContent()" style="width:100px;">Enquiry</button></a>
+        </div>
+    </div>
+</div>
+<div style="float:center; width: 100%" ui-view></div>
+<router-outlet></router-outlet>
+<app-footer></app-footer>

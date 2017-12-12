@@ -1,0 +1,96 @@
+<div class="tab-pane active" id="main_page">
+    <form name="counterparty_form" novalidate>
+        <div style="margin-top:20px;width:100%;">
+            <div class="row">
+                <fieldset ng-disabled="disableAll">
+                    <h6 class="small-heading">Counterparty</h6>
+                    <div class="col-md-5 col-sm-12 col-xs-12 two-blocks">
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 text-right">Counterparty Id:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control mandatory custom-form-control" itype="text" id="couparId" name="couparIdName" [(ngModel)]="counterparty.counterpartyId" maxlength="16" required ng-pattern="/^[0-9a-zA-Z]*$/" ng-blur="checkAvailability()"
+                                    ng-disabled="transactionMode == 'update'">
+                                <div *ngIf="counterpartyAlreadyExisted" style="color:red;">Record with the same ID Already Exists</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 text-right">Counterparty Name:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control mandatory custom-form-control" id="couparn" name="couparName" [(ngModel)]="counterparty.counterpartyName" maxlength="35" required ng-pattern="/^[0-9a-zA-Z\s]*$/">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 text-right">Counterparty Address:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control mandatory custom-form-control" id="counterpartyAddress1" type="text" name="counterpartyAddress1" maxlength="35" [(ngModel)]="counterparty.counterpartyAddress1" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-5 col-sm-5 col-xs-12 text-right"></div>
+                            <label [hidden]="true">Counterparty Address:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control mandatory custom-form-control" name="counterpartyAddress2" id="counterpartyAddress2" [(ngModel)]="counterparty.counterpartyAddress2" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-5 col-sm-5 col-xs-12 text-right"></div>
+                            <label [hidden]="true">Counterparty Address:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control mandatory custom-form-control" name="counterpartyAddress3" id="counterpartyAddress3" [(ngModel)]="counterparty.counterpartyAddress3" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-12 col-xs-12 two-blocks second-two-block">
+                        <div class="form-group">
+                            <p><strong>Exposure Limit in Home CCY:</strong></p>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 ">Import LC</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control custom-form-control " id="counterpartyImportLc" name="counterpartyImportLcName" [(ngModel)]="counterparty.counterpartyImportLc" maxlength="20" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12">Export LC</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control custom-form-control" id="counterpartyExportLc" name="counterpartyExportLc" [(ngModel)]="counterparty.counterpartyExportLc" maxlength="20" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12">Guarantee</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control custom-form-control" id="counterpartyGuarantee" name="counterpartyGuarantee" [(ngModel)]="counterparty.counterpartyGuarantee" maxlength="20" required>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="form-group" *ngIf="transactionCmd=='review' || transactionCmd=='approve' || transactionCmd=='enquiry'">
+                <label class="col-lg-5 col-sm-5 col-xs-12 text-right">Reviewer remark</label>
+                <div class="col-lg-7 col-sm-5 col-xs-12">
+                    <textarea user-guide class="form-control custom-form-control" rows="3" [(ngModel)]="counterparty.reviewer_remark" ng-disabled="transactionCmd=='approve' || transactionCmd=='enquiry'"></textarea>
+
+                </div>
+            </div>
+            <div class="form-group" *ngIf="transactionCmd=='approve' || transactionCmd=='review' || transactionCmd=='enquiry'">
+                <label class="col-lg-5 col-sm-5 col-xs-12 text-right">Approver remark</label>
+                <div class="col-lg-7 col-sm-5 col-xs-12">
+                    <textarea user-guide class="form-control custom-form-control" rows="3" [(ngModel)]="counterparty.approver_remark" ng-disabled="transactionCmd=='review' || transactionCmd=='enquiry'"></textarea>
+
+                </div>
+            </div>
+            <div class="row btn_fix">
+                <div class="col-md-12">
+                    <button class="btn btn-info" id="Finish" type="submit" (click)="finalSubmitCounterparty();">Finish</button>
+                    <button class="btn btn-primary" type="submit" (click)="saveAndExit();">Save and Exit</button>
+                    <button class="btn btn-warning" type="button" *ngIf="errorPresent" (click)="reactyFy()">Rectify</button>
+                    <button *ngIf="transactionCmd=='review' && transactionCmd!='enquiry'" class="btn btn-success" type="button" (click)="review();">Review</button>
+                    <button *ngIf="transactionCmd=='approve' && transactionCmd!='enquiry'" class="btn btn-success" type="button" (click)="approve();">Approve</button>
+                    <button *ngIf="transactionCmd=='review' || transactionCmd=='approve'" class="btn btn-danger" type="button" (click)="reject();">Reject</button>
+                    <a class="btn btn-warning" ui-sref="home">Cancel</a>
+                    <a class="btn btn-warning" ui-sref="home" *ngIf="transactionMode=='view' || transactionCmd=='enquiry' || transactionCmd=='approve' || transactionCmd=='review'">Close</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

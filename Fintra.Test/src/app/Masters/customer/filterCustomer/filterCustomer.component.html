@@ -33,7 +33,7 @@
                 <th class="textAlignleft2 textAlignleft2Wide">Name/Description</th>
                 <th style="text-align: left">Principal Contact</th>
             </tr>
-            <tr *ngFor="let post of customer" ng-class=" customer.customerId == selectedItem ? 'filter-selected-row' : ''" (click)="open3(customer)">
+            <tr *ngFor="let post of customer" [ngClass]="post.customerId == selectedItem ? 'filter-selected-row1' : ''" (click)="open3(post)">
                 <td style="text-align: left">{{post.customerId}} </td>
                 <td style="text-align: left;">{{post.customerName}} </td>
                 <td style="text-align: left">{{post.contactName1}} </td>

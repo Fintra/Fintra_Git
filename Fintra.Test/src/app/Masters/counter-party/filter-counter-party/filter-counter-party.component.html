@@ -1,0 +1,91 @@
+<app-header></app-header>
+<div class="container filter-box" [hidden]="!defaultPage">
+    <div class="row">
+        <div class="col-md-3 col-md-offset-9">
+            <a [routerLink]="['tabCounterParty/counterPartView']"><button class="btn btn-primary" (click) = "createCounterparty()">Create New</button></a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h4> Search </h4>
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-md-4">
+            <label> Reference </label>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+
+        </div>
+
+    </div> -->
+
+    <div class="row">
+        <div class="col-md-4">
+            <label> Reference </label>
+            <input type="text" class="form-control custom-form-control" [(ngModel)]="search.counterpartyId">
+        </div>
+        <div class="col-md-4">
+            <label> Name / Description </label>
+            <input type="text" class="form-control custom-form-control" [(ngModel)]="search.counterpartyName">
+        </div>
+        <div class="col-md-4">
+            <label>Counterparty Address </label>
+            <input type="text" class="form-control custom-form-control" [(ngModel)]="search.counterpartyAddress1">
+        </div>
+
+    </div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row">
+        <table class="table table-striped toWide">
+            <tr>
+                <th class="textAlignleft textAlignleftWide"> Reference </th>
+                <th class="textAlignleft2 textAlignleft2Wide"> Name/Description </th>
+                <th style="text-align: left"> Principal Contact </th>
+            </tr>
+            <tr *ngFor="let post of counters| filterBy: search" [ngClass]="post.counterpartyId == selectedItem ? 'filter-selected-row1' : ''" (click)="open(post)">
+                <!-- {{post}} -->
+                <td style="text-align: left">{{post.counterpartyId}} </td>
+                <td style="text-align: left">{{post.counterpartyName}} </td>
+                <td style="text-align: left"> {{post.counterpartyAddress1}} </td>
+            </tr>
+        </table>
+    </div>
+    <div align="center" class="filter-pagination-container">
+        <button class="btn btn-sm btn-success" [disabled]="currentPage === 0" (click)="currentPage = 0">First</button>&nbsp;&nbsp;
+        <button class="btn btn-sm btn-success" [disabled]="currentPage === 0" (click)="currentPage = currentPage - 1">Back</button><span ng-hide="search.counterpartyId||search.counterpartyName||search.counterpartyAddress1">&nbsp;&nbsp; {{currentPage + 1}} / {{numberOfPages()}} &nbsp;&nbsp;</span>
+        <button class="btn btn-sm btn-success" [disabled]="currentPage >= numberOfPages()-1" (click)="currentPage = currentPage + 1">Next</button> &nbsp;&nbsp;
+        <button class="btn btn-sm btn-success" [disabled]="currentPage >= numberOfPages()-1" (click)="currentPage = numberOfPages()-1">Last</button>
+    </div>
+    <br>
+    <!-- <div class="row" ngIf="!transactionCmd">
+        <div class="col-md-1">
+            <a href="#" id="view" ui-sref=".view"><button ng-hide="selectedItem === null" class="btn btn-primary" (click) = "viewCounterparty()">View</button></a>
+        </div>
+        <div class="col-md-offset-9 col-md-1">
+            <a href="#" id="update" ui-sref=".update"><button  ng-hide="selectedItem === null" class="btn btn-primary" (click) = "updateCounterparty()">Update</button></a>
+        </div>
+    </div> -->
+    <div class="row" *ngIf="transactionCmd">
+        <div class="col-md-3">
+            <a href="#" ui-sref=".update"><button ng-disabled="selectedID === null || transactionCmd!='update'" class="btn btn-link custom-link" (click)="updateCounterparty()" style="width:100px;">Update</button></a>
+        </div>
+        <div class="col-md-3">
+            <a href="#" ui-sref=".view"><button ng-disabled="selectedItem === null || transactionCmd!=='review'" class="btn btn-link custom-link" (click)="viewCounterparty()" style="width:100px;">Review</button></a>
+        </div>
+        <div class="col-md-3">
+            <a href="#" ui-sref=".view"><button ng-disabled="selectedItem === null || transactionCmd!='approve'" class="btn btn-link custom-link" (click)="viewCounterparty()" style="width:100px;">Approve</button></a>
+        </div>
+        <div class="col-md-3">
+            <a href="#" ui-sref=".view"><button ng-disabled="selectedItem === null || transactionCmd!='enquiry'" class="btn btn-link custom-link" (click)="viewCounterparty()" style="width:100px;">Enquiry</button></a>
+        </div>
+    </div>
+</div>
+<div style="float:center; width: 100%" ui-view></div>
+<router-outlet></router-outlet>
+<app-footer></app-footer>

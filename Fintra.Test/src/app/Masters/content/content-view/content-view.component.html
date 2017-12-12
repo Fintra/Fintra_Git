@@ -1,0 +1,67 @@
+<div class="tab-pane active" id="main_page">
+    <form name="content_form" novalidate>
+        <div style="margin-top:20px;width:100%;">
+            <div class="row">
+                <fieldset ng-disabled="disableAll">
+                    <h6 class="small-heading">Content</h6>
+                    <div class="col-md-5 col-sm-12 col-xs-12 two-blocks">
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 text-right">Module:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <select user-guide class="form-control mandatory custom-form-control" name="moduleName" [(ngModel)]="content.contentModule" required>
+                    <option value="" selected>--Select--</option>
+                    <option>Imports</option>
+                    <option>Exports</option>
+                    <option>Guarantees</option>
+                    </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 text-right">Content Id/Name:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <input user-guide type="text" class="form-control mandatory custom-form-control " id="con_name" name="contentName" type="text" maxlength="35" [(ngModel)]="content.contentName" required ng-pattern="/^[0-9a-zA-Z]*$/" ng-blur="checkAvailability()" ng-disabled="transactionMode == 'update'"
+                                />
+                                <div *ngIf="contentAlreadyExisted" style="color:red;">Record with the same Content Name Already Exists</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-12 col-xs-12 two-blocks second-two-block">
+                        <div class="form-group">
+                            <label class="col-lg-5 col-sm-5 col-xs-12 ">Content Description:</label>
+                            <div class="col-lg-7 col-sm-5 col-xs-12">
+                                <textarea user-guide class="form-control mandatory custom-form-control ng-pristine ng-valid ng-empty ng-touched" rows="5" name="contentDescriptionName" maxlength="6500" id="content_des" [(ngModel)]="content.contentDescription" required ng-trim="false"></textarea>
+                                <!-- <p>{{6500 - content.contentDescription.length}} chars remaining</p> -->
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="form-group" *ngIf="transactionCmd=='review' || transactionCmd=='approve' || transactionCmd=='enquiry'">
+                <label class="col-lg-5 col-sm-5 col-xs-12 text-right">Reviewer remark</label>
+                <div class="col-lg-7 col-sm-5 col-xs-12">
+                    <textarea user-guide class="form-control custom-form-control" rows="3" [(ngModel)]="content.reviewer_remark" ng-disabled="transactionCmd=='approve' || transactionCmd=='enquiry'"></textarea>
+                    <!-- <p *ngIf="reviewer_remark_required" style="color:red;">Reviewer remark is required</p> -->
+                </div>
+            </div>
+            <div class="form-group" *ngIf="transactionCmd=='approve' || transactionCmd=='review' || transactionCmd=='enquiry'">
+                <label class="col-lg-5 col-sm-5 col-xs-12 text-right">Approver remark</label>
+                <div class="col-lg-7 col-sm-5 col-xs-12">
+                    <textarea user-guide class="form-control custom-form-control" rows="3" [(ngModel)]="content.approver_remark" ng-disabled="transactionCmd=='review' || transactionCmd=='enquiry'"></textarea>
+                    <!-- <p *ngIf="approver_remark_required" style="color:red;">Approver remark is required</p> -->
+                </div>
+            </div>
+            <div class="row btn_fix">
+                <div class="col-md-12">
+                    <button class="btn btn-info" type="submit" (click)="finalSubmitContent();">Finish</button>
+                    <button class=" btn btn-primary " type="submit " (click)="saveAndExit(); ">Save and Exit</button>
+                    <button class="btn btn-warning " type="button " *ngIf="errorPresent " ng-click="reactyFy() ">Rectify</button>
+                    <button *ngIf="transactionCmd=='review' && transactionCmd!='enquiry' " class="btn btn-success " type="button " ng-click="review(); ">Review</button>
+                    <button *ngIf="transactionCmd=='approve' && transactionCmd!='enquiry' " class="btn btn-success " type="button " ng-click="approve(); ">Approve</button>
+                    <button *ngIf="transactionCmd=='review' || transactionCmd=='approve' " class="btn btn-danger " type="button " ng-click="reject(); ">Reject</button>
+                    <a class="btn btn-warning " ui-sref="home ">Cancel</a>
+                    <a class="btn btn-warning " ui-sref="home " *ngIf="transactionMode=='view' || transactionCmd=='enquiry' || transactionCmd=='approve' || transactionCmd=='review' ">Close</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
