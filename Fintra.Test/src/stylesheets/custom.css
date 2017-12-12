@@ -9203,8 +9203,8 @@ Dashboard related styles
     transform: scale(1.5);
     z-index: 1000;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 142px;
+    left: 205px;
     width: 80vh;
     height: 55vh;
 }

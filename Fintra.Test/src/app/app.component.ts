@@ -3,6 +3,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
   selector: 'app-root',
   encapsulation: ViewEncapsulation.None,
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css', '../stylesheets/custom.css']
+  // tslint:disable-next-line:max-line-length
+  styleUrls: ['./app.component.css', '../stylesheets/bootstrap.min.css', '../stylesheets/font-awesome.min.css', '../stylesheets/dropzone.css', '../stylesheets/sidebar.css', '../stylesheets/metisMenu.min.css', '../stylesheets/sidebardemo.css', '../stylesheets/animate.css', '../stylesheets/custom.css', '../stylesheets/mobile-device.css', '../stylesheets/themes.css']
 })
 export class AppComponent {}
