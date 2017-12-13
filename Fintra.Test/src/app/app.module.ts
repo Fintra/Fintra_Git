@@ -27,9 +27,18 @@ import { BankResultComponent } from './Masters/bank/bank-result/bank-result.comp
 import { CustomerResultComponent } from './Masters/customer/customer-result/customer-result.component';
 import {  TruncatePipe } from './Services/filter.pipe';
 import {  FilterPipeModule } from 'ngx-filter-pipe';
+import { FilterPortcodeComponent } from './Masters/portcode/filter-portcode/filter-portcode.component';
+import { TabPortcodeComponent } from './Masters/portcode/tab-portcode/tab-portcode.component';
+import { PortcodeViewComponent } from './Masters/portcode/portcode-view/portcode-view.component';
+import { FilterInsuranceComponent } from './Masters/insurance/filter-insurance/filter-insurance.component';
+import { TabInsuranceComponent } from './Masters/insurance/tab-insurance/tab-insurance.component';
+import { InsuranceViewComponent } from './Masters/insurance/insurance-view/insurance-view.component';
+import { FilterDocumentComponent } from './Masters/document/filter-document/filter-document.component';
+import { TabDocumentComponent } from './Masters/document/tab-document/tab-document.component';
+import { DocumentViewComponent } from './Masters/document/document-view/document-view.component';
 @NgModule({
   // tslint:disable-next-line:max-line-length
-  declarations: [AppComponent, LoginComponent, HeaderComponent, FooterComponent, DashboardComponent, FilterCustomerComponent, CustomerViewComponent, TabCustomerComponent, AccountComponent, FilterCounterPartyComponent, TabCounterPartyComponent, CounterPartyViewComponent, FilterContentComponent, TabContentComponent, ContentViewComponent, TruncatePipe, CustomerResultComponent, BankFilterComponent, TabBankComponent, BankViewComponent, BankResultComponent],
+  declarations: [AppComponent, LoginComponent, HeaderComponent, FooterComponent, DashboardComponent, FilterCustomerComponent, CustomerViewComponent, TabCustomerComponent, AccountComponent, FilterCounterPartyComponent, TabCounterPartyComponent, CounterPartyViewComponent, FilterContentComponent, TabContentComponent, ContentViewComponent, TruncatePipe, CustomerResultComponent, BankFilterComponent, TabBankComponent, BankViewComponent, BankResultComponent, FilterPortcodeComponent, TabPortcodeComponent, PortcodeViewComponent, FilterInsuranceComponent, TabInsuranceComponent, InsuranceViewComponent, FilterDocumentComponent, TabDocumentComponent, DocumentViewComponent ],
   imports: [
     BrowserModule,
     FormsModule,

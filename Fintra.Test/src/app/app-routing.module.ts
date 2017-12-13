@@ -17,6 +17,15 @@ import { BankFilterComponent } from './Masters/bank/bank-filter/bank-filter.comp
 import { TabBankComponent } from './Masters/bank/tab-bank/tab-bank.component';
 import { BankViewComponent } from './Masters/bank/bank-view/bank-view.component';
 import { BankResultComponent } from './Masters/bank/bank-result/bank-result.component';
+import { FilterPortcodeComponent } from './Masters/portcode/filter-portcode/filter-portcode.component';
+import { TabPortcodeComponent } from './Masters/portcode/tab-portcode/tab-portcode.component';
+import { PortcodeViewComponent } from './Masters/portcode/portcode-view/portcode-view.component';
+import { FilterInsuranceComponent } from './Masters/insurance/filter-insurance/filter-insurance.component';
+import { TabInsuranceComponent } from './Masters/insurance/tab-insurance/tab-insurance.component';
+import { InsuranceViewComponent } from './Masters/insurance/insurance-view/insurance-view.component';
+import { FilterDocumentComponent } from './Masters/document/filter-document/filter-document.component';
+import { TabDocumentComponent } from './Masters/document/tab-document/tab-document.component';
+import { DocumentViewComponent } from './Masters/document/document-view/document-view.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -55,6 +64,25 @@ const routes: Routes = [
                   },
                ]
               },
+              {
+                path: 'filterPortcode', component: FilterPortcodeComponent,
+                children: [{
+                  path: 'tabPortcode', component: TabPortcodeComponent,
+                  children: [{ path: 'portcodeView', component: PortcodeViewComponent }]
+                }]
+              }, {
+                path: 'filterInsurance', component: FilterInsuranceComponent,
+                children: [{
+                  path: 'tabInsurance', component: TabInsuranceComponent,
+                  children: [{ path: 'insuranceView', component: InsuranceViewComponent }]
+                }]
+              }, {
+                path: 'filterDocument', component: FilterDocumentComponent,
+                children: [{
+                  path: 'tabDocument', component: TabDocumentComponent,
+                  children: [{ path: 'documentView', component: DocumentViewComponent }]
+                }]
+              }, 
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

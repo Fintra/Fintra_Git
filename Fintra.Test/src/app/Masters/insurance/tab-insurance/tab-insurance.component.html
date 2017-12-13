@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row" ng-controller="DatepickerPopupCtrl">
+        <div class="col-xs-12 ui-view-menu-border">
+            <div class="tabbable tabs-left">
+                <ul class="nav nav-tabs side-link-container" id="tabs" ng-hide="hideTabs">
+                    <li [routerLinkActive]="['active']">
+                        <a [routerLink]="['insuranceView']" data-toggle="tab">
+                            <span class="badge">1</span>Insurance
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content ui-view-menu-page">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
