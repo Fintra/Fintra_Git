@@ -17,7 +17,7 @@ export class BankFilterComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
   banks = {};
-  bank = {};
+  // bank = {};
   defaultPage = true;
   isAvailable = true;
   recordsPerPage = 5;
@@ -38,11 +38,15 @@ export class BankFilterComponent implements OnInit {
     return Math.ceil(this.banks.length / this.recordsPerPage);
   };
 
-  create = function(selectedItem) {
+  create = () => {
     this.defaultPage = false;
-    this.router.navigate([
-      'bankFilterM/bankTabM/bankViewM',
-      { id: selectedItem }
-    ]);
-  };
+   }
+
+  // create = function(selectedItem) {
+  //   this.defaultPage = false;
+  //   this.router.navigate([
+  //     'bankFilterM/bankTabM/bankViewM',
+  //     { id: selectedItem }
+  //   ]);
+  // };
 }

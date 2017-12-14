@@ -10,31 +10,34 @@ import { CommonDataService } from '../../../Services/common-data.service';
   styleUrls: ['./bank-view.component.css']
 })
 export class BankViewComponent implements OnInit {
-  public selectedIDE: string;
-  public selectedIDE1: any;
-  public observerRef: any;
-  public bank: any;
-  defaultPage = true;
-  defaultPage1 = true;
+  // public selectedIDE: string;
+  // public selectedIDE1: any;
+  // public observerRef: any;
+   bank= {};
+  // defaultPage = true;
+  // defaultPage1 = true;
 
   constructor(
     private commonDataService: CommonDataService,
     private router: Router,
     private route: ActivatedRoute
   ) {
-    this.observerRef = route.params.subscribe(params => {
-      this.selectedIDE = params['id'];
-      this.selectedIDE1 = this.commonDataService
-        .bankData()
-        .filter(x => x.bankId === this.selectedIDE);
-      this.bank = this.selectedIDE1[0];
-    });
+    // this.observerRef = route.params.subscribe(params => {
+    //   this.selectedIDE = params['id'];
+    //   this.selectedIDE1 = this.commonDataService
+    //     .bankData()
+    //     .filter(x => x.bankId === this.selectedIDE);
+    //   this.bank = this.selectedIDE1[0];
+    // });
   }
 
   ngOnInit() {}
 
-  finish = () => {
-    this.defaultPage = false;
-    this.router.navigate(['bankFilterM/bankTabM/bankViewM/bankResult']);
+  finish() {
+    // this.defaultPage = false;
+    this.router.navigate(['bankFilterM/bankTabM/bankResult']);
+  }
+  saveAndExit() {
+    this.router.navigate(['/dashboard']);
   }
 }

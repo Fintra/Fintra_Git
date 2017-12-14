@@ -37,33 +37,8 @@ const routes: Routes = [
   { path: 'filterContent', component: FilterContentComponent,
       children: [{path: 'tabContent', component: TabContentComponent,
                children: [{path: 'contentView', component: ContentViewComponent}]}] },
-               {
-                path: 'bankFilterM',
-                component: BankFilterComponent,
-                children: [
-                  {
-                      path: 'bankTabM',
-                      component: TabBankComponent,
-                      children: [
-                        {
-                            path: 'bankViewM',
-                            component: BankViewComponent,
-                            children: [
-                              {
-                                  path: 'bankResult',
-                                  component: BankResultComponent
-                              }
-                           ]
-                        // },
-                        }
-                        // {
-                        //   path: 'bankResult',
-                        //   component: BankResultComponent
-                        // }
-                     ]
-                  },
-               ]
-              },
+   // tslint:disable-next-line:max-line-length
+  { path: 'bankFilterM', component: BankFilterComponent, children: [{path: 'bankTabM', component: TabBankComponent, children: [{path: 'bankViewM', component: BankViewComponent}, {path: 'bankResult', component: BankResultComponent}]}] },
               {
                 path: 'filterPortcode', component: FilterPortcodeComponent,
                 children: [{
@@ -82,7 +57,7 @@ const routes: Routes = [
                   path: 'tabDocument', component: TabDocumentComponent,
                   children: [{ path: 'documentView', component: DocumentViewComponent }]
                 }]
-              }, 
+              },
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
