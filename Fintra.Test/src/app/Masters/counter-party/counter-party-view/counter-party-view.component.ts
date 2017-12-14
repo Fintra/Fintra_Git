@@ -14,12 +14,9 @@ export class CounterPartyViewComponent implements OnInit {
 
   ngOnInit() {
   }
-  // tslint:disable-next-line:member-ordering
-  saveAndProceed() {
-    // tslint:disable-next-line:quotemark
-    this.router.navigate(['/filterCustomer/tabCustomer/account']);
+  finalSubmitCounterparty() {
+    this.router.navigate(['/filterCounterParty/tabCounterParty/counterPartyResult']);
   }
-  // tslint:disable-next-line:one-line
   saveAndExit(){
     this.router.navigate(['/dashboard']);
   }

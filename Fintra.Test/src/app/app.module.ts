@@ -27,6 +27,8 @@ import { BankResultComponent } from './Masters/bank/bank-result/bank-result.comp
 import { CustomerResultComponent } from './Masters/customer/customer-result/customer-result.component';
 import {  TruncatePipe } from './Services/filter.pipe';
 import {  FilterPipeModule } from 'ngx-filter-pipe';
+import { ContentResultComponent } from './Masters/content/content-result/content-result.component';
+import { CounterpartyResultComponent } from './Masters/counter-party/counterparty-result/counterparty-result.component';
 import { FilterPortcodeComponent } from './Masters/portcode/filter-portcode/filter-portcode.component';
 import { TabPortcodeComponent } from './Masters/portcode/tab-portcode/tab-portcode.component';
 import { PortcodeViewComponent } from './Masters/portcode/portcode-view/portcode-view.component';
@@ -36,9 +38,11 @@ import { InsuranceViewComponent } from './Masters/insurance/insurance-view/insur
 import { FilterDocumentComponent } from './Masters/document/filter-document/filter-document.component';
 import { TabDocumentComponent } from './Masters/document/tab-document/tab-document.component';
 import { DocumentViewComponent } from './Masters/document/document-view/document-view.component';
+import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
+
 @NgModule({
   // tslint:disable-next-line:max-line-length
-  declarations: [AppComponent, LoginComponent, HeaderComponent, FooterComponent, DashboardComponent, FilterCustomerComponent, CustomerViewComponent, TabCustomerComponent, AccountComponent, FilterCounterPartyComponent, TabCounterPartyComponent, CounterPartyViewComponent, FilterContentComponent, TabContentComponent, ContentViewComponent, TruncatePipe, CustomerResultComponent, BankFilterComponent, TabBankComponent, BankViewComponent, BankResultComponent, FilterPortcodeComponent, TabPortcodeComponent, PortcodeViewComponent, FilterInsuranceComponent, TabInsuranceComponent, InsuranceViewComponent, FilterDocumentComponent, TabDocumentComponent, DocumentViewComponent ],
+  declarations: [AppComponent, LoginComponent, HeaderComponent, FooterComponent, DashboardComponent, FilterCustomerComponent, CustomerViewComponent, TabCustomerComponent, AccountComponent, FilterCounterPartyComponent, TabCounterPartyComponent, CounterPartyViewComponent, FilterContentComponent, TabContentComponent, ContentViewComponent, TruncatePipe, CustomerResultComponent, BankFilterComponent, TabBankComponent, BankViewComponent, BankResultComponent, ContentResultComponent, CounterpartyResultComponent, FilterPortcodeComponent, TabPortcodeComponent, PortcodeViewComponent, FilterInsuranceComponent, TabInsuranceComponent, InsuranceViewComponent, FilterDocumentComponent, TabDocumentComponent, DocumentViewComponent, PageNotFoundComponent ],
   imports: [
     BrowserModule,
     FormsModule,

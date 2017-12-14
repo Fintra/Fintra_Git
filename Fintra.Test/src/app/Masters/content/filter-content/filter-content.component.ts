@@ -30,7 +30,13 @@ numberOfPages() {
   open = function(item) {
     this.selectedItem = item.contentModule;
 };
+
 createContent() {
   this.defaultPage = false;
+  // this.router.navigate(['/filterContent/tabContent/contentView']);
+}
+updateContent(selectedItem) {
+  this.defaultPage = false;
+  this.router.navigate(['/filterContent/tabContent/contentView', { id: selectedItem }]);
 }
 }
