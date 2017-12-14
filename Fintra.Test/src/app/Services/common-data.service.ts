@@ -28,19 +28,19 @@ export class CommonDataService {
   }
   contentData() {
    return this.data = [
-    {contentModule: '1', contentName: 'gopal1', contentDescription: 'ddd'},
-    {contentModule: '2', contentName: 'gopal2', contentDescription: 'ddd'},
-    {contentModule: '3', contentName: 'gopal3', contentDescription: 'ddd'},
-    {contentModule: '4', contentName: 'gopal4', contentDescription: 'ddd'},
-    {contentModule: '5', contentName: 'gopal5', contentDescription: 'ddd'},
-    {contentModule: '6', contentName: 'gopal6', contentDescription: 'ddd'},
-    {contentModule: '7', contentName: 'gopal7', contentDescription: 'ddd'},
-    {contentModule: '8', contentName: 'gopal8', contentDescription: 'ddd'},
-    {contentModule: '9', contentName: 'gopal9', contentDescription: 'ddd'},
-    {contentModule: '10', contentName: 'gopal10', contentDescription: 'ddd'},
-    {contentModule: '11', contentName: 'gopal11', contentDescription: 'ddd'},
-    {contentModule: '12', contentName: 'gopal112', contentDescription: 'ddd'},
-    {contentModule: '13', contentName: 'gopal13', contentDescription: 'ddd'},
+    {contentModule: 'Imports', contentName: 'gopal1', contentDescription: 'ddd'},
+    {contentModule: 'Exports', contentName: 'gopal2', contentDescription: 'ddd'},
+    {contentModule: 'Guarantees', contentName: 'gopal3', contentDescription: 'ddd'},
+    {contentModule: 'Guarantees', contentName: 'gopal4', contentDescription: 'ddd'},
+    {contentModule: 'Guarantees', contentName: 'gopal5', contentDescription: 'ddd'},
+    {contentModule: 'Exports', contentName: 'gopal6', contentDescription: 'ddd'},
+    {contentModule: 'Exports', contentName: 'gopal7', contentDescription: 'ddd'},
+    {contentModule: 'Exports', contentName: 'gopal8', contentDescription: 'ddd'},
+    {contentModule: 'Imports', contentName: 'gopal9', contentDescription: 'ddd'},
+    {contentModule: 'Imports', contentName: 'gopal10', contentDescription: 'ddd'},
+    {contentModule: 'Imports', contentName: 'gopal11', contentDescription: 'ddd'},
+    {contentModule: 'Imports', contentName: 'gopal112', contentDescription: 'ddd'},
+    {contentModule: 'Imports', contentName: 'gopal13', contentDescription: 'ddd'},
     ];
   }
   bankData() {

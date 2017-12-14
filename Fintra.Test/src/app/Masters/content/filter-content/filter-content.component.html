@@ -62,7 +62,7 @@
                 <th style="text-align: left"> Name/Description </th>
                 <th style="width: 510px;"> Principal Contact </th>
             </tr>
-            <tr *ngFor="let content of contents|startFrom:currentPage*recordsPerPage |filterBy: search| slice:0:recordsPerPage" [ngClass]="content.contentModule == selectedItem ? 'filter-selected-row1' : ''" (click)="open(content)">
+            <tr *ngFor="let content of contents|startFrom:currentPage*recordsPerPage |filterBy: search| slice:0:recordsPerPage" [ngClass]="content.contentName == selectedItem ? 'filter-selected-row1' : ''" (click)="open(content)">
                 <td style="text-align: left">{{content.contentModule}} </td>
                 <td style="text-align: left;width: 90px;">{{content.contentName}} </td>
                 <td> {{content.contentDescription}} </td>
@@ -78,7 +78,7 @@
     <br>
     <div class="row" *ngIf="!transactionCmd">
         <div class="col-md-1">
-            <a href="#" ui-sref=".view"><button  class="btn btn-primary" (click) = "viewContent()">View</button></a>
+            <a ui-sref=".view"><button  class="btn btn-primary" (click) = "viewContent(selectedItem)">View</button></a>
         </div>
         <div class="col-md-1">
             <a><button class="btn btn-primary" (click) = "updateContent(selectedItem)">Update</button></a>

@@ -18,6 +18,7 @@ export class FilterContentComponent implements OnInit {
   recordsPerPage = 10;
   noOfPages = 0;
   currentPage = 0;
+  disableAll;
   // selectedItem1={};
 
   ngOnInit() {
@@ -28,12 +29,17 @@ numberOfPages() {
     return Math.ceil(this.CommonDataService.contentData().length / this.recordsPerPage);
   }
   open = function(item) {
-    this.selectedItem = item.contentModule;
+    this.selectedItem = item.contentName;
 };
 
 createContent() {
   this.defaultPage = false;
   // this.router.navigate(['/filterContent/tabContent/contentView']);
+}
+viewContent(selectedItem) {
+  this.defaultPage = false;
+  this.disableAll = true;
+  this.router.navigate(['/filterContent/tabContent/contentView', { id: selectedItem , disableAll: this.disableAll}]);
 }
 updateContent(selectedItem) {
   this.defaultPage = false;

@@ -2,7 +2,7 @@
     <form name="content_form" novalidate>
         <div style="margin-top:20px;width:100%;">
             <div class="row">
-                <fieldset ng-disabled="disableAll">
+                <fieldset [disabled]="disableAll">
                     <h6 class="small-heading">Content</h6>
                     <div class="col-md-5 col-sm-12 col-xs-12 two-blocks">
                         <div class="form-group">
@@ -52,13 +52,13 @@
             </div>
             <div class="row btn_fix">
                 <div class="col-md-12">
-                    <button class="btn btn-info" type="submit" (click)="finalSubmitContent();">Finish</button>
-                    <button class=" btn btn-primary " type="submit " (click)="saveAndExit(); ">Save and Exit</button>
+                    <button class="btn btn-info" type="submit" *ngIf="transactionMode=='create'||transactionMode=='update'" (click)="finalSubmitContent();">Finish</button>
+                    <button class=" btn btn-primary " type="submit " *ngIf="transactionMode =='create'||transactionMode =='update'" (click)="saveAndExit();">Save and Exit</button>
                     <button class="btn btn-warning " type="button " *ngIf="errorPresent " ng-click="reactyFy() ">Rectify</button>
                     <button *ngIf="transactionCmd=='review' && transactionCmd!='enquiry' " class="btn btn-success " type="button " ng-click="review(); ">Review</button>
                     <button *ngIf="transactionCmd=='approve' && transactionCmd!='enquiry' " class="btn btn-success " type="button " ng-click="approve(); ">Approve</button>
                     <button *ngIf="transactionCmd=='review' || transactionCmd=='approve' " class="btn btn-danger " type="button " ng-click="reject(); ">Reject</button>
-                    <a class="btn btn-warning " ui-sref="home ">Cancel</a>
+                    <a class="btn btn-warning " *ngIf="transactionMode=='create'||transactionMode=='update'" ui-sref="home ">Cancel</a>
                     <a class="btn btn-warning " ui-sref="home " *ngIf="transactionMode=='view' || transactionCmd=='enquiry' || transactionCmd=='approve' || transactionCmd=='review' ">Close</a>
                 </div>
             </div>

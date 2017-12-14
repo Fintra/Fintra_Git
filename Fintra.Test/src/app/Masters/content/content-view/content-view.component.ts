@@ -10,20 +10,34 @@ import { CommonDataService } from '../../../Services/common-data.service';
 })
 export class ContentViewComponent implements OnInit {
 
-  constructor(private router: Router,private route: ActivatedRoute,private CommonDataService: CommonDataService) { }
-  content={};
+  constructor(private router: Router,private route: ActivatedRoute,private CommonDataService: CommonDataService) {
+    console.log('when first');
+  }
+  content= {};
   id: number;
-  private sub: any;
   page: any;
+  disableAll: any;
+  transactionMode: any;
+
+  sub = this.route.params.subscribe(params => {
+    this.page = params['id'];
+    this.disableAll = params['disableAll'];
+  });
 
   ngOnInit() {
-    this.sub = this.route.params
-    .subscribe(params => {
-      this.page = params['id'];
-    });
+    this.transactionMode = 'create';
     if (this.page) {
-      this.content = this.CommonDataService.contentData().filter(x => x.contentModule === this.page)[0];
+      this.transactionMode = 'update';
+      this.content = this.CommonDataService.contentData().filter(x => x.contentName === this.page)[0];
+      if (this.page && this.disableAll) {
+        this.transactionMode = 'view';
+        this.content = this.CommonDataService.contentData().filter(x => x.contentName === this.page)[0];
+      }
     }
+    // else if (this.disableAll) {
+    //   this.transactionMode = 'view';
+    //   this.content = this.CommonDataService.contentData().filter(x => x.contentName === this.page)[0];
+    // }
   }
 
   finalSubmitContent() {
