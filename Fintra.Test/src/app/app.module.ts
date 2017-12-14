@@ -36,9 +36,10 @@ import { InsuranceViewComponent } from './Masters/insurance/insurance-view/insur
 import { FilterDocumentComponent } from './Masters/document/filter-document/filter-document.component';
 import { TabDocumentComponent } from './Masters/document/tab-document/tab-document.component';
 import { DocumentViewComponent } from './Masters/document/document-view/document-view.component';
+import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
 @NgModule({
   // tslint:disable-next-line:max-line-length
-  declarations: [AppComponent, LoginComponent, HeaderComponent, FooterComponent, DashboardComponent, FilterCustomerComponent, CustomerViewComponent, TabCustomerComponent, AccountComponent, FilterCounterPartyComponent, TabCounterPartyComponent, CounterPartyViewComponent, FilterContentComponent, TabContentComponent, ContentViewComponent, TruncatePipe, CustomerResultComponent, BankFilterComponent, TabBankComponent, BankViewComponent, BankResultComponent, FilterPortcodeComponent, TabPortcodeComponent, PortcodeViewComponent, FilterInsuranceComponent, TabInsuranceComponent, InsuranceViewComponent, FilterDocumentComponent, TabDocumentComponent, DocumentViewComponent ],
+  declarations: [AppComponent, LoginComponent, HeaderComponent, FooterComponent, DashboardComponent, FilterCustomerComponent, CustomerViewComponent, TabCustomerComponent, AccountComponent, FilterCounterPartyComponent, TabCounterPartyComponent, CounterPartyViewComponent, FilterContentComponent, TabContentComponent, ContentViewComponent, TruncatePipe, CustomerResultComponent, BankFilterComponent, TabBankComponent, BankViewComponent, BankResultComponent, FilterPortcodeComponent, TabPortcodeComponent, PortcodeViewComponent, FilterInsuranceComponent, TabInsuranceComponent, InsuranceViewComponent, FilterDocumentComponent, TabDocumentComponent, DocumentViewComponent, PageNotFoundComponent ],
   imports: [
     BrowserModule,
     FormsModule,
