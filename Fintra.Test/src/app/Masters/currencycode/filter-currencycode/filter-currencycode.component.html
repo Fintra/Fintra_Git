@@ -1,0 +1,58 @@
+<app-header></app-header>
+<div class="container filter-box" [hidden]="!defaultPage">
+    <div class="row">
+        <div class="col-md-4">
+            <h4> Search </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label> Reference </label>
+        </div>
+        <div class="col-md-4">
+            <label> Name   </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text" class="form-control" [(ngModel)]="search.currencyCode">
+        </div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" [(ngModel)]="search.currencyName">
+        </div>
+    </div>
+    <div class="row"></div>
+    <div class="row">
+        <table class="table table-striped">
+            <tr>
+                <th style="text-align: left;width: 200px;"> Currency Code </th>
+                <th style="text-align: left"> Currency Name </th>
+            </tr>
+            <tr *ngFor="let currency of currencys|startFrom:currentPage*recordsPerPage |filterBy: search| slice:0:recordsPerPage" [ngClass]="currency.currencyCode== selectedItem ? 'filter-selected-row1' : ''" (click)="open(currency)">
+                <!-- <td style="text-align: left">{{currency.sno}} </td> -->
+                <td style="text-align: left">{{currency.currencyCode}} </td>
+                <td style="text-align: left;width: 90px;">{{currency.currencyName}} </td>
+            </tr>
+        </table>
+    </div>
+    <div align="center" class="filter-pagination-container">
+        <button class="btn btn-sm btn-success" [disabled]="currentPage === 0" (click)="currentPage = 0">First</button>&nbsp;&nbsp;
+        <button class="btn btn-sm btn-success" [disabled]="currentPage === 0" (click)="currentPage = currentPage - 1">Back</button>&nbsp;&nbsp; {{currentPage + 1}} / {{numberOfPages()}} &nbsp;&nbsp;
+        <button class="btn btn-sm btn-success" [disabled]="currentPage >= numberOfPages()-1" (click)="currentPage = currentPage + 1">Next</button> &nbsp;&nbsp;
+        <button class="btn btn-sm btn-success" [disabled]="currentPage >= numberOfPages()-1" (click)="currentPage = numberOfPages()-1">Last</button>
+    </div>
+    <br>
+    <div class="row" *ngIf="!transactionCmd">
+        <div class="col-md-1">
+            <a><button class="btn btn-primary" (click) = "viewCurrencycode(selectedItem)">View</button></a>
+
+            <!-- <href="#" [routerLink]="['tabCurrencycode/currencyCodeView']" [queryParams]="{ page: selectedItem }"> -->
+            <!-- <button class="btn btn-primary" (click) = "viewCurrencycode()">View</button></a> -->
+
+            <!-- <a href="#" [routerLink]="['tabCountrycode/countrycodeView']" [queryParams]="{ page: selectedItem }" ui-sref=".view"><button class="btn btn-primary" (click) = "Viewcountrycode()">View</button></a> -->
+        </div>
+    </div>
+</div>
+<div style="float:center; width: 100%" ui-view></div>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
