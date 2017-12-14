@@ -38,17 +38,18 @@
                             <a ui-sref="incotermsM" (click)="openSideMenu()">Incoterms</a>
                         </li>
                         <li>
-                            <a ui-sref="countrycodeM" (click)="openSideMenu()">Country Code</a>
+                            <a routerLink="/filterCountrycode" routerLinkActive="active" (click)="openSideMenu()">Country Code</a>
                         </li>
                         <li>
-                            <a ui-sref="currencycodeM" (click)="openSideMenu()">Currency Code</a>
+                            <a routerLink="/filterCurrencycode" routerLinkActive="active" (click)="openSideMenu()">Currency Code</a>
                         </li>
                         <li>
-                            <a ui-sref="trnsfer" (click)="openSideMenu()">Transfer Data</a>
-                        </li>
-                        <li class="hidden_li_in_menu">Hidden</li>
+                            <li>
+                                <a ui-sref="trnsfer" (click)="openSideMenu()">Transfer Data</a>
+                            </li>
+                            <li class="hidden_li_in_menu">Hidden</li>
                     </ul>
-                </li>
+                    </li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->

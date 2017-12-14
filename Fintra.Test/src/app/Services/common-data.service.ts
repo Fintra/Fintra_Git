@@ -231,5 +231,26 @@ portcodeData() {
    {documentId: 5, documentName: 'document5', documentDescription: 'ddd5'}
   ];
 }
+countryCodeData() {
+  return this.data = [
+   {countryCode: 'USD', countryName: 'saa'},
+   {countryCode: 'AUI', countryName: 'saa'},
+   {countryCode: 'AFG', countryName: 'saa'},
+   {countryCode: 'USA', countryName: 'saa'},
+   {countryCode: 'SRL', countryName: 'saa'},
+   {countryCode: 'CHE', countryName: 'saa'}
+   ];
+ }
+ currencyCodeData() {
+  return this.data = [
+   {currencyCode: 'USD', currencyName: 'saa'},
+   {currencyCode: 'AUI', currencyName: 'saa'},
+   {currencyCode: 'AFG', currencyName: 'sahga'},
+   {currencyCode: 'USA', currencyName: 'sghghaa'},
+   {currencyCode: 'SRL', currencyName: 'saa'},
+   {currencyCode: 'CHE', currencyName: 'saa'}
+   ];
+ }
+
 
 }

@@ -29,6 +29,13 @@ import { FilterDocumentComponent } from './Masters/document/filter-document/filt
 import { TabDocumentComponent } from './Masters/document/tab-document/tab-document.component';
 import { DocumentViewComponent } from './Masters/document/document-view/document-view.component';
 import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
+import { FilterCountrycodeComponent } from './Masters/countrycode/filter-countrycode/filter-countrycode.component';
+import { TabCountrycodeComponent } from './Masters/countrycode/tab-countrycode/tab-countrycode.component';
+import { CountrycodeViewComponent } from './Masters/countrycode/countrycode-view/countrycode-view.component';
+import { FilterCurrencycodeComponent } from './Masters/currencycode/filter-currencycode/filter-currencycode.component';
+import { TabCurrencycodeComponent } from './Masters/currencycode/tab-currencycode/tab-currencycode.component';
+import { CurrencycodeViewComponent } from './Masters/currencycode/currencycode-view/currencycode-view.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -46,8 +53,18 @@ const routes: Routes = [
 // tslint:disable-next-line:max-line-length
   {path: 'filterInsurance', component: FilterInsuranceComponent, children: [{ path: 'tabInsurance', component: TabInsuranceComponent, children: [{ path: 'insuranceView', component: InsuranceViewComponent }]}]},
   {path: 'filterDocument', component: FilterDocumentComponent, children: [{path: 'tabDocument', component: TabDocumentComponent, children: [{ path: 'documentView', component: DocumentViewComponent }]}]},
-    // tslint:disable-next-line:max-line-length
-  {path: '**', component: PageNotFoundComponent }
+  { path: 'filterCountrycode', component: FilterCountrycodeComponent,
+  children: [{path: 'tabCountrycode', component: TabCountrycodeComponent,
+           children: [{path: 'countryCodeView', component: CountrycodeViewComponent}]}] }, 
+    { path: 'filterCurrencycode', component: FilterCurrencycodeComponent,
+    children: [{path: 'tabCurrencycode', component: TabCurrencycodeComponent,
+            children: [{path: 'currencyCodeView', component: CurrencycodeViewComponent}]}] },
+  // tslint:disable-next-line:max-line-length
+  {path: '**', component: PageNotFoundComponent },
+  
+  
+           
+ 
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
