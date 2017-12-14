@@ -10,9 +10,11 @@ import { CustomerResultComponent } from './Masters/customer/customer-result/cust
 import { FilterCounterPartyComponent } from './Masters/counter-party/filter-counter-party/filter-counter-party.component';
 import { TabCounterPartyComponent } from './Masters/counter-party/tab-counter-party/tab-counter-party.component';
 import { CounterPartyViewComponent } from './Masters/counter-party/counter-party-view/counter-party-view.component';
+import { CounterpartyResultComponent } from './Masters/counter-party/counterparty-result/counterparty-result.component';
 import { FilterContentComponent } from './Masters/content/filter-content/filter-content.component';
 import { TabContentComponent } from './Masters/content/tab-content/tab-content.component';
 import { ContentViewComponent } from './Masters/content/content-view/content-view.component';
+import { ContentResultComponent } from './Masters/content/content-result/content-result.component';
 import { BankFilterComponent } from './Masters/bank/bank-filter/bank-filter.component';
 import { TabBankComponent } from './Masters/bank/tab-bank/tab-bank.component';
 import { BankViewComponent } from './Masters/bank/bank-view/bank-view.component';
@@ -23,11 +25,12 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   // tslint:disable-next-line:max-line-length
   { path: 'filterCustomer', component: FilterCustomerComponent, children: [{path: 'tabCustomer', component: TabCustomerComponent, children: [{path: 'customerView', component: CustomerViewComponent}, {path: 'account', component: AccountComponent},{path: 'customerResult', component: CustomerResultComponent}]}] },
-  { path: 'filterCounterParty', component: FilterCounterPartyComponent, children: [{path: 'tabCounterParty', component: TabCounterPartyComponent, children: [{path: 'counterPartView', component: CounterPartyViewComponent}]}] },
+  { path: 'filterCounterParty', component: FilterCounterPartyComponent, children: [{path: 'tabCounterParty', component: TabCounterPartyComponent, children: [{path: 'counterPartView', component: CounterPartyViewComponent},{path: 'counterPartyResult', component: CounterpartyResultComponent}]}] },
   // tslint:disable-next-line:max-line-length
   { path: 'filterContent', component: FilterContentComponent,
       children: [{path: 'tabContent', component: TabContentComponent,
-               children: [{path: 'contentView', component: ContentViewComponent}]}] },
+               // tslint:disable-next-line:max-line-length
+               children: [{path: 'contentView', component: ContentViewComponent}, {path: 'contentResult', component: ContentResultComponent}]}] },
                {
                 path: 'bankFilterM',
                 component: BankFilterComponent,

@@ -17,21 +17,19 @@ export class ContentViewComponent implements OnInit {
   page: any;
 
   ngOnInit() {
-    this.sub = this.route
-    .queryParams
+    this.sub = this.route.params
     .subscribe(params => {
-      // Defaults to 0 if no query param provided.
-      this.page = +params['page'] || 0;
+      this.page = params['id'];
     });
-    this.content = this.CommonDataService.contentData().filter(x => x.contentModule === this.page)[0];
+    if (this.page) {
+      this.content = this.CommonDataService.contentData().filter(x => x.contentModule === this.page)[0];
+    }
   }
-  // tslint:disable-next-line:member-ordering
+
   finalSubmitContent() {
-    // tslint:disable-next-line:quotemark
-    this.router.navigate(['/filterContent/tabContent/contentView']);
+    this.router.navigate(['/filterContent/tabContent/contentResult']);
   }
-  // tslint:disable-next-line:one-line
-  saveAndExit(){
+  saveAndExit() {
     this.router.navigate(['/dashboard']);
   }
 

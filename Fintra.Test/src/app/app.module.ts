@@ -27,9 +27,11 @@ import { BankResultComponent } from './Masters/bank/bank-result/bank-result.comp
 import { CustomerResultComponent } from './Masters/customer/customer-result/customer-result.component';
 import {  TruncatePipe } from './Services/filter.pipe';
 import {  FilterPipeModule } from 'ngx-filter-pipe';
+import { ContentResultComponent } from './Masters/content/content-result/content-result.component';
+import { CounterpartyResultComponent } from './Masters/counter-party/counterparty-result/counterparty-result.component';
 @NgModule({
   // tslint:disable-next-line:max-line-length
-  declarations: [AppComponent, LoginComponent, HeaderComponent, FooterComponent, DashboardComponent, FilterCustomerComponent, CustomerViewComponent, TabCustomerComponent, AccountComponent, FilterCounterPartyComponent, TabCounterPartyComponent, CounterPartyViewComponent, FilterContentComponent, TabContentComponent, ContentViewComponent, TruncatePipe, CustomerResultComponent, BankFilterComponent, TabBankComponent, BankViewComponent, BankResultComponent],
+  declarations: [AppComponent, LoginComponent, HeaderComponent, FooterComponent, DashboardComponent, FilterCustomerComponent, CustomerViewComponent, TabCustomerComponent, AccountComponent, FilterCounterPartyComponent, TabCounterPartyComponent, CounterPartyViewComponent, FilterContentComponent, TabContentComponent, ContentViewComponent, TruncatePipe, CustomerResultComponent, BankFilterComponent, TabBankComponent, BankViewComponent, BankResultComponent, ContentResultComponent, CounterpartyResultComponent],
   imports: [
     BrowserModule,
     FormsModule,

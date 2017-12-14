@@ -2,7 +2,7 @@
 <div class="container filter-box" [hidden]="!defaultPage">
     <div class="row">
         <div class="col-md-3 col-md-offset-9">
-            <a href="#" [routerLink]="['tabContent/contentView']" [queryParams]="{ page: selectedItem }"><button class="btn btn-primary" (click) = "createContent()">Create New</button></a>
+            <a href="#" [routerLink]="['tabContent/contentView']"><button class="btn btn-primary" (click) = "createContent()">Create New</button></a>
         </div>
     </div>
     <div class="row">
@@ -81,7 +81,7 @@
             <a href="#" ui-sref=".view"><button  class="btn btn-primary" (click) = "viewContent()">View</button></a>
         </div>
         <div class="col-md-1">
-            <a href="#" ui-sref=".update"><button class="btn btn-primary" (click) = "updateContent()">Update</button></a>
+            <a><button class="btn btn-primary" (click) = "updateContent(selectedItem)">Update</button></a>
         </div>
     </div>
     <div class="row" *ngIf="transactionCmd">
