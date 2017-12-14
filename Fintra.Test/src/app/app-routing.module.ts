@@ -19,45 +19,35 @@ import { BankFilterComponent } from './Masters/bank/bank-filter/bank-filter.comp
 import { TabBankComponent } from './Masters/bank/tab-bank/tab-bank.component';
 import { BankViewComponent } from './Masters/bank/bank-view/bank-view.component';
 import { BankResultComponent } from './Masters/bank/bank-result/bank-result.component';
+import { FilterPortcodeComponent } from './Masters/portcode/filter-portcode/filter-portcode.component';
+import { TabPortcodeComponent } from './Masters/portcode/tab-portcode/tab-portcode.component';
+import { PortcodeViewComponent } from './Masters/portcode/portcode-view/portcode-view.component';
+import { FilterInsuranceComponent } from './Masters/insurance/filter-insurance/filter-insurance.component';
+import { TabInsuranceComponent } from './Masters/insurance/tab-insurance/tab-insurance.component';
+import { InsuranceViewComponent } from './Masters/insurance/insurance-view/insurance-view.component';
+import { FilterDocumentComponent } from './Masters/document/filter-document/filter-document.component';
+import { TabDocumentComponent } from './Masters/document/tab-document/tab-document.component';
+import { DocumentViewComponent } from './Masters/document/document-view/document-view.component';
+import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   // tslint:disable-next-line:max-line-length
-  { path: 'filterCustomer', component: FilterCustomerComponent, children: [{path: 'tabCustomer', component: TabCustomerComponent, children: [{path: 'customerView', component: CustomerViewComponent}, {path: 'account', component: AccountComponent},{path: 'customerResult', component: CustomerResultComponent}]}] },
+  { path: 'filterCustomer', component: FilterCustomerComponent, children: [{path: 'tabCustomer', component: TabCustomerComponent, children: [{path: 'customerView', component: CustomerViewComponent}, {path: 'account', component: AccountComponent}, {path: 'customerResult', component: CustomerResultComponent}]}] },
   { path: 'filterCounterParty', component: FilterCounterPartyComponent, children: [{path: 'tabCounterParty', component: TabCounterPartyComponent, children: [{path: 'counterPartView', component: CounterPartyViewComponent},{path: 'counterPartyResult', component: CounterpartyResultComponent}]}] },
   // tslint:disable-next-line:max-line-length
   { path: 'filterContent', component: FilterContentComponent,
-      children: [{path: 'tabContent', component: TabContentComponent,
-               // tslint:disable-next-line:max-line-length
-               children: [{path: 'contentView', component: ContentViewComponent}, {path: 'contentResult', component: ContentResultComponent}]}] },
-               {
-                path: 'bankFilterM',
-                component: BankFilterComponent,
-                children: [
-                  {
-                      path: 'bankTabM',
-                      component: TabBankComponent,
-                      children: [
-                        {
-                            path: 'bankViewM',
-                            component: BankViewComponent,
-                            children: [
-                              {
-                                  path: 'bankResult',
-                                  component: BankResultComponent
-                              }
-                           ]
-                        // },
-                        }
-                        // {
-                        //   path: 'bankResult',
-                        //   component: BankResultComponent
-                        // }
-                     ]
-                  },
-               ]
-              },
+  children: [{path: 'tabContent', component: TabContentComponent, children: [{path: 'contentView', component: ContentViewComponent}, {path: 'contentResult', component: ContentResultComponent}]}] },
+  // tslint:disable-next-line:max-line-length
+  {path: 'bankFilterM', component: BankFilterComponent, children: [{path: 'bankTabM', component: TabBankComponent, children: [{path: 'bankViewM', component: BankViewComponent, children: [{path: 'bankResult', component: BankResultComponent}]}]}, ]},
+// tslint:disable-next-line:max-line-length
+  {path: 'filterPortcode', component: FilterPortcodeComponent, children: [{ path: 'tabPortcode', component: TabPortcodeComponent, children: [{ path: 'portcodeView', component: PortcodeViewComponent }]}]},
+// tslint:disable-next-line:max-line-length
+  {path: 'filterInsurance', component: FilterInsuranceComponent, children: [{ path: 'tabInsurance', component: TabInsuranceComponent, children: [{ path: 'insuranceView', component: InsuranceViewComponent }]}]},
+  {path: 'filterDocument', component: FilterDocumentComponent, children: [{path: 'tabDocument', component: TabDocumentComponent, children: [{ path: 'documentView', component: DocumentViewComponent }]}]},
+    // tslint:disable-next-line:max-line-length
+  {path: '**', component: PageNotFoundComponent }
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

@@ -1,11 +1,11 @@
 <div class="container">
-    <div class="row">
+    <div class="row" ng-controller="DatepickerPopupCtrl">
         <div class="col-xs-12 ui-view-menu-border">
             <div class="tabbable tabs-left">
                 <ul class="nav nav-tabs side-link-container" id="tabs" ng-hide="hideTabs">
                     <li [routerLinkActive]="['active']">
-                        <a [routerLink]="['bankViewM']" data-toggle="tab">
-                            <span class="badge">1</span> Bank
+                        <a [routerLink]="['documentView']" data-toggle="tab">
+                            <span class="badge">1</span>Document
                         </a>
                     </li>
                 </ul>

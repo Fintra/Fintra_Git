@@ -1,0 +1,82 @@
+<app-header></app-header>
+<div class="container filter-box" [hidden]="!defaultPage">
+    <div class="row">
+        <div class="col-md-3 col-md-offset-9">
+            <a href="#" [routerLink]="['tabInsurance/insuranceView']" [queryParams]="{ page: selectedItem }"><button class="btn btn-primary" (click) = "createInsurer()">Create New</button></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h4> Search </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label> Reference </label>
+        </div>
+        <div class="col-md-4">
+            <label> Name   </label>
+        </div>
+        <div class="col-md-4">
+            <label> Address </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text" class="form-control" [(ngModel)]="search.insurerId">
+        </div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" [(ngModel)]="search.insurerName">
+        </div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" [(ngModel)]="search.insurerAddress1">
+        </div>
+    </div>
+    <div class="row"></div>
+    <div class="row">
+        <table class="table table-striped">
+            <tr>
+                <th style="text-align: left;width: 200px;"> Module </th>
+                <th style="text-align: left"> Name/Description </th>
+                <th style="width: 510px;"> Principal Contact </th>
+            </tr>
+            <tr *ngFor="let insurer of insurance|startFrom:currentPage*recordsPerPage |filterBy: search| slice:0:recordsPerPage" [ngClass]="insurer.insurerId == selectedItem ? 'filter-selected-row1' : ''" (click)="open(insurer)">
+                <td style="text-align: left">{{insurer.insurerId}} </td>
+                <td style="text-align: left;width: 90px;">{{insurer.insurerName}} </td>
+                <td> {{insurer.insurerAddress1}} </td>
+            </tr>
+        </table>
+    </div>
+    <div align="center" class="filter-pagination-container">
+        <button class="btn btn-sm btn-success" [disabled]="currentPage === 0" (click)="currentPage = 0">First</button>&nbsp;&nbsp;
+        <button class="btn btn-sm btn-success" [disabled]="currentPage === 0" (click)="currentPage = currentPage - 1">Back</button>&nbsp;&nbsp; {{currentPage + 1}} / {{numberOfPages()}} &nbsp;&nbsp;
+        <button class="btn btn-sm btn-success" [disabled]="currentPage >= numberOfPages()-1" (click)="currentPage = currentPage + 1">Next</button> &nbsp;&nbsp;
+        <button class="btn btn-sm btn-success" [disabled]="currentPage >= numberOfPages()-1" (click)="currentPage = numberOfPages()-1">Last</button>
+    </div>
+    <br>
+    <div class="row" *ngIf="!transactionCmd">
+        <div class="col-md-1">
+            <a href="#" ui-sref=".view"><button  class="btn btn-primary" (click) = "viewInsurer()">View</button></a>
+        </div>
+        <div class="col-md-1">
+            <a href="#" [routerLink]="['tabInsurance/insuranceView']" [queryParams]="{ page: selectedItem }"><button class="btn btn-primary" (click) = "updateInsurer()">Update</button></a>
+        </div>
+    </div>
+    <div class="row" *ngIf="transactionCmd">
+        <div class="col-md-3">
+            <a href="#" ui-sref=".update"><button [disabled]="selectedID === null || transactionCmd!='update'" class="btn btn-link custom-link" (click)="updateInsurer()" style="width:100px;">Update</button></a>
+        </div>
+        <div class="col-md-3">
+            <a href="#" ui-sref=".view"><button [disabled]="selectedItem === null || transactionCmd!=='review'" class="btn btn-link custom-link" (click)="viewInsurer()" style="width:100px;">Review</button></a>
+        </div>
+        <div class="col-md-3">
+            <a href="#" ui-sref=".view"><button [disabled]="selectedItem === null || transactionCmd!='approve'" class="btn btn-link custom-link" (click)="viewInsurer()" style="width:100px;">Approve</button></a>
+        </div>
+        <div class="col-md-3">
+            <a href="#" ui-sref=".view"><button [disabled]="selectedItem === null || transactionCmd!='enquiry'" class="btn btn-link custom-link" (click)="viewInsurer()" style="width:100px;">Enquiry</button></a>
+        </div>
+    </div>
+</div>
+<div style="float:center; width: 100%" ui-view></div>
+<router-outlet></router-outlet>
+<app-footer></app-footer>

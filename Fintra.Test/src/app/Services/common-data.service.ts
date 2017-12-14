@@ -203,5 +203,33 @@ guarantee: '700000000',
 },
   ];
 }
+portcodeData() {
+  return this.data = [
+   {portCode: 12231, portcodeName: 'qwerty21', portcodeAddress1: '4gdfgfdg3', portcodeAddress2: '3423gh42', portcodeAddress3: '432fsd342'},
+   {portCode: 12245, portcodeName: 'qwerty12', portcodeAddress1: 'd43dgdgfd', portcodeAddress2: '342hgf34', portcodeAddress3: '43sdf2342'},
+   {portCode: 12241, portcodeName: 'qwerty23', portcodeAddress1: 'd3gfdg4dd', portcodeAddress2: '342hhg34', portcodeAddress3: '43fs5d342'},
+   {portCode: 12285, portcodeName: 'qwerty32', portcodeAddress1: 'd3gffg4dd', portcodeAddress2: '342gh342', portcodeAddress3: '43234dfs2'},
+   {portCode: 12240, portcodeName: 'qwerty34', portcodeAddress1: 'd34dfgfdd', portcodeAddress2: '34234562', portcodeAddress3: '4323sdf42'},
+   {portCode: 12282, portcodeName: 'qwerty43', portcodeAddress1: 'd3gfdggdf', portcodeAddress2: '34ghh234', portcodeAddress3: '4323y5642'},
+   {portCode: 12216, portcodeName: 'qwerty54', portcodeAddress1: 'd34dfgdfg', portcodeAddress2: '34fg2342', portcodeAddress3: '4323sdf42'},
+   {portCode: 12295, portcodeName: 'qwerty45', portcodeAddress1: 'ddgfdg34d', portcodeAddress2: '342h3426', portcodeAddress3: '4323sdf42'},
+   ];
+ }
+ insuranceData() {
+  return this.data = [
+    {insurerId: 1, insurerName: 'Insurer1', insurerAddress1: '444', insurerAddress2:'qqq', insurerAddress3: 'www'},
+    {insurerId: 2, insurerName: 'Insurer2', insurerAddress1: '111', insurerAddress2:'333', insurerAddress3: '555'},
+    {insurerId: 3, insurerName: 'Insurer3', insurerAddress1: '222', insurerAddress2:'888', insurerAddress3: '777'}
+    ];
+ }
+ documentData() {
+  return this.data = [
+   {documentId: 1, documentName: 'document1', documentDescription: 'ddd1'},
+   {documentId: 2, documentName: 'document2', documentDescription: 'ddd2'},
+   {documentId: 3, documentName: 'document3', documentDescription: 'ddd3'},
+   {documentId: 4, documentName: 'document4', documentDescription: 'ddd4'},
+   {documentId: 5, documentName: 'document5', documentDescription: 'ddd5'}
+  ];
+}
 
 }
