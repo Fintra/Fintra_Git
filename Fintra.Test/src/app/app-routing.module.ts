@@ -35,11 +35,13 @@ import { CountrycodeViewComponent } from './Masters/countrycode/countrycode-view
 import { FilterCurrencycodeComponent } from './Masters/currencycode/filter-currencycode/filter-currencycode.component';
 import { TabCurrencycodeComponent } from './Masters/currencycode/tab-currencycode/tab-currencycode.component';
 import { CurrencycodeViewComponent } from './Masters/currencycode/currencycode-view/currencycode-view.component';
+import { CommodityComponent, FilterCommodityComponent } from './Masters/commodity/commodity.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'filtercommodityM', component: CommodityComponent, children: [{ path: 'commoditycreate', component: FilterCommodityComponent }] },
   // tslint:disable-next-line:max-line-length
   { path: 'filterCustomer', component: FilterCustomerComponent, children: [{path: 'tabCustomer', component: TabCustomerComponent, children: [{path: 'customerView', component: CustomerViewComponent}, {path: 'account', component: AccountComponent}, {path: 'customerResult', component: CustomerResultComponent}]}] },
   { path: 'filterCounterParty', component: FilterCounterPartyComponent, children: [{path: 'tabCounterParty', component: TabCounterPartyComponent, children: [{path: 'counterPartView', component: CounterPartyViewComponent}, {path: 'counterPartyResult', component: CounterpartyResultComponent}]}] },
