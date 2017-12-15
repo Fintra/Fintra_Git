@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
@@ -25,8 +26,8 @@ import { TabBankComponent } from './Masters/bank/tab-bank/tab-bank.component';
 import { BankViewComponent } from './Masters/bank/bank-view/bank-view.component';
 import { BankResultComponent } from './Masters/bank/bank-result/bank-result.component';
 import { CustomerResultComponent } from './Masters/customer/customer-result/customer-result.component';
-import {  TruncatePipe } from './Services/filter.pipe';
-import {  FilterPipeModule } from 'ngx-filter-pipe';
+import { TruncatePipe } from './Services/filter.pipe';
+import { FilterPipeModule } from 'ngx-filter-pipe';
 import { ContentResultComponent } from './Masters/content/content-result/content-result.component';
 import { CounterpartyResultComponent } from './Masters/counter-party/counterparty-result/counterparty-result.component';
 import { FilterPortcodeComponent } from './Masters/portcode/filter-portcode/filter-portcode.component';
@@ -46,8 +47,6 @@ import { TabCurrencycodeComponent } from './Masters/currencycode/tab-currencycod
 import { CurrencycodeViewComponent } from './Masters/currencycode/currencycode-view/currencycode-view.component';
 import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
 
-
-
 @NgModule({
   // tslint:disable-next-line:max-line-length
   declarations: [AppComponent, LoginComponent, HeaderComponent, FooterComponent, DashboardComponent, FilterCustomerComponent, CustomerViewComponent, TabCustomerComponent, AccountComponent, FilterCounterPartyComponent, TabCounterPartyComponent, CounterPartyViewComponent, FilterContentComponent, TabContentComponent, ContentViewComponent, TruncatePipe, CustomerResultComponent, BankFilterComponent, TabBankComponent, BankViewComponent, BankResultComponent, ContentResultComponent, CounterpartyResultComponent, FilterPortcodeComponent, TabPortcodeComponent, PortcodeViewComponent, FilterInsuranceComponent, TabInsuranceComponent, InsuranceViewComponent, FilterDocumentComponent, TabDocumentComponent, DocumentViewComponent, PageNotFoundComponent,FilterCountrycodeComponent,TabCountrycodeComponent,CountrycodeViewComponent,FilterCurrencycodeComponent,TabCurrencycodeComponent,CurrencycodeViewComponent],
@@ -57,6 +56,7 @@ import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
     AppRoutingModule,
     FilterPipeModule,
     TooltipModule.forRoot(),
+    MalihuScrollbarModule.forRoot(),
     BsDatepickerModule.forRoot()
   ],
   providers: [CommonDataService],

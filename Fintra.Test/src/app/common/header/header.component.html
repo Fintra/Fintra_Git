@@ -1,126 +1,150 @@
 <div style="padding-top:65px;">
-    <div [hidden]="!showSecondaryHeader" (click)="toggleSearchHeader();"></div>
-    <div id="wrapper" [ngClass]="sideMenuOpened ? 'toggled' : ''">
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper" [hidden]="sideMenuOpened ? 'toggled' : ''">
-            <ul class="sidebar-nav metismenu" id="menu">
-                <li class="sidebar-brand" style="padding: 10px;">
-                    <a href="#" style="font-size: 18px;">User controls <i class="fa fa-suitcase"></i></a>
+  <div [hidden]="!showSecondaryHeader" (click)="toggleSearchHeader();"></div>
+  <div id="wrapper" [ngClass]="sideMenuOpened ? 'toggled' : ''">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper" [hidden]="sideMenuOpened ? 'toggled' : ''">
+      <ul class="sidebar-nav metismenu" malihu-scrollbar id="menu">
+        <li class="sidebar-brand" style="padding: 10px;">
+          <a href="#" style="font-size: 18px;">User controls
+            <i class="fa fa-suitcase"></i>
+          </a>
+        </li>
+        <li>
+          <a aria-expanded="false">MASTERS
+            <span class="glyphicon arrow sidebar_arrow"></span>
+          </a>
+          <ul aria-expanded="false">
+            <li>
+              <a routerLink="/filterCustomer" routerLinkActive="active" (click)="openSideMenu()">Customer</a>
+            </li>
+            <li>
+              <a routerLink="/bankFilterM" (click)="openSideMenu()">Bank</a>
+            </li>
+            <li>
+              <a routerLink="/filterCounterParty" routerLinkActive="active" (click)="openSideMenu()">Counterparty</a>
+            </li>
+            <li>
+              <a ui-sref="commodityM" (click)="openSideMenu()">Commodity</a>
+            </li>
+            <li>
+              <a routerLink="/filterContent" routerLinkActive="active" (click)="openSideMenu()">Content</a>
+            </li>
+            <li>
+              <a routerLink="/filterPortcode" routerLinkActive="active" (click)="openSideMenu()">Port Code</a>
+            </li>
+            <li>
+              <a routerLink="/filterInsurance" routerLinkActive="active" (click)="openSideMenu()">Insurance</a>
+            </li>
+            <li>
+              <a routerLink="/filterDocument" routerLinkActive="active" (click)="openSideMenu()">Document</a>
+            </li>
+            <li>
+              <a ui-sref="incotermsM" (click)="openSideMenu()">Incoterms</a>
+            </li>
+            <li>
+              <a routerLink="/filterCountrycode" routerLinkActive="active" (click)="openSideMenu()">Country Code</a>
+            </li>
+            <li>
+              <a routerLink="/filterCurrencycode" routerLinkActive="active" (click)="openSideMenu()">Currency Code</a>
+            </li>
+            <li>
+              <li>
+                <a ui-sref="trnsfer" (click)="openSideMenu()">Transfer Data</a>
+              </li>
+              <li class="hidden_li_in_menu">Hidden</li>
+          </ul>
+          </li>
+          <li>
+            <a aria-expanded="false">IMPORT LC
+              <span class="glyphicon arrow sidebar_arrow"></span>
+            </a>
+            <ul aria-expanded="false">
+              <li>
+                <a routerLink="/filterIssueLC" routerLinkActive="active" (click)="openSideMenu()">Issue LC</a>
+              </li>
+            </ul>
+          </li>
+      </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <nav class="navbar navbar-default navbar-fixed-top primary-top-header">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand dashboard_brand">
+              <button id="menu-toggle" (click)="openSideMenu()" type="button" class="menu-toggle navbar-toggle collapse in" data-toggle="collapse"
+                data-target="#navbar" aria-expanded="false" aria-controls="navbar" placement="bottom" tooltip="Menu">
+                <i class="fa fa-bars animated rotateIn" aria-hidden="true" (click)="sideMenuOpened"></i>
+              </button>
+              <span routerLink="/dashboard">Dashboard
+                <i class="fa fa-dashboard"></i>
+              </span>
+            </a>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown" placement="bottom" tooltip="Help" style="margin-left: -46%;">
+                <button class="btn btn-default no-shadow" (click)="enableUserGuide(isUserGuideEnabled);">
+                  <div class="light">
+                    <i class="fa" style="font-size:19px;" [ngClass]="isUserGuideEnabled ? 'fa-lightbulb-o bulb-on' : 'fa-question'" aria-hidden="true"></i>
+                  </div>
+                </button>
+              </li>
+              <li class="dropdown" placement="bottom" tooltip="User Manual" style="margin-left: -0%;">
+                <button class="btn btn-default no-shadow" (click)="userGuideMannual();">
+                  <i class="fa fa-book" style="font-size:19px;" aria-hidden="true"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown" placement="bottom" tooltip="Chat">
+              <button class="btn btn-default no-shadow dropdown-toggle" (click)="showChatPopup();" data-toggle="dropdown" href="#" aria-expanded="false">
+                <i class="fa fa-comments-o" aria-hidden="true"></i>
+                <span class="badge">1</span>
+              </button>
+            </li>
+            <li class="dropdown" placement="bottom" tooltip="View notifications">
+              <button class="btn btn-default no-shadow" (click)="showNotifications();">
+                <i class="fa fa-bell-o" aria-hidden="true"></i>
+                <span class="badge">{{ newNotificationCount }}</span>
+              </button>
+            </li>
+            <li class="dropdown" placement="bottom" tooltip="Create new records">
+              <button class="btn btn-default no-shadow dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li>
+                  <a ui-sref='importLC.createNew' (click)="openSideMenu()"> Import LC - Issue LC </a>
                 </li>
                 <li>
-                    <a aria-expanded="false">MASTERS <span class="glyphicon arrow sidebar_arrow"></span></a>
-                    <ul aria-expanded="false">
-                        <li>
-                            <a routerLink="/filterCustomer" routerLinkActive="active" (click)="openSideMenu()">Customer</a>
-                        </li>
-                        <li>
-                            <a routerLink="/bankFilterM" (click)="openSideMenu()">Bank</a>
-                        </li>
-                        <li>
-                            <a routerLink="/filterCounterParty" routerLinkActive="active" (click)="openSideMenu()">Counterparty</a>
-                        </li>
-                        <li>
-                            <a ui-sref="commodityM" (click)="openSideMenu()">Commodity</a>
-                        </li>
-                        <li>
-                            <a routerLink="/filterContent" routerLinkActive="active" (click)="openSideMenu()">Content</a>
-                        </li>
-                        <li>
-                            <a routerLink="/filterPortcode" routerLinkActive="active" (click)="openSideMenu()">Port Code</a>
-                        </li>
-                        <li>
-                            <a routerLink="/filterInsurance" routerLinkActive="active" (click)="openSideMenu()">Insurance</a>
-                        </li>
-                        <li>
-                            <a routerLink="/filterDocument" routerLinkActive="active" (click)="openSideMenu()">Document</a>
-                        </li>
-                        <li>
-                            <a ui-sref="incotermsM" (click)="openSideMenu()">Incoterms</a>
-                        </li>
-                        <li>
-                            <a routerLink="/filterCountrycode" routerLinkActive="active" (click)="openSideMenu()">Country Code</a>
-                        </li>
-                        <li>
-                            <a routerLink="/filterCurrencycode" routerLinkActive="active" (click)="openSideMenu()">Currency Code</a>
-                        </li>
-                        <li>
-                            <li>
-                                <a ui-sref="trnsfer" (click)="openSideMenu()">Transfer Data</a>
-                            </li>
-                            <li class="hidden_li_in_menu">Hidden</li>
-                    </ul>
-                    </li>
-            </ul>
+                  <a ui-sref='importCollectionB.createNew' (click)="openSideMenu()"> Import Collection - Create Bill </a>
+                </li>
+                <li>
+                  <a ui-sref='issueG.createNew' (click)="openSideMenu()"> Bank Guarantee - Create Guarantee </a>
+                </li>
+                <li>
+                  <a ui-sref='adviceLC.createNew' (click)="openSideMenu()"> Export LC - Advice LC</a>
+                </li>
+                <li>
+                  <a ui-sref='regDocNonLC.createNew' (click)="openSideMenu()"> Export Non LC - Create Export Bill</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown primary-search-form" placement="bottom" tooltip="Search records by reference no.">
+              <button class="btn btn-default no-shadow dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" (click)="showSecondaryHeader = !showSecondaryHeader">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </li>
+            <li class="dropdown" placement="bottom" tooltip="Customer Exposure">
+              <button class="btn btn-default no-shadow" ui-sref="customer360" (click)="openSideMenu()">
+                <i class="fa fa-universal-access" aria-hidden="true"></i>
+                <span class="badge"></span>
+              </button>
+            </li>
+          </ul>
         </div>
-        <!-- /#sidebar-wrapper -->
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <nav class="navbar navbar-default navbar-fixed-top primary-top-header">
-                <div class="container">
-                    <div class="navbar-header">
-                        <a class="navbar-brand dashboard_brand">
-                            <button id="menu-toggle" (click)="openSideMenu()" type="button" class="menu-toggle navbar-toggle collapse in" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" placement="bottom" tooltip="Menu">
-                      <i class="fa fa-bars animated rotateIn" aria-hidden="true" (click)="sideMenuOpened"></i>
-                   </button>
-                            <span routerLink="/dashboard">Dashboard <i class="fa fa-dashboard"></i>
-                   </span>
-                        </a>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown" placement="bottom" tooltip="Help" style="margin-left: -46%;">
-                                <button class="btn btn-default no-shadow" (click)="enableUserGuide(isUserGuideEnabled);">
-                         <div class="light">
-                            <i class="fa" style="font-size:19px;" [ngClass]="isUserGuideEnabled ? 'fa-lightbulb-o bulb-on' : 'fa-question'" aria-hidden="true"></i>
-                         </div>
-                      </button>
-                            </li>
-                            <li class="dropdown" placement="bottom" tooltip="User Manual" style="margin-left: -0%;">
-                                <button class="btn btn-default no-shadow" (click)="userGuideMannual();">
-                      <i class="fa fa-book" style="font-size:19px;" aria-hidden="true"></i>
-                      </button>
-                            </li>
-                        </ul>
-                    </div>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown" placement="bottom" tooltip="Chat">
-                            <button class="btn btn-default no-shadow dropdown-toggle" (click)="showChatPopup();" data-toggle="dropdown" href="#" aria-expanded="false">
-                   <i class="fa fa-comments-o" aria-hidden="true"></i> <span class="badge">1</span>
-                   </button>
-                        </li>
-                        <li class="dropdown" placement="bottom" tooltip="View notifications">
-                            <button class="btn btn-default no-shadow" (click)="showNotifications();">
-                   <i class="fa fa-bell-o" aria-hidden="true"></i> <span class="badge">{{ newNotificationCount }}</span>
-                   </button>
-                        </li>
-                        <li class="dropdown" placement="bottom" tooltip="Create new records">
-                            <button class="btn btn-default no-shadow dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                   <i class="fa fa-plus" aria-hidden="true"></i>
-                   </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a ui-sref='importLC.createNew' (click)="openSideMenu()"> Import LC - Issue LC </a>
-                                </li>
-                                <li><a ui-sref='importCollectionB.createNew' (click)="openSideMenu()"> Import Collection - Create Bill  </a>
-                                </li>
-                                <li><a ui-sref='issueG.createNew' (click)="openSideMenu()"> Bank Guarantee - Create Guarantee </a>
-                                </li>
-                                <li><a ui-sref='adviceLC.createNew' (click)="openSideMenu()"> Export LC - Advice LC</a>
-                                </li>
-                                <li><a ui-sref='regDocNonLC.createNew' (click)="openSideMenu()"> Export Non LC - Create Export Bill</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown primary-search-form" placement="bottom" tooltip="Search records by reference no.">
-                            <button class="btn btn-default no-shadow dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" (click)="showSecondaryHeader = !showSecondaryHeader">
-                   <i class="fa fa-search" aria-hidden="true"></i>
-                   </button>
-                        </li>
-                        <li class="dropdown" placement="bottom" tooltip="Customer Exposure">
-                            <button class="btn btn-default no-shadow" ui-sref="customer360" (click)="openSideMenu()">
-                   <i class="fa fa-universal-access" aria-hidden="true"></i> <span class="badge"></span>
-                   </button>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+      </nav>
     </div>
+  </div>
 </div>

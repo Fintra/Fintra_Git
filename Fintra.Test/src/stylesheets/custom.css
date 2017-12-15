@@ -14504,7 +14504,10 @@ transition: all 500ms ease;
     border-top: none !important;
     /*border-bottom: none !important;*/
 }
-
+.metismenu {
+  min-height: 93.42%;
+  max-height: 93.42%;
+}
 
 /*scrollbar css*/
 
@@ -14518,7 +14521,7 @@ transition: all 500ms ease;
 }
 
 .mCustomScrollbar {
-    height: 100px;
+    height: 100%;
 }
 
 .container-fluid {
