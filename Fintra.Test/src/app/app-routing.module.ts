@@ -22,6 +22,7 @@ import { BankResultComponent } from './Masters/bank/bank-result/bank-result.comp
 import { FilterPortcodeComponent } from './Masters/portcode/filter-portcode/filter-portcode.component';
 import { TabPortcodeComponent } from './Masters/portcode/tab-portcode/tab-portcode.component';
 import { PortcodeViewComponent } from './Masters/portcode/portcode-view/portcode-view.component';
+import { PortcodeResultComponent } from './Masters/portcode/portcode-result/portcode-result.component';
 import { FilterInsuranceComponent } from './Masters/insurance/filter-insurance/filter-insurance.component';
 import { TabInsuranceComponent } from './Masters/insurance/tab-insurance/tab-insurance.component';
 import { InsuranceViewComponent } from './Masters/insurance/insurance-view/insurance-view.component';
@@ -51,7 +52,7 @@ const routes: Routes = [
   // tslint:disable-next-line:max-line-length
   { path: 'bankFilterM', component: BankFilterComponent, children: [{path: 'bankTabM', component: TabBankComponent, children: [{path: 'bankViewM', component: BankViewComponent}, {path: 'bankResult', component: BankResultComponent}]}] },
 // tslint:disable-next-line:max-line-length
-  {path: 'filterPortcode', component: FilterPortcodeComponent, children: [{ path: 'tabPortcode', component: TabPortcodeComponent, children: [{ path: 'portcodeView', component: PortcodeViewComponent }]}]},
+  {path: 'filterPortcode', component: FilterPortcodeComponent, children: [{ path: 'tabPortcode', component: TabPortcodeComponent, children: [{ path: 'portcodeView', component: PortcodeViewComponent }, {path: 'portcodeResult', component: PortcodeResultComponent}]}]},
 // tslint:disable-next-line:max-line-length
   {path: 'filterInsurance', component: FilterInsuranceComponent, children: [{ path: 'tabInsurance', component: TabInsuranceComponent, children: [{ path: 'insuranceView', component: InsuranceViewComponent }]}]},
   {path: 'filterDocument', component: FilterDocumentComponent, children: [{path: 'tabDocument', component: TabDocumentComponent, children: [{ path: 'documentView', component: DocumentViewComponent }]}]},

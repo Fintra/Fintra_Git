@@ -4,7 +4,7 @@ import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { BsDatepickerModule } from 'ngx-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -46,23 +46,27 @@ import { CountrycodeViewComponent } from './Masters/countrycode/countrycode-view
 import { FilterCurrencycodeComponent } from './Masters/currencycode/filter-currencycode/filter-currencycode.component';
 import { TabCurrencycodeComponent } from './Masters/currencycode/tab-currencycode/tab-currencycode.component';
 import { CurrencycodeViewComponent } from './Masters/currencycode/currencycode-view/currencycode-view.component';
+import { PortcodeResultComponent } from './Masters/portcode/portcode-result/portcode-result.component';
+import { ControlMessagesComponent } from './control_messages.component';
+import { ValidationService } from './validation.service';
 import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
 import { CommodityComponent, FilterCommodityComponent, TabCommodity } from './Masters/commodity/commodity.component';
 import { ServicesService } from './Services/services.service';
 
 @NgModule({
   // tslint:disable-next-line:max-line-length
-  declarations: [AppComponent, LoginComponent, HeaderComponent, FooterComponent, DashboardComponent, FilterCustomerComponent, CustomerViewComponent, TabCustomerComponent, AccountComponent, FilterCounterPartyComponent, TabCounterPartyComponent, CounterPartyViewComponent, FilterContentComponent, TabContentComponent, ContentViewComponent, TruncatePipe, CustomerResultComponent, BankFilterComponent, TabBankComponent, BankViewComponent, BankResultComponent, ContentResultComponent, CounterpartyResultComponent, FilterPortcodeComponent, TabPortcodeComponent, PortcodeViewComponent, FilterInsuranceComponent, TabInsuranceComponent, InsuranceViewComponent, FilterDocumentComponent, TabDocumentComponent, DocumentViewComponent, PageNotFoundComponent, FilterCountrycodeComponent, TabCountrycodeComponent, CountrycodeViewComponent, FilterCurrencycodeComponent, TabCurrencycodeComponent, CurrencycodeViewComponent, CommodityComponent, FilterCommodityComponent, TabCommodity],
+  declarations: [AppComponent, LoginComponent, HeaderComponent, FooterComponent, DashboardComponent, FilterCustomerComponent, CustomerViewComponent, TabCustomerComponent, AccountComponent, FilterCounterPartyComponent, TabCounterPartyComponent, CounterPartyViewComponent, FilterContentComponent, TabContentComponent, ContentViewComponent, TruncatePipe, CustomerResultComponent, BankFilterComponent, TabBankComponent, BankViewComponent, BankResultComponent, ContentResultComponent, CounterpartyResultComponent, FilterPortcodeComponent, TabPortcodeComponent, PortcodeViewComponent, FilterInsuranceComponent, TabInsuranceComponent, InsuranceViewComponent, FilterDocumentComponent, TabDocumentComponent, DocumentViewComponent, PageNotFoundComponent, FilterCountrycodeComponent, TabCountrycodeComponent, CountrycodeViewComponent, FilterCurrencycodeComponent, TabCurrencycodeComponent, CurrencycodeViewComponent, PortcodeResultComponent, CommodityComponent, FilterCommodityComponent, TabCommodity, ControlMessagesComponent],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     FilterPipeModule,
     TooltipModule.forRoot(),
     MalihuScrollbarModule.forRoot(),
     BsDatepickerModule.forRoot()
   ],
-  providers: [CommonDataService, CookieService, ServicesService],
+  providers: [CommonDataService, CookieService, ServicesService, ValidationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,0 +1,42 @@
+<div class="tab-pane active panel ui-view-menu-page" id="main_page">
+    <div style="margin-top:20px;width:100%;">
+        <div class="row">
+            <h6 class="small-heading">Transaction Checklist <i class="fa fa-check-square-o  fa-lg" aria-hidden="true"></i></h6>
+            <div class="col-md-10 col-sm-12 col-xs-12 col-md-offset-1" style="min-height:40px; padding-bottom:40px;">
+                <ol ng-if="errorPresent">
+                    <!-- <li ng-repeat="(key, value) in allValidationErrors" class="error-link">
+                        <a ng-if="value.toString().indexOf('createNew')!=-1 || 1==1" ui-sref="portcodeM.createNew" class="error-link">{{value.toString() | subString : value}}</a>
+                    </li> -->
+                </ol>
+                <div ng-if="addedToMainDatabase">
+                    <div class="alert alert-success">
+                        <strong>Port Code: 12231{{portcode.portCode}}</strong> {{ addedToMainDatabase }}
+                    </div>
+                    <!--/.row-->
+                    <div class="row btn-containing-row">
+                        <div class="col-md-4 col-sm-1 col-xs-1">
+                        </div>
+                        <div class="col-md-6">
+                            <a class="btn btn-success" id="homePage" routerLink="/dashboard">Go to Dashboard</a>
+                        </div>
+                    </div>
+                    <!--/.row btn-containing-row-->
+                </div>
+                <!-- <div ng-if="dbError">
+                    <div class="alert alert-danger">
+                        <strong>Port Code: {{portcode.portCode}}</strong> {{ dbError }}
+                    </div>
+                    <div class="row btn-containing-row">
+                        <div class="col-md-4 col-sm-1 col-xs-1">
+                        </div>
+                        <div class="col-md-6">
+                            <a class="btn btn-success" ui-sref="portcodeM.createNew">Go Back</a>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+    </div>
+    <!--/.container-->
+</div>

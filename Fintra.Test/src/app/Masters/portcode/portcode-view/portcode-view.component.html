@@ -1,5 +1,5 @@
 <div class="tab-pane active" id="main_page">
-    <form name="portcode_form" novalidate>
+    <form [formGroup]="portcode_form" novalidate>
         <div style="margin-top:20px;width:100%;">
             <div class="row">
                 <fieldset ng-disabled="disableAll">
@@ -8,34 +8,37 @@
                         <div class="form-group">
                             <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Port Code:</label>
                             <div class="col-lg-7 col-sm-5 col-xs-12">
-                                <input type="text" class="form-control mandatory custom-form-control" id="portCode" name="portCode" [(ngModel)]="portcode.portCode" autofocus required maxlength="20" ng-pattern="/^[0-9a-zA-Z]*$/" ng-blur="checkAvailability()" ng-disabled="transactionMode == 'update'">
-                                <div *ngIf="portcodeAlreadyExisted" style="color:red;"> Record with the same ID Already Exists</div>
+                                <input type="text" formControlName="portCode" class="form-control mandatory custom-form-control" id="portCode" name="portCode" [(ngModel)]="portcode.portCode" autofocus required maxlength="20">
+                                <control-messages [control]="portcode_form.controls.portCode"></control-messages>
+                                <!-- <div *ngIf="portcodeAlreadyExisted" style="color:#E82C0C;"> Record with the same ID Already Exists</div> -->
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Portcode Name:</label>
                             <div class="col-lg-7 col-sm-5 col-xs-12">
-                                <input type="text" class="form-control mandatory custom-form-control" id="portcodeName" name="portcodeName" type="text" maxlength="35" [(ngModel)]="portcode.portcodeName" required>
+                                <input type="text" class="form-control mandatory custom-form-control" formControlName="portcodeName" id="portcodeName" name="portcodeName" type="text" maxlength="35" [(ngModel)]="portcode.portcodeName" required>
+                                <control-messages [control]="portcode_form.controls.portcodeName"></control-messages>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Portcode Address:</label>
                             <div class="col-lg-7 col-sm-5 col-xs-12">
-                                <input type="text" class="form-control mandatory custom-form-control" id="portcodeAddress1" type="text" name="portcodeAddress1" maxlength="35" [(ngModel)]="portcode.portcodeAddress1" required>
+                                <input type="text" class="form-control mandatory custom-form-control" id="portcodeAddress1" type="text" formControlName="portcodeAddress1" name="portcodeAddress1" maxlength="35" [(ngModel)]="portcode.portcodeAddress1" required>
+                                <control-messages [control]="portcode_form.controls.portcodeAddress1"></control-messages>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-lg-5 col-sm-5 col-xs-12 labelHeight"></div>
-                            <!-- <label [hidden]="true">Portcode Address:</label> -->
                             <div class="col-lg-7 col-sm-5 col-xs-12">
-                                <input type="text" class="form-control mandatory custom-form-control" name="portcodeAddress2" id="portcodeAddress2" [(ngModel)]="portcode.portcodeAddress2" />
+                                <input type="text" class="form-control mandatory custom-form-control" name="portcodeAddress2" formControlName="portcodeAddress2" id="portcodeAddress2" [(ngModel)]="portcode.portcodeAddress2" />
+                                <control-messages [control]="portcode_form.controls.portcodeAddress2"></control-messages>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-lg-5 col-sm-5 col-xs-12 labelHeight"></div>
-                            <!-- <label [hidden]="true">Portcode Address:</label> -->
                             <div class="col-lg-7 col-sm-5 col-xs-12">
-                                <input type="text" class="form-control mandatory custom-form-control" name="portcodeAddress3" id="portcodeAddress3" [(ngModel)]="portcode.portcodeAddress3" />
+                                <input type="text" class="form-control mandatory custom-form-control" name="portcodeAddress3" formControlName="portcodeAddress3" id="portcodeAddress3" [(ngModel)]="portcode.portcodeAddress3" />
+                                <control-messages [control]="portcode_form.controls.portcodeAddress3"></control-messages>
                             </div>
                         </div>
                     </div>
@@ -43,7 +46,7 @@
             </div>
             <div class="row btn_fix">
                 <div class="col-md-12">
-                    <button class="btn btn-info" type="submit" (click)="finalSubmitPortcode();">Finish</button>
+                    <button class="btn btn-info" type="submit" [disabled]="!portcode_form.valid" (click)="finalSubmitPortcode();">Finish</button>
                     <button class=" btn btn-primary" type="submit" (click)="saveAndExit();">Save and Exit</button>
                     <button class="btn btn-warning" type="button" *ngIf="errorPresent" ng-click="reactyFy()">Rectify</button>
                     <button *ngIf="transactionCmd=='review' && transactionCmd!='enquiry'" class="btn btn-success" type="button" ng-click="review();">Review</button>
