@@ -5,22 +5,16 @@
                 <fieldset ng-disabled="disableAll">
                     <h6 class="small-heading">Currency Code</h6>
                     <div class="col-md-5 col-sm-12 col-xs-12 two-blocks">
-                        <!-- <div class="form-group" [hidden]="true">
-                                <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">S No:</label>
-                                <div class="col-lg-7 col-sm-5 col-xs-12">
-                                    <input type="text" class="form-control mandatory custom-form-control" id="sno" name="sno" [(ngModel)]="country.sno">
-                                </div>
-                            </div> -->
                         <div class="form-group">
                             <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Currency Code:</label>
                             <div class="col-lg-7 col-sm-5 col-xs-12">
-                                <input type="text" class="form-control mandatory custom-form-control" id="currencyCode" name="currencyCode" [(ngModel)]="currency.currencyCode">
+                                <input type="text" class="form-control mandatory custom-form-control" id="currencyCode" name="currencyCode" [(ngModel)]="currency.currencyCode" readonly>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Currency Name:</label>
                             <div class="col-lg-7 col-sm-5 col-xs-12">
-                                <input type="text" class="form-control mandatory custom-form-control" id="currencyName" name="currencyName" type="text" [(ngModel)]="currency.currencyName">
+                                <input type="text" class="form-control mandatory custom-form-control" id="currencyName" name="currencyName" type="text" [(ngModel)]="currency.currencyName" readonly>
                             </div>
                         </div>
                     </div>

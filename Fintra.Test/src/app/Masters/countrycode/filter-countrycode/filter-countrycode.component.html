@@ -6,19 +6,13 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <label> Reference </label>
+            <input type="text" class="form-control custom-form-control" [(ngModel)]="search.countryCode">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <label> Name   </label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <input type="text" class="form-control" [(ngModel)]="search.countryCode">
-        </div>
-        <div class="col-md-4">
-            <input type="text" class="form-control" [(ngModel)]="search.countryName">
+            <input type="text" class="form-control custom-form-control" [(ngModel)]="search.countryName">
         </div>
     </div>
     <div class="row"></div>
@@ -29,7 +23,6 @@
                 <th style="text-align: left"> Country Name </th>
             </tr>
             <tr *ngFor="let country of countrys|startFrom:currentPage*recordsPerPage |filterBy: search| slice:0:recordsPerPage" [ngClass]="country.countryCode == selectedItem ? 'filter-selected-row1' : ''" (click)="open(country)">
-                <!-- <td style="text-align: left">{{country.sno}} </td> -->
                 <td style="text-align: left">{{country.countryCode}} </td>
                 <td style="text-align: left;width: 90px;">{{country.countryName}} </td>
             </tr>
@@ -37,16 +30,15 @@
     </div>
     <div align="center" class="filter-pagination-container">
         <button class="btn btn-sm btn-success" [disabled]="currentPage === 0" (click)="currentPage = 0">First</button>&nbsp;&nbsp;
-        <button class="btn btn-sm btn-success" [disabled]="currentPage === 0" (click)="currentPage = currentPage - 1">Back</button>&nbsp;&nbsp; {{currentPage + 1}} / {{numberOfPages()}} &nbsp;&nbsp;
+        <button class="btn btn-sm btn-success" [disabled]="currentPage === 0" (click)="currentPage = currentPage - 1">Back</button>
+        <span [hidden]="search.countryCode || search.countryName ">&nbsp;&nbsp; {{currentPage + 1}} / {{numberOfPages()}} &nbsp;&nbsp;</span>
         <button class="btn btn-sm btn-success" [disabled]="currentPage >= numberOfPages()-1" (click)="currentPage = currentPage + 1">Next</button> &nbsp;&nbsp;
         <button class="btn btn-sm btn-success" [disabled]="currentPage >= numberOfPages()-1" (click)="currentPage = numberOfPages()-1">Last</button>
     </div>
     <br>
     <div class="row" *ngIf="!transactionCmd">
         <div class="col-md-1">
-            <a><button class="btn btn-primary" (click) = "viewCountrycode(selectedItem)">View</button></a>
-
-            <!-- <a href="#" [routerLink]="['tabCountrycode/countrycodeView']" [queryParams]="{ page: selectedItem }" ui-sref=".view"><button class="btn btn-primary" (click) = "Viewcountrycode()">View</button></a> -->
+            <a><button class="btn btn-primary" (click) = "viewCountrycode(selectedItem)" [disabled]="selectedItem === null">View</button></a>
         </div>
     </div>
 </div>
