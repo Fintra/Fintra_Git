@@ -54,19 +54,18 @@
     </div>
     <br>
 
-    <div class="row" ng-if="!transactionCmd">
+    <div class="row" *ngIf="!transactionCmd">
         <div class="col-md-1">
-            <a href="#" ui-sref=".view">
-                <button ng-hide="selectedItem === null" class="btn btn-primary" ng-click="viewCustomer()" style="width:100px;">View</button>
+            <a ui-sref=".view">
+                <button [disabled]="selectedID === null" class="btn btn-primary" (click)="viewCustomer(selectedItem)" style="width:100px;">View</button>
             </a>
         </div>
         <div class="col-md-offset-9 col-md-1">
-            <a href="#" ui-sref=".update">
-                <button ng-hide="selectedItem === null || selectedItem === 'Approved'" class="btn btn-primary" ng-click="updateCustomer()" style="width:100px;">Update</button>
+            <a ui-sref=".update">
+                <button [disabled]="selectedID === null || trxnStatus === 'Approved'" class="btn btn-primary" (click)="updateCustomer(selectedItem)" style="width:100px;">Update</button>
             </a>
         </div>
     </div>
-
 
     <div class="row" *ngIf="transactionCmd">
         <div class="col-md-3">

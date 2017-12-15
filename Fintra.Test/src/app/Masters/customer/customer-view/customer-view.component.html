@@ -2,7 +2,7 @@
     <form name="customer_form" novalidate>
         <div style="margin-top:20px;width:100%;">
             <div class="row">
-                <fieldset ng-disabled="disableAll">
+                <fieldset [disabled]="disableAll">
                     <h6 class="small-heading">Customer</h6>
                     <div class="col-md-5 col-sm-12 col-xs-12 two-blocks">
                         <div class="form-group">
@@ -48,7 +48,7 @@
                             <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Expiry Date:</label>
                             <div class="input-group col-lg-7 col-sm-5 col-xs-12 custom-input-group">
                                 <input type="text" class="form-control custom-form-control" name="expiryDateOfLicense" [(ngModel)]="customer.expiryDateOfLicense" is-open="popup1.opened" datepicker-options="expiryDateOptions" ng-required="true" close-text="Close" />
-                                <span class="input-group-addon btn no-shadow btn-default custom-input-addon" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></span>
+                                <span class="input-group-addon btn no-shadow btn-default custom-input-addon" (click)="open1()"><i class="glyphicon glyphicon-calendar"></i></span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -66,7 +66,7 @@
                             <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Date of Incorporation:</label>
                             <div class="input-group col-lg-7 col-sm-5 col-xs-12 custom-input-group">
                                 <input type="text" class="form-control custom-form-control" name="dateOfIncorporation" [(ngModel)]="customer.dateOfIncorporation" is-open="popup2.opened" datepicker-options="dateOptions1" ng-required="true" close-text="Close" />
-                                <span class="input-group-addon btn no-shadow btn-default custom-input-addon" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></span>
+                                <span class="input-group-addon btn no-shadow btn-default custom-input-addon" (click)="open2()"><i class="glyphicon glyphicon-calendar"></i></span>
                             </div>
                             <div class="div-error"></div>
                         </div>
@@ -159,10 +159,10 @@
             </div>
             <div class="row btn_fix">
                 <div class="col-md-12">
-                    <button class="btn btn-success" type="submit" (click)="saveAndProceed();">Save and proceed</button>
-                    <button class="btn btn-primary" type="submit" (click)="saveAndExit();">Save and Exit</button>
-                    <button class="btn btn-warning" type="button" *ngIf="transactionMode=='create' || transactionMode=='update' || transactionCmd=='update'" ng-click="reactyFy()" id="Rectify">Rectify</button>
-                    <button *ngIf="transactionMode==='view'" class="btn btn-success" ng-click="GoToNextTab();" id="nextTab">Next</button>
+                    <button class="btn btn-success" type="submit" *ngIf="transactionMode=='create' || transactionMode=='update'" (click)="saveAndProceed();">Save and proceed</button>
+                    <button class="btn btn-primary" type="submit" *ngIf="transactionMode=='create' || transactionMode=='update'" (click)="saveAndExit();">Save and Exit</button>
+                    <button class="btn btn-warning" type="button" *ngIf="error" (click)="reactyFy()" id="Rectify">Rectify</button>
+                    <button *ngIf="transactionMode==='view'" class="btn btn-success" (click)="GoToNextTab();" id="nextTab">Next</button>
                     <a class="btn btn-warning" id="Close" routerLink="/dashboard" ui-sref="home">Cancel</a>
                 </div>
             </div>

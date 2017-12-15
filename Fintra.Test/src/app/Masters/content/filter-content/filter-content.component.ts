@@ -34,7 +34,6 @@ numberOfPages() {
 
 createContent() {
   this.defaultPage = false;
-  // this.router.navigate(['/filterContent/tabContent/contentView']);
 }
 viewContent(selectedItem) {
   this.defaultPage = false;

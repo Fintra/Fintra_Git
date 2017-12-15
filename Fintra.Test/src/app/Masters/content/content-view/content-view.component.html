@@ -58,8 +58,8 @@
                     <button *ngIf="transactionCmd=='review' && transactionCmd!='enquiry' " class="btn btn-success " type="button " ng-click="review(); ">Review</button>
                     <button *ngIf="transactionCmd=='approve' && transactionCmd!='enquiry' " class="btn btn-success " type="button " ng-click="approve(); ">Approve</button>
                     <button *ngIf="transactionCmd=='review' || transactionCmd=='approve' " class="btn btn-danger " type="button " ng-click="reject(); ">Reject</button>
-                    <a class="btn btn-warning " *ngIf="transactionMode=='create'||transactionMode=='update'" ui-sref="home ">Cancel</a>
-                    <a class="btn btn-warning " ui-sref="home " *ngIf="transactionMode=='view' || transactionCmd=='enquiry' || transactionCmd=='approve' || transactionCmd=='review' ">Close</a>
+                    <a class="btn btn-warning " routerLink="/dashboard" *ngIf="transactionMode=='create'||transactionMode=='update'" ui-sref="home ">Cancel</a>
+                    <a class="btn btn-warning " ui-sref="home" *ngIf="transactionMode=='view' || transactionCmd=='enquiry' || transactionCmd=='approve' || transactionCmd=='review' " routerLink="/dashboard">Close</a>
                 </div>
             </div>
         </div>

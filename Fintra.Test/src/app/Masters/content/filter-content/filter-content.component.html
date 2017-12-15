@@ -78,10 +78,14 @@
     <br>
     <div class="row" *ngIf="!transactionCmd">
         <div class="col-md-1">
-            <a ui-sref=".view"><button  class="btn btn-primary" (click) = "viewContent(selectedItem)">View</button></a>
+            <a ui-sref=".view">
+                <button [hidden]="selectedItem === null" class="btn btn-primary" (click)="viewContent(selectedItem)" style="width:100px;">View</button>
+            </a>
         </div>
-        <div class="col-md-1">
-            <a><button class="btn btn-primary" (click) = "updateContent(selectedItem)">Update</button></a>
+        <div class="col-md-offset-9 col-md-1">
+            <a ui-sref=".update">
+                <button [hidden]="selectedItem === null || selectedItem === 'Approved'" class="btn btn-primary" (click)="updateContent(selectedItem)" style="width:100px;">Update</button>
+            </a>
         </div>
     </div>
     <div class="row" *ngIf="transactionCmd">

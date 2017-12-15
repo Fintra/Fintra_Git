@@ -19,6 +19,7 @@ export class FilterCustomerComponent implements OnInit {
   recordsPerPage = 3;
   noOfPages = 0;
   currentPage = 0;
+  disableAll;
   create = () => {
    this.defaultPage = false;
   }
@@ -34,5 +35,15 @@ export class FilterCustomerComponent implements OnInit {
   open3 = function(item) {
       this.selectedItem = item.customerId;
   };
+
+  viewCustomer(selectedItem) {
+    this.defaultPage = false;
+    this.disableAll = true;
+    this.router.navigate(['/filterCustomer/tabCustomer/customerView', { id: selectedItem , disableAll: this.disableAll}]);
+  }
+  updateCustomer(selectedItem) {
+    this.defaultPage = false;
+    this.router.navigate(['/filterCustomer/tabCustomer/customerView', { id: selectedItem }]);
+  }
 
 }

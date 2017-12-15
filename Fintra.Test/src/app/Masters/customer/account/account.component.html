@@ -6,7 +6,7 @@
         </div>
         <div style="margin-top:20px;width:100%;">
             <div class="row">
-                <fieldset ng-disabled="disableAll">
+                <fieldset [disabled]="disableAll">
                     <h6 class="small-heading">Accounts</h6>
                     <div class="col-md-5 col-sm-12 col-xs-12 two-blocks">
                         <div class="form-group">
@@ -138,13 +138,13 @@
             </div>
             <div class="row btn_fix">
                 <div class="col-md-12">
-                    <button class="btn btn-info" type="submit" (click)="finalSubmitCustomer();">Finish</button>
-                    <button class="btn btn-primary" type="submit" (click)="saveAndExit();">Save and Exit</button>
-                    <button class="btn btn-warning" type="button" *ngIf="errorPresent" (click)="reactyFy()">Rectify</button>
+                    <button class="btn btn-info" type="submit" *ngIf="transactionMode=='create'||transactionMode=='update'" (click)="finalSubmitCustomer();">Finish</button>
+                    <button class="btn btn-primary" type="submit" *ngIf="transactionMode=='create'||transactionMode=='update'" (click)="saveAndExit();">Save and Exit</button>
+                    <button class="btn btn-warning" type="button" *ngIf="erro" (click)="reactyFy()">Rectify</button>
                     <button *ngIf="transactionCmd=='review' && transactionCmd!='enquiry'" class="btn btn-success" type="button" (click)="review();">Review</button>
                     <button *ngIf="disableReview1==='true' || transactionCmd=='approve' && transactionCmd!='enquiry'" class="btn btn-success" type="button" (click)="approve();">Approve</button>
                     <button *ngIf="transactionCmd=='review' || transactionCmd=='approve'" class="btn btn-danger" type="button" (click)="reject();">Reject</button>
-                    <a class="btn btn-warning" id='Close' (click)="cancel();">Cancel</a>
+                    <a class="btn btn-warning" id='Close' *ngIf="transactionMode=='create'||transactionMode=='update'" (click)="cancel();">Cancel</a>
                     <a class="btn btn-warning" id="Close" routerLink="/dashboard" id="closeTab" *ngIf="transactionMode=='view' || transactionCmd=='enquiry' || transactionCmd=='approve' || transactionCmd=='review'">Close</a>
                 </div>
             </div>
