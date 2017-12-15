@@ -55,16 +55,12 @@ const routes: Routes = [
   {path: 'filterDocument', component: FilterDocumentComponent, children: [{path: 'tabDocument', component: TabDocumentComponent, children: [{ path: 'documentView', component: DocumentViewComponent }]}]},
   { path: 'filterCountrycode', component: FilterCountrycodeComponent,
   children: [{path: 'tabCountrycode', component: TabCountrycodeComponent,
-           children: [{path: 'countryCodeView', component: CountrycodeViewComponent}]}] }, 
+           children: [{path: 'countryCodeView', component: CountrycodeViewComponent}]}] },
     { path: 'filterCurrencycode', component: FilterCurrencycodeComponent,
     children: [{path: 'tabCurrencycode', component: TabCurrencycodeComponent,
             children: [{path: 'currencyCodeView', component: CurrencycodeViewComponent}]}] },
   // tslint:disable-next-line:max-line-length
   {path: '**', component: PageNotFoundComponent },
-  
-  
-           
- 
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
