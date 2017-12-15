@@ -48,7 +48,7 @@ import { TabCurrencycodeComponent } from './Masters/currencycode/tab-currencycod
 import { CurrencycodeViewComponent } from './Masters/currencycode/currencycode-view/currencycode-view.component';
 import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
 import { CommodityComponent, FilterCommodityComponent, TabCommodity } from './Masters/commodity/commodity.component';
-import { ServicesService } from './services.service';
+import { ServicesService } from './Services/services.service';
 
 @NgModule({
   // tslint:disable-next-line:max-line-length
