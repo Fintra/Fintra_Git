@@ -19,7 +19,6 @@ export class FilterContentComponent implements OnInit {
   noOfPages = 0;
   currentPage = 0;
   disableAll;
-  // selectedItem1={};
 
   ngOnInit() {
     this.contents = this.CommonDataService.contentData();

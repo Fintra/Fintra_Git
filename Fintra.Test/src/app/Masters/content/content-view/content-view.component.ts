@@ -11,7 +11,6 @@ import { CommonDataService } from '../../../Services/common-data.service';
 export class ContentViewComponent implements OnInit {
 
   constructor(private router: Router,private route: ActivatedRoute,private CommonDataService: CommonDataService) {
-    console.log('when first');
   }
   content= {};
   id: number;
@@ -34,10 +33,6 @@ export class ContentViewComponent implements OnInit {
         this.content = this.CommonDataService.contentData().filter(x => x.contentName === this.page)[0];
       }
     }
-    // else if (this.disableAll) {
-    //   this.transactionMode = 'view';
-    //   this.content = this.CommonDataService.contentData().filter(x => x.contentName === this.page)[0];
-    // }
   }
 
   finalSubmitContent() {
