@@ -108,11 +108,11 @@ ngOnInit() {
           .hide();
       });
     });
-    if (this._cookieService.get('themeColor')) {
-      this.setTheme(this._cookieService.get('themeColor'));
-    }
-    if (this._cookieService.get('themeLayout')) {
-      this.setLayout(this._cookieService.get('themeLayout'));
-    }
+    // if (this._cookieService.get('themeColor')) {
+    //   this.setTheme(this._cookieService.get('themeColor'));
+    // }
+    // if (this._cookieService.get('themeLayout')) {
+    //   this.setLayout(this._cookieService.get('themeLayout'));
+    // }
   }
 }
