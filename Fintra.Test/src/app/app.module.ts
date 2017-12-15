@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
@@ -59,7 +60,7 @@ import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
     MalihuScrollbarModule.forRoot(),
     BsDatepickerModule.forRoot()
   ],
-  providers: [CommonDataService],
+  providers: [CommonDataService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
