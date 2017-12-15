@@ -1,0 +1,96 @@
+<!-- -->
+
+<div class="container">
+    <div class="row" ng-controller="DatepickerPopupCtrl">
+        <div class="col-xs-12 ui-view-menu-border">
+            <div class="tabbable tabs-left">
+                <ul class="nav nav-tabs side-link-container" id="tabs" ng-hide="hideTabs">
+                    <li class="active">
+                        <a data-toggle="tab" (click)="showTabPage()">
+                            <span class="badge">1</span>commodity
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content ui-view-menu-page">
+                    <tab-commodity>
+                        <div class="tab-pane active panel ui-view-menu-page" id="main_page" [hidden]='!tab1'>
+                            <form name="commodity_form" novalidate>
+                                <div style="margin-top:20px;width:100%;">
+                                    <div class="row">
+                                        <fieldset [disabled]="disableAll">
+                                            <h6 class="small-heading">Commodity</h6>
+                                            <div class="col-md-5 col-sm-12 col-xs-12 two-blocks">
+                                                <div class="form-group">
+                                                    <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Commodity Code:</label>
+                                                    <div class="col-lg-7 col-sm-5 col-xs-12">
+                                                        <input type="text" user-guide class="form-control mandatory custom-form-control" id="com_code" name="commodityCodeName" [(ngModel)]="commodity.commodityCode" maxlength="10" ng-pattern="/^[0-9a-zA-Z]*$/" required="required" [disabled]="transactionMode == 'update'">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Restricted Commodity:</label>
+                                                    <div class="col-lg-7 col-sm-5 col-xs-12">
+                                                        <select user-guide class="form-control mandatory custom-form-control" id="commodity" name="restrictedCommodityName" [(ngModel)]="commodity.restrictedCommodity" required="required">
+                                                                      <option value="">--Select--</option>
+                                                                      <option value="Yes">Yes</option>
+                                                                      <option value="No">No</option>
+                                                                    </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Restriction Type:</label>
+                                                    <div class="col-lg-7 col-sm-5 col-xs-12">
+                                                        <select user-guide class="form-control mandatory custom-form-control" name="restrictedTypeName" [(ngModel)]="commodity.restrictionType" id="res_type" required="required">
+                                                                      <option value="">--Select--</option>
+                                                                      <option value="None">None</option>
+                                                                      <option value="Prohibited">Prohibited</option>
+                                                                      <option value="Restricted">Restricted</option>
+                                                                    </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5 col-sm-12 col-xs-12 two-blocks second-two-block">
+                                                <div class="form-group">
+                                                    <label class="col-lg-5 col-sm-5 col-xs-12 ">Commodity Description:</label>
+                                                    <div class="col-lg-7 col-sm-5 col-xs-12">
+                                                        <textarea type="text" user-guide class="form-control mandatory custom-form-control ng-pristine ng-valid ng-empty ng-touched" rows="5" name="commodityDescriptionName" maxlength="6500" id="com_des" [(ngModel)]="commodity.commodityDescription" required="required"></textarea>
+                                                        <p>{{6500 - commodity.commodityDescription.length}} chars remaining</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="form-group" *ngIf="transactionCmd=='review' || transactionCmd=='approve' || transactionCmd=='enquiry'">
+                                        <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Reviewer remark</label>
+                                        <div class="col-lg-3 col-sm-5 col-xs-8">
+                                            <textarea class="form-control custom-form-control" user-guide rows="3" [(ngModel)]="commodity.reviewer_remark" [disabled]="transactionCmd=='approve' || transactionCmd=='enquiry'"></textarea>
+                                            <p *ngIf="reviewer_remark_required" style="color:red;">Reviewer remark is required</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" *ngIf="transactionCmd=='approve' || transactionCmd=='review' || transactionCmd=='enquiry'">
+                                        <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Approver remark</label>
+                                        <div class="col-lg-3 col-sm-5 col-xs-8">
+                                            <textarea class="form-control custom-form-control" user-guide rows="3" [(ngModel)]="commodity.approver_remark" [disabled]="transactionCmd=='review' || transactionCmd=='enquiry'"></textarea>
+                                            <p *ngIf="approver_remark_required" style="color:red;">Approver remark is required</p>
+                                        </div>
+                                    </div>
+                                    <div class="row btn_fix">
+                                        <div class="col-md-12">
+                                            <button class="btn btn-info" type="submit" *ngIf="transactionMode=='create' || transactionMode=='update' || transactionCmd=='update'" (click)="finalSubmitCommodity(commodity);">Finish</button>
+                                            <button *ngIf="transactionMode=='create' || transactionMode=='update' || transactionCmd=='update'" class="btn btn-primary" type="submit" ng-click="saveAndExit();">Save and Exit</button>
+                                            <button class="btn btn-warning" type="button" *ngIf="errorPresent" ng-click="reactyFy()">Rectify</button>
+                                            <button *ngIf="transactionCmd=='review' && transactionCmd!='enquiry'" class="btn btn-success" type="button" ng-click="review();">Review</button>
+                                            <button *ngIf="transactionCmd=='approve' && transactionCmd!='enquiry'" class="btn btn-success" type="button" ng-click="approve();">Approve</button>
+                                            <button *ngIf="transactionCmd=='review' || transactionCmd=='approve'" class="btn btn-danger" type="button" ng-click="reject();">Reject</button>
+                                            <a class="btn btn-warning" ui-sref="home" *ngIf="transactionMode=='create' || transactionMode=='update' || transactionCmd=='update'">Cancel</a>
+                                            <a class="btn btn-warning" ui-sref="home" *ngIf="transactionMode=='view' || transactionCmd=='enquiry' || transactionCmd=='approve' || transactionCmd=='review'">Close</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </tab-commodity>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

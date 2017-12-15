@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row" ng-controller="DatepickerPopupCtrl">
+        <div class="col-xs-12 ui-view-menu-border">
+            <div class="tabbable tabs-left">
+                <ul class="nav nav-tabs side-link-container" id="tabs" ng-hide="hideTabs">
+                    <li [routerLinkActive]="['active']">
+                        <a data-toggle="tab">
+                            <span class="badge">1</span><button class="btn btn-primary" (click)="CommodityOne()">Commodity</button>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content ui-view-menu-page">
+                    <!-- <router-outlet></router-outlet> -->
+                    <app-commodity-1 *ngIf='tab1'></app-commodity-1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
