@@ -31,9 +31,7 @@ import { TruncatePipe } from './Services/filter.pipe';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { ContentResultComponent } from './Masters/content/content-result/content-result.component';
 import { CounterpartyResultComponent } from './Masters/counter-party/counterparty-result/counterparty-result.component';
-import { FilterPortcodeComponent } from './Masters/portcode/filter-portcode/filter-portcode.component';
-import { TabPortcodeComponent } from './Masters/portcode/tab-portcode/tab-portcode.component';
-import { PortcodeViewComponent } from './Masters/portcode/portcode-view/portcode-view.component';
+import { FilterPortcodeComponent, TabPortcodeComponent, PortcodeViewComponent, PortcodeResultComponent } from './Masters/portcode/portcode.component';
 import { FilterInsuranceComponent } from './Masters/insurance/filter-insurance/filter-insurance.component';
 import { TabInsuranceComponent } from './Masters/insurance/tab-insurance/tab-insurance.component';
 import { InsuranceViewComponent } from './Masters/insurance/insurance-view/insurance-view.component';
@@ -46,7 +44,6 @@ import { CountrycodeViewComponent } from './Masters/countrycode/countrycode-view
 import { FilterCurrencycodeComponent } from './Masters/currencycode/filter-currencycode/filter-currencycode.component';
 import { TabCurrencycodeComponent } from './Masters/currencycode/tab-currencycode/tab-currencycode.component';
 import { CurrencycodeViewComponent } from './Masters/currencycode/currencycode-view/currencycode-view.component';
-import { PortcodeResultComponent } from './Masters/portcode/portcode-result/portcode-result.component';
 import { ControlMessagesComponent } from './control_messages.component';
 import { ValidationService } from './validation.service';
 import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
