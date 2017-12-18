@@ -19,38 +19,37 @@ export class FooterComponent implements OnInit {
   logout = () => {
     this.router.navigate(['/login']);
   }
-//   setTheme = (name) => {
-//     this.now = new (<any>window).Date();
-//     // this will set the expiration to 2 months
-//     this.exp = (<any>window).Date(this.now.getFullYear(), this.now.getMonth() + 2, this.now.getDate());
-//     this._cookieService.put('themeColor', name, {
-//       expires: this.exp
-//     });
-//     console.log('nativeElement', this.element.nativeElement.querySelector('#container'));
-//     this.element.nativeElement.querySelector('#container').removeClass(function(index, className) {
-//       return (className.match(/\btheme-\S+/g) || []).join(' ');
-//   }).addClass(name);
-// }
-// setLayout = (size) => {
-//   this.now = new (<any>window).Date();
-//   // this will set the expiration to 2 months
-//   this.exp = (<any>window).Date(this.now.getFullYear(), this.now.getMonth() + 2, this.now.getDate());
-//   this._cookieService.put('themeLayout', size, {
-//       expires: this.exp
-//   });
-//   if (size === 'narrow') {
-//       this.element.nativeElement.querySelector('.hostUpdate').addClass('tab-content').removeClass('hostUpdate');
-//       this.element.nativeElement.querySelector('.custom-input-group1').addClass('custom-input-group').removeClass('custom-input-group1');
-//       this.element.nativeElement.querySelector('.container-fluid').addClass('container').removeClass('container-fluid');
-//   } else if (size === 'wide') {
-//       if (this.element.nativeElement.querySelector('#wrapper')[0].className === '') {
-//           this.element.nativeElement.querySelector('#wrapper').addClass('toggled');
-//       }
-//       this.element.nativeElement.querySelector('.hostUpdate').addClass('hostUpdate').removeClass('tab-content');
-//       this.element.nativeElement.querySelector('.custom-input-group').addClass('custom-input-group1').removeClass('custom-input-group');
-//       this.element.nativeElement.querySelector('.container').addClass('container-fluid').removeClass('container');
-//   }
-// }
+  setTheme = (name) => {
+    this.now = new (<any>window).Date();
+    // this will set the expiration to 2 months
+    this.exp = (<any>window).Date(this.now.getFullYear(), this.now.getMonth() + 2, this.now.getDate());
+    this._cookieService.put('themeColor', name, {
+      expires: this.exp
+    });
+    $('body').removeClass(function(index, className) {
+      return (className.match(/\btheme-\S+/g) || []).join(' ');
+  }).addClass(name);
+}
+setLayout = (size) => {
+  this.now = new (<any>window).Date();
+  // this will set the expiration to 2 months
+  this.exp = (<any>window).Date(this.now.getFullYear(), this.now.getMonth() + 2, this.now.getDate());
+  this._cookieService.put('themeLayout', size, {
+      expires: this.exp
+  });
+  if (size === 'narrow') {
+      $('.hostUpdate').addClass('tab-content').removeClass('hostUpdate');
+      $('.custom-input-group1').addClass('custom-input-group').removeClass('custom-input-group1');
+      $('.container-fluid').addClass('container').removeClass('container-fluid');
+  } else if (size === 'wide') {
+      if ($('#wrapper')[0].className === '') {
+          $('#wrapper').addClass('toggled');
+      }
+      $('.hostUpdate').addClass('hostUpdate').removeClass('tab-content');
+      $('.custom-input-group').addClass('custom-input-group1').removeClass('custom-input-group');
+      $('.container').addClass('container-fluid').removeClass('container');
+  }
+}
 ngOnInit() {
     $('.primary-search-form').click(function(e) {
       e.preventDefault();
@@ -108,11 +107,11 @@ ngOnInit() {
           .hide();
       });
     });
-    // if (this._cookieService.get('themeColor')) {
-    //   this.setTheme(this._cookieService.get('themeColor'));
-    // }
-    // if (this._cookieService.get('themeLayout')) {
-    //   this.setLayout(this._cookieService.get('themeLayout'));
-    // }
+    if (this._cookieService.get('themeColor')) {
+      this.setTheme(this._cookieService.get('themeColor'));
+    }
+    if (this._cookieService.get('themeLayout')) {
+      this.setLayout(this._cookieService.get('themeLayout'));
+    }
   }
 }
