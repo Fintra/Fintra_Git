@@ -19,10 +19,7 @@ import { BankFilterComponent } from './Masters/bank/bank-filter/bank-filter.comp
 import { TabBankComponent } from './Masters/bank/tab-bank/tab-bank.component';
 import { BankViewComponent } from './Masters/bank/bank-view/bank-view.component';
 import { BankResultComponent } from './Masters/bank/bank-result/bank-result.component';
-import { FilterPortcodeComponent } from './Masters/portcode/filter-portcode/filter-portcode.component';
-import { TabPortcodeComponent } from './Masters/portcode/tab-portcode/tab-portcode.component';
-import { PortcodeViewComponent } from './Masters/portcode/portcode-view/portcode-view.component';
-import { PortcodeResultComponent } from './Masters/portcode/portcode-result/portcode-result.component';
+import { FilterPortcodeComponent, TabPortcodeComponent, PortcodeViewComponent, PortcodeResultComponent } from './Masters/portcode/portcode.component';
 import { FilterInsuranceComponent } from './Masters/insurance/filter-insurance/filter-insurance.component';
 import { TabInsuranceComponent } from './Masters/insurance/tab-insurance/tab-insurance.component';
 import { InsuranceViewComponent } from './Masters/insurance/insurance-view/insurance-view.component';
