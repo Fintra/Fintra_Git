@@ -5,20 +5,36 @@ const { SpecReporter } = require('jasmine-spec-reporter');
 exports.config = {
     allScriptsTimeout: 11000,
     specs: [
-        './e2e/**/*.e2e-spec.ts'
+        './e2e/**/**/*.e2e-spec.ts'
     ],
     capabilities: {
         'browserName': 'chrome'
     },
     directConnect: true,
-    baseUrl: 'http://localhost:3000/',
+    baseUrl: 'localhost:3000',
     framework: 'jasmine',
     jasmineNodeOpts: {
         showColors: true,
         defaultTimeoutInterval: 30000,
         print: function() {}
     },
+    params: {
+      login: {
+          username: 'superuser',
+          password: '12345'
+      }
+  },
     onPrepare() {
+      browser.driver.manage().window().maximize();
+      var origFn = browser.driver.controlFlow().execute;
+        browser.driver.controlFlow().execute = function() {
+            var args = arguments;
+            // queue 200ms wait
+            origFn.call(browser.driver.controlFlow(), function() {
+                return protractor.promise.delayed(100);
+            });
+            return origFn.apply(browser.driver.controlFlow(), args);
+        };
         require('ts-node').register({
             project: 'e2e/tsconfig.e2e.json'
         });
