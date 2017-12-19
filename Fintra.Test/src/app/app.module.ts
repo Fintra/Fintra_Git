@@ -31,6 +31,7 @@ import { TruncatePipe } from './Services/filter.pipe';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { ContentResultComponent } from './Masters/content/content-result/content-result.component';
 import { CounterpartyResultComponent } from './Masters/counter-party/counterparty-result/counterparty-result.component';
+// tslint:disable-next-line:max-line-length
 import { FilterPortcodeComponent, TabPortcodeComponent, PortcodeViewComponent, PortcodeResultComponent } from './Masters/portcode/portcode.component';
 import { FilterInsuranceComponent } from './Masters/insurance/filter-insurance/filter-insurance.component';
 import { TabInsuranceComponent } from './Masters/insurance/tab-insurance/tab-insurance.component';
@@ -49,6 +50,7 @@ import { ValidationService } from './validation.service';
 import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
 import { CommodityComponent, FilterCommodityComponent, TabCommodity } from './Masters/commodity/commodity.component';
 import { ServicesService } from './Services/services.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   // tslint:disable-next-line:max-line-length
@@ -59,6 +61,7 @@ import { ServicesService } from './Services/services.service';
     ReactiveFormsModule,
     AppRoutingModule,
     FilterPipeModule,
+    HttpClientModule,
     TooltipModule.forRoot(),
     MalihuScrollbarModule.forRoot(),
     BsDatepickerModule.forRoot()
