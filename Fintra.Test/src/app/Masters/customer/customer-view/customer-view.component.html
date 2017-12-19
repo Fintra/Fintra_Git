@@ -47,8 +47,8 @@
                         <div class="form-group">
                             <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Expiry Date:</label>
                             <div class="input-group col-lg-7 col-sm-5 col-xs-12 custom-input-group">
-                                <input type="text" class="form-control custom-form-control" name="expiryDateOfLicense" [(ngModel)]="customer.expiryDateOfLicense" is-open="popup1.opened" datepicker-options="expiryDateOptions" ng-required="true" close-text="Close" />
-                                <span class="input-group-addon btn no-shadow btn-default custom-input-addon" (click)="open1()"><i class="glyphicon glyphicon-calendar"></i></span>
+                              <input type="text" class="form-control custom-form-control bsDatepicker" name="expiryDateOfLicense" [(ngModel)]="customer.expiryDateOfLicense" #dp1="bsDatepicker" bsDatepicker [(bsValue)]="expiryDateOfLicense" value="{{ expiryDateOfLicense | date:'dd-MM-yyyy' }}">
+                              <span class="input-group-addon btn no-shadow btn-default custom-input-addon" (click)="dp1.toggle()"><i class="glyphicon glyphicon-calendar"></i></span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -65,8 +65,8 @@
                         <div class="form-group">
                             <label class="col-lg-5 col-sm-5 col-xs-12 labelHeight">Date of Incorporation:</label>
                             <div class="input-group col-lg-7 col-sm-5 col-xs-12 custom-input-group">
-                                <input type="text" class="form-control custom-form-control" name="dateOfIncorporation" [(ngModel)]="customer.dateOfIncorporation" is-open="popup2.opened" datepicker-options="dateOptions1" ng-required="true" close-text="Close" />
-                                <span class="input-group-addon btn no-shadow btn-default custom-input-addon" (click)="open2()"><i class="glyphicon glyphicon-calendar"></i></span>
+                              <input type="text" class="form-control custom-form-control bsDatepicker" name="dateOfIncorporation" [(ngModel)]="customer.dateOfIncorporation" #dp="bsDatepicker" bsDatepicker [(bsValue)]="dateOfIncorporation" value="{{ dateOfIncorporation | date:'dd-MM-yyyy' }}">
+                              <span class="input-group-addon btn no-shadow btn-default custom-input-addon" (click)="dp.toggle()"><i class="glyphicon glyphicon-calendar"></i></span>
                             </div>
                             <div class="div-error"></div>
                         </div>
